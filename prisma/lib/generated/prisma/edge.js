@@ -150,11 +150,12 @@ const config = {
     "db_config"
   ],
   "activeProvider": "mysql",
+  "postinstall": false,
   "inlineDatasources": {
     "db_config": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:rootroot@90.26.253.66:3306/db_config"
+        "value": null
       }
     }
   },

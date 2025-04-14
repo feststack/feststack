@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "prisma:generate:1": "prisma generate --schema=./prisma/config/schema.prisma",
+    "prisma:generate:2": "prisma generate --schema=./prisma/test/schema.prisma",
+    "postinstall": "npm run prisma:generate:1 && npm run prisma:generate:2"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
@@ -41,5 +43,8 @@
     "ts-jest": "^29.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   }
 }

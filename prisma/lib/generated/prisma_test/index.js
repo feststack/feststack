@@ -190,11 +190,12 @@ const config = {
     "db_test"
   ],
   "activeProvider": "mysql",
+  "postinstall": false,
   "inlineDatasources": {
     "db_test": {
       "url": {
         "fromEnvVar": "DATABASE_URL_2",
-        "value": "mysql://root:rootroot@90.26.253.66:3306/db_test"
+        "value": null
       }
     }
   },
