@@ -5,8 +5,9 @@ generator client {
 }
 
 datasource db_config {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL_CONFIG")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Config {

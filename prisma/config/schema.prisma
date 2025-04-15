@@ -1,17 +1,18 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "../../lib/generated/prisma"
+  provider        = "prisma-client-js"
+  output          = "../../lib/generated/prisma"
   previewFeatures = ["multiSchema"]
 }
 
 datasource db_config {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL_CONFIG")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Config {
-  configId        Int      @id @default(autoincrement())
+  configId    Int      @id @default(autoincrement())
   configName  String
   configValue Int
-  createdAt DateTime @default(now())
+  createdAt   DateTime @default(now())
 }

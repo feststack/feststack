@@ -6,39 +6,37 @@ generator client {
 
 datasource db_test {
   provider = "mysql"
-  url      = env("DATABASE_URL_2")
+  url      = env("DATABASE_URL_TEST")
 }
 
 model TestRun {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   testId      Int
   status      String
   duration    Int
   error       String?
   startedAt   DateTime
   completedAt DateTime
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  // Relation inverse vers TestLog
-  testLogs TestLog[] // Ajoute cette ligne
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  testLogs    TestLog[]
 }
 
 model TestLog {
   id        Int      @id @default(autoincrement())
-  testRunId Int // Lien vers le lancement du test
-  logLevel  String // Niveau de log (par exemple : "info", "warn", "error")
-  message   String // Message du log
-  createdAt DateTime @default(now()) // Date et heure du log
+  testRunId Int
+  logLevel  String
+  message   String
+  createdAt DateTime @default(now())
+  testRun   TestRun  @relation(fields: [testRunId], references: [id])
 
-  // Relation vers le test_run
-  testRun TestRun @relation(fields: [testRunId], references: [id])
+  @@index([testRunId], map: "TestLog_testRunId_fkey")
 }
 
 model TestEnvironment {
   id          Int      @id @default(autoincrement())
-  name        String // Nom de l'environnement (ex : "Dev", "Staging", "Production")
-  description String? // Description de l'environnement
-  createdAt   DateTime @default(now()) // Date de création de l'environnement
-  updatedAt   DateTime @updatedAt // Date de mise à jour de l'environnement
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

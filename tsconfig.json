@@ -22,7 +22,8 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "@prisma/*": ["lib/generated/*"]
     },
     // ✅ Plugin Next.js
     "plugins": [
