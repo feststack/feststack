@@ -1,4 +1,4 @@
-import { PrismaClient } from '../../lib/generated/prisma' // Remplace par le chemin correct
+import { PrismaClient } from '../../lib/generated/prisma_config' // Remplace par le chemin correct
 
 const prisma = new PrismaClient()
 

@@ -39,3 +39,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 1. Git: 
     - mail: feststack.git@gmail.com
+
+2. Prisma:
+    - migration:
+        npx prisma migrate dev --schema=prisma/config/schema.prisma
+        npx prisma migrate dev --schema=prisma/test/schema.prisma
+    - client generation:
+        npx prisma generate --schema=prisma/config/schema.prisma
+        npx prisma generate --schema=prisma/test/schema.prisma
+
