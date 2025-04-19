@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "node vercel-env-loader.js && next build",
     "build:preprod": "cp .env.preprod .env && next build",
-    "build:qualif": "cp .env.preprod .env && next build",
-    "build:prod": "cp .env.preprod .env && next build",
+    "build:qualif": "cp .env.qualif .env && next build",
+    "build:prod": "cp .env.prod .env && next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:generate:1": "prisma generate --schema=./prisma/config/schema.prisma",
@@ -17,7 +17,7 @@
     "dev:preprod": "cp .env.preprod .env && next dev",
     "dev:qualif": "cp .env.qualif .env && next dev",
     "dev:prod": "cp .env.prod .env && next start"
-  },
+  },  
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "@radix-ui/react-dialog": "^1.1.7",
