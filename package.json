@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:preprod": "cp .env.preprod .env && next build",
+    "build:qualif": "cp .env.preprod .env && next build",
+    "build:prod": "cp .env.preprod .env && next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:generate:1": "prisma generate --schema=./prisma/config/schema.prisma",
