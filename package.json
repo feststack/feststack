@@ -10,7 +10,10 @@
     "lint": "next lint",
     "prisma:generate:1": "prisma generate --schema=./prisma/config/schema.prisma",
     "prisma:generate:2": "prisma generate --schema=./prisma/test/schema.prisma",
-    "postinstall": "npm run prisma:generate:1 && npm run prisma:generate:2"
+    "postinstall": "npm run prisma:generate:1 && npm run prisma:generate:2",
+    "dev:preprod": "cp .env.preprod .env && next dev",
+    "dev:qualif": "cp .env.qualif .env && next dev",
+    "dev:prod": "cp .env.prod .env && next start"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
