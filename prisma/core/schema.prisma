@@ -1,0 +1,83 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../../lib/generated/prisma_core"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db_core_core {
+  provider = "mysql"
+  url      = env("DATABASE_URL_CORE")
+}
+
+model User {
+  userId      Int           @id @default(autoincrement())
+  userName    String
+  userSurname String
+  userCode    String
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  createdBy   String        @default("SYSTEM")
+  isDeleted   Boolean       @default(false)
+  adGroups    UserAdGroup[]
+  auth        UserAuth?
+  contacts    UserContact[]
+}
+
+model UserContact {
+  userContactId    Int          @id @default(autoincrement())
+  userContactType  ContactType
+  userContactScope ContactScope
+  userContactValue String
+  createdAt        DateTime     @default(now())
+  createdBy        String       @default("SYSTEM")
+  isDeleted        Boolean      @default(false)
+  userId           Int
+  user             User         @relation(fields: [userId], references: [userId])
+
+  @@index([userId], map: "UserContact_userId_fkey")
+}
+
+model UserAuth {
+  authId    Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  createdBy String   @default("SYSTEM")
+  isDeleted Boolean  @default(false)
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [userId])
+}
+
+model AdGroup {
+  adGroupId   Int           @id @default(autoincrement())
+  adGroupName String
+  createdAt   DateTime      @default(now())
+  createdBy   String        @default("SYSTEM")
+  users       UserAdGroup[]
+}
+
+model UserAdGroup {
+  userAdGroupId Int      @id @default(autoincrement())
+  userId        Int
+  adGroupId     Int
+  createdAt     DateTime @default(now())
+  createdBy     String   @default("SYSTEM")
+  isDeleted     Boolean  @default(false)
+  adGroup       AdGroup  @relation(fields: [adGroupId], references: [adGroupId])
+  user          User     @relation(fields: [userId], references: [userId])
+
+  @@index([adGroupId], map: "UserAdGroup_adGroupId_fkey")
+  @@index([userId], map: "UserAdGroup_userId_fkey")
+}
+
+enum ContactType {
+  EMAIL
+  PHONE
+  SOCIAL
+}
+
+enum ContactScope {
+  PERSONAL
+  PROFESSIONAL
+  OTHER
+}

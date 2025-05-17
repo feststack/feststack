@@ -211,8 +211,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -600,7 +600,7 @@ export namespace Prisma {
 
 
   export type Datasources = {
-    db_config?: Datasource
+    db_config_preprod?: Datasource
   }
 
   interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
@@ -888,6 +888,8 @@ export namespace Prisma {
     configName: string | null
     configValue: number | null
     createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
   }
 
   export type ConfigMaxAggregateOutputType = {
@@ -895,6 +897,8 @@ export namespace Prisma {
     configName: string | null
     configValue: number | null
     createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
   }
 
   export type ConfigCountAggregateOutputType = {
@@ -902,6 +906,8 @@ export namespace Prisma {
     configName: number
     configValue: number
     createdAt: number
+    createdBy: number
+    isDeleted: number
     _all: number
   }
 
@@ -921,6 +927,8 @@ export namespace Prisma {
     configName?: true
     configValue?: true
     createdAt?: true
+    createdBy?: true
+    isDeleted?: true
   }
 
   export type ConfigMaxAggregateInputType = {
@@ -928,6 +936,8 @@ export namespace Prisma {
     configName?: true
     configValue?: true
     createdAt?: true
+    createdBy?: true
+    isDeleted?: true
   }
 
   export type ConfigCountAggregateInputType = {
@@ -935,6 +945,8 @@ export namespace Prisma {
     configName?: true
     configValue?: true
     createdAt?: true
+    createdBy?: true
+    isDeleted?: true
     _all?: true
   }
 
@@ -1029,6 +1041,8 @@ export namespace Prisma {
     configName: string
     configValue: number
     createdAt: Date
+    createdBy: string
+    isDeleted: boolean
     _count: ConfigCountAggregateOutputType | null
     _avg: ConfigAvgAggregateOutputType | null
     _sum: ConfigSumAggregateOutputType | null
@@ -1055,6 +1069,8 @@ export namespace Prisma {
     configName?: boolean
     configValue?: boolean
     createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["config"]>
 
 
@@ -1064,9 +1080,11 @@ export namespace Prisma {
     configName?: boolean
     configValue?: boolean
     createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
   }
 
-  export type ConfigOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"configId" | "configName" | "configValue" | "createdAt", ExtArgs["result"]["config"]>
+  export type ConfigOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"configId" | "configName" | "configValue" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["config"]>
 
   export type $ConfigPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Config"
@@ -1076,6 +1094,8 @@ export namespace Prisma {
       configName: string
       configValue: number
       createdAt: Date
+      createdBy: string
+      isDeleted: boolean
     }, ExtArgs["result"]["config"]>
     composites: {}
   }
@@ -1449,6 +1469,8 @@ export namespace Prisma {
     readonly configName: FieldRef<"Config", 'String'>
     readonly configValue: FieldRef<"Config", 'Int'>
     readonly createdAt: FieldRef<"Config", 'DateTime'>
+    readonly createdBy: FieldRef<"Config", 'String'>
+    readonly isDeleted: FieldRef<"Config", 'Boolean'>
   }
     
 
@@ -1788,7 +1810,9 @@ export namespace Prisma {
     configId: 'configId',
     configName: 'configName',
     configValue: 'configValue',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    isDeleted: 'isDeleted'
   };
 
   export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]
@@ -1803,7 +1827,8 @@ export namespace Prisma {
 
 
   export const ConfigOrderByRelevanceFieldEnum: {
-    configName: 'configName'
+    configName: 'configName',
+    createdBy: 'createdBy'
   };
 
   export type ConfigOrderByRelevanceFieldEnum = (typeof ConfigOrderByRelevanceFieldEnum)[keyof typeof ConfigOrderByRelevanceFieldEnum]
@@ -1836,6 +1861,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1853,6 +1885,8 @@ export namespace Prisma {
     configName?: StringFilter<"Config"> | string
     configValue?: IntFilter<"Config"> | number
     createdAt?: DateTimeFilter<"Config"> | Date | string
+    createdBy?: StringFilter<"Config"> | string
+    isDeleted?: BoolFilter<"Config"> | boolean
   }
 
   export type ConfigOrderByWithRelationInput = {
@@ -1860,6 +1894,8 @@ export namespace Prisma {
     configName?: SortOrder
     configValue?: SortOrder
     createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
     _relevance?: ConfigOrderByRelevanceInput
   }
 
@@ -1871,6 +1907,8 @@ export namespace Prisma {
     configName?: StringFilter<"Config"> | string
     configValue?: IntFilter<"Config"> | number
     createdAt?: DateTimeFilter<"Config"> | Date | string
+    createdBy?: StringFilter<"Config"> | string
+    isDeleted?: BoolFilter<"Config"> | boolean
   }, "configId">
 
   export type ConfigOrderByWithAggregationInput = {
@@ -1878,6 +1916,8 @@ export namespace Prisma {
     configName?: SortOrder
     configValue?: SortOrder
     createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
     _count?: ConfigCountOrderByAggregateInput
     _avg?: ConfigAvgOrderByAggregateInput
     _max?: ConfigMaxOrderByAggregateInput
@@ -1893,12 +1933,16 @@ export namespace Prisma {
     configName?: StringWithAggregatesFilter<"Config"> | string
     configValue?: IntWithAggregatesFilter<"Config"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Config"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"Config"> | string
+    isDeleted?: BoolWithAggregatesFilter<"Config"> | boolean
   }
 
   export type ConfigCreateInput = {
     configName: string
     configValue: number
     createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
   }
 
   export type ConfigUncheckedCreateInput = {
@@ -1906,12 +1950,16 @@ export namespace Prisma {
     configName: string
     configValue: number
     createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
   }
 
   export type ConfigUpdateInput = {
     configName?: StringFieldUpdateOperationsInput | string
     configValue?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ConfigUncheckedUpdateInput = {
@@ -1919,6 +1967,8 @@ export namespace Prisma {
     configName?: StringFieldUpdateOperationsInput | string
     configValue?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ConfigCreateManyInput = {
@@ -1926,12 +1976,16 @@ export namespace Prisma {
     configName: string
     configValue: number
     createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
   }
 
   export type ConfigUpdateManyMutationInput = {
     configName?: StringFieldUpdateOperationsInput | string
     configValue?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ConfigUncheckedUpdateManyInput = {
@@ -1939,6 +1993,8 @@ export namespace Prisma {
     configName?: StringFieldUpdateOperationsInput | string
     configValue?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -1978,6 +2034,11 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type ConfigOrderByRelevanceInput = {
     fields: ConfigOrderByRelevanceFieldEnum | ConfigOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -1989,6 +2050,8 @@ export namespace Prisma {
     configName?: SortOrder
     configValue?: SortOrder
     createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type ConfigAvgOrderByAggregateInput = {
@@ -2001,6 +2064,8 @@ export namespace Prisma {
     configName?: SortOrder
     configValue?: SortOrder
     createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type ConfigMinOrderByAggregateInput = {
@@ -2008,6 +2073,8 @@ export namespace Prisma {
     configName?: SortOrder
     configValue?: SortOrder
     createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type ConfigSumOrderByAggregateInput = {
@@ -2063,6 +2130,14 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2077,6 +2152,10 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2114,6 +2193,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2173,6 +2257,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
 

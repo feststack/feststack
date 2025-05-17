@@ -4,7 +4,7 @@ generator client {
   previewFeatures = ["multiSchema"]
 }
 
-datasource db_test {
+datasource db_test_preprod {
   provider = "mysql"
   url      = env("DATABASE_URL_TEST")
 }

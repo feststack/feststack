@@ -4,15 +4,17 @@ generator client {
   previewFeatures = ["multiSchema"]
 }
 
-datasource db_config {
+datasource db_config_preprod {
   provider          = "mysql"
   url               = env("DATABASE_URL_CONFIG")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Config {
-  configId    Int      @id @default(autoincrement())
-  configName  String
-  configValue Int
-  createdAt   DateTime @default(now())
+  configId     Int      @id @default(autoincrement())
+  configName   String
+  configValue  Int
+
+  createdAt    DateTime @default(now())
+  createdBy    String   @default("SYSTEM")
+  isDeleted    Boolean  @default(false)
 }

@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+const withNextIntl = require('next-intl/plugin')({
+  // chemin relatif vers ton fichier request.ts
+  request: './i18n/request.ts',
+  // optionnel : désactive la détection automatique des locales si tu veux gérer toi-même
+  localeDetection: false,
+});
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // tes autres configs Next.js
 };
 
-export default nextConfig;
+module.exports = withNextIntl(nextConfig);

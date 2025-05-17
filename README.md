@@ -42,9 +42,27 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 2. Prisma:
     - migration:
-        npx prisma migrate dev --schema=prisma/config/schema.prisma
-        npx prisma migrate dev --schema=prisma/test/schema.prisma
+        npx prisma migrate dev --schema=prisma/config/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/config/schema.prisma
+        npx prisma migrate dev --schema=prisma/test/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/test/schema.prisma
+        npx prisma migrate dev --schema=prisma/core/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/core/schema.prisma
+    - pull:
+        npx prisma db pull --schema=prisma/config/schema.prisma
+        npx prisma db pull --schema=prisma/test/schema.prisma
+        npx prisma db pull --schema=prisma/core/schema.prisma
     - client generation:
         npx prisma generate --schema=prisma/config/schema.prisma
         npx prisma generate --schema=prisma/test/schema.prisma
+        npx prisma generate --schema=prisma/core/schema.prisma
+2. Build local:
+    - npm run build
 
+3. Run:
+    - PreProd: npm run dev:preprod
+    - Qualif: npm run dev:qualif
+    - Prod: npm run dev:prod
+
+4. DB:
+    - remote connection: mysql -u root -p -h 90.26.253.66 -P 3306
