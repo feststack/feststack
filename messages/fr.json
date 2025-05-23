@@ -1,0 +1,36 @@
+{
+  "GlobalTranslation": {
+    "app-name": "Manafest",
+    "welcome": "Bienvenus",
+    "artistCatalog": "Cathalogue artistes",
+    "artistName": "Nom artiste",
+    "createdBy": "Créer par",
+    "artistNotFound": "Aucun artiste trouvé",
+    "lookingForArtist": "Chercher artiste",
+    "loading": "Chargement...",
+    "noAccessRight": "Vous n'avez pas droits d'accès...",
+    "artist": "Artists"
+  },
+  "HomePage": {
+    "title": "Bienvenus dans",
+    "sub-title": "Connexion", 
+    "login": "Email",
+    "password": "Mot de passe",
+    "button": "Se connecter"
+  },
+  "UserNavbar": {
+    "signout": "Se déconnecter",
+    "edition": "Édition",
+    "technics": "Techniques",
+    "artists": "Artistes",
+    "backlines": "Backlines",
+    "stages": "Scènes",
+    "volunteers": "Bénévoles",
+    "partners": "Partenaires",
+    "logistics": "Logistiques",
+    "artiststicProduction": "Production Artiststique",
+    "contracts": "Contrats",
+    "artistManagements": "Production Artists",
+    "artist": "Artists"
+  }
+}

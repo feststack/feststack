@@ -1,0 +1,142 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../../lib/generated/prisma_data"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db_core_core {
+  provider = "mysql"
+  url      = env("DATABASE_URL_DATA")
+}
+
+model Editions {
+  editionId        Int      @id @default(autoincrement())
+  editionName      String
+  editionYear      Int      @unique
+  isCurrentedition Boolean  @default(false)
+  editionStatusId  Int
+  createdAt        DateTime @default(now())
+  createdBy        String   @default("SYSTEM")
+  isDeleted        Boolean  @default(false)
+
+  editionStatus EditionsStatuses @relation(fields: [editionStatusId], references: [editionStatusId])
+  shows         Shows[]
+  performances  Performances[]
+}
+
+model EditionsStatuses {
+  editionStatusId   Int      @id @default(autoincrement())
+  editionStatusCode String
+  editionStatusName String
+  createdAt         DateTime @default(now())
+  createdBy         String   @default("SYSTEM")
+  isDeleted         Boolean  @default(false)
+
+  editions Editions[]
+}
+
+model Shows {
+  showId       Int           @id @default(autoincrement())
+  showName     String        @unique
+  editionId    Int
+  edition      Editions      @relation(fields: [editionId], references: [editionId])
+  showStatusId Int
+  showStatus   ShowsStatuses @relation(fields: [showStatusId], references: [showStatusId])
+  createdAt    DateTime      @default(now())
+  createdBy    String        @default("SYSTEM")
+  isDeleted    Boolean       @default(false)
+
+  performances Performances[]
+
+  @@index([editionId], map: "Editions_editionId_fkey")
+  @@index([showStatusId], map: "ShowsStatuses_showStatusId_fkey")
+}
+
+model Artists {
+  artistId   Int      @id @default(autoincrement())
+  artistName String   @unique
+  createdAt  DateTime @default(now())
+  createdBy  String   @default("SYSTEM")
+  isDeleted  Boolean  @default(false)
+
+  artistsManagements ArtistsArtistsManagements[]
+}
+
+model ShowsStatuses {
+  showStatusId   Int      @id @default(autoincrement())
+  showStatusCode String   @unique
+  showStatusName String
+  createdAt      DateTime @default(now())
+  createdBy      String   @default("SYSTEM")
+  isDeleted      Boolean  @default(false)
+
+  shows Shows[]
+}
+
+model ArtistsManagementsCategories {
+  artistManagementCategoryId      Int      @id @default(autoincrement())
+  artistManagementCategoryName    String
+  artistManagementCategoryComment String
+  createdAt                       DateTime @default(now())
+  createdBy                       String   @default("SYSTEM")
+  isDeleted                       Boolean  @default(false)
+
+  artistsManagements ArtistsManagements[]
+}
+
+model ArtistsManagements {
+  artistManagementId         Int                          @id @default(autoincrement())
+  artistManagementName       String
+  artistManagementCategoryId Int
+  artistManagementCategory   ArtistsManagementsCategories @relation(fields: [artistManagementCategoryId], references: [artistManagementCategoryId])
+  createdAt                  DateTime                     @default(now())
+  createdBy                  String                       @default("SYSTEM")
+  isDeleted                  Boolean                      @default(false)
+
+  artistsArtistsManagements ArtistsArtistsManagements[]
+
+  @@index([artistManagementCategoryId], map: "ArtistsManagementsCategories_artistManagementCategoryId_fkey")
+}
+
+model ArtistsArtistsManagements {
+  artistArtistManagementId Int                @id @default(autoincrement())
+  artistId                 Int
+  artist                   Artists            @relation(fields: [artistId], references: [artistId])
+  artistManagementId       Int
+  artistManagement         ArtistsManagements @relation(fields: [artistManagementId], references: [artistManagementId])
+  createdAt                DateTime           @default(now())
+  createdBy                String             @default("SYSTEM")
+  isDeleted                Boolean            @default(false)
+
+  performances Performances[]
+
+  @@index([artistId], map: "Artists_artistId_fkey")
+  @@index([artistManagementId], map: "ArtistsManagements_artistManagementId_fkey")
+}
+
+model Performances {
+  performanceId                       Int      @id @default(autoincrement())
+  performanceName                     String
+  performanceArtistArtistManagementId Int
+  performanceShowId                   Int
+  editionId                           Int
+  createdAt                           DateTime @default(now())
+  createdBy                           String   @default("SYSTEM")
+  isDeleted                           Boolean  @default(false)
+
+  artistManagementLink ArtistsArtistsManagements @relation(fields: [performanceArtistArtistManagementId], references: [artistArtistManagementId])
+  show                 Shows                     @relation(fields: [performanceShowId], references: [showId])
+  edition              Editions                  @relation(fields: [editionId], references: [editionId])
+  contract             Contracts? // optionnel si besoin d’un accès inverse
+}
+
+model Contracts {
+  contractId    Int          @id @default(autoincrement())
+  contractName  String
+  performanceId Int          @unique
+  performance   Performances @relation(fields: [performanceId], references: [performanceId])
+
+  createdAt DateTime @default(now())
+  createdBy String   @default("SYSTEM")
+  isDeleted Boolean  @default(false)
+}

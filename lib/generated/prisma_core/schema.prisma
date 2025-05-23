@@ -1,0 +1,98 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../../lib/generated/prisma_core"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db_core_core {
+  provider = "mysql"
+  url      = env("DATABASE_URL_CORE")
+}
+
+model Users {
+  userId         Int             @id @default(autoincrement())
+  userName       String
+  userSurname    String
+  userCode       String
+  isActive       Boolean         @default(true)
+  userLanguageId Int
+  language       Languages       @relation(fields: [userLanguageId], references: [languageId])
+  createdAt      DateTime        @default(now())
+  createdBy      String          @default("SYSTEM")
+  isDeleted      Boolean         @default(false)
+  adGroups       UsersAdGroups[]
+  auth           UsersAuth?
+  contacts       UsersContacts[]
+
+  @@index([userLanguageId], map: "User_userLanguageId_fkey")
+}
+
+model UsersContacts {
+  userContactId    Int            @id @default(autoincrement())
+  userContactType  ContactsTypes
+  userContactScope ContactsScopes
+  userContactValue String
+  createdAt        DateTime       @default(now())
+  createdBy        String         @default("SYSTEM")
+  isDeleted        Boolean        @default(false)
+  userId           Int
+  user             Users          @relation(fields: [userId], references: [userId])
+
+  @@index([userId], map: "UserContact_userId_fkey")
+}
+
+model UsersAuth {
+  authId    Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  createdBy String   @default("SYSTEM")
+  isDeleted Boolean  @default(false)
+  userId    Int      @unique
+  user      Users    @relation(fields: [userId], references: [userId])
+}
+
+model AdGroups {
+  adGroupId   Int             @id @default(autoincrement())
+  adGroupName String
+  comment     String
+  createdAt   DateTime        @default(now())
+  createdBy   String          @default("SYSTEM")
+  users       UsersAdGroups[]
+}
+
+model UsersAdGroups {
+  userAdGroupId Int      @id @default(autoincrement())
+  userId        Int
+  adGroupId     Int
+  createdAt     DateTime @default(now())
+  createdBy     String   @default("SYSTEM")
+  isDeleted     Boolean  @default(false)
+  adGroup       AdGroups @relation(fields: [adGroupId], references: [adGroupId])
+  user          Users    @relation(fields: [userId], references: [userId])
+
+  @@index([adGroupId], map: "UserAdGroup_adGroupId_fkey")
+  @@index([userId], map: "UserAdGroup_userId_fkey")
+}
+
+model Languages {
+  languageId   Int      @id @default(autoincrement())
+  languageName String
+  languageCode String
+  createdAt    DateTime @default(now())
+  createdBy    String   @default("SYSTEM")
+  isDeleted    Boolean  @default(false)
+  users        Users[] // relation inverse
+}
+
+enum ContactsTypes {
+  EMAIL
+  PHONE
+  SOCIAL
+}
+
+enum ContactsScopes {
+  PERSONAL
+  PROFESSIONAL
+  OTHER
+}
