@@ -3,6 +3,7 @@ export default function getRuntimeConfig() {
       locales: ['en', 'fr', 'de'],
       defaultLocale: 'en',
       defaultTimeZone: 'Europe/Paris',
+      timeZone: 'Europe/Paris',
     }
   }
   

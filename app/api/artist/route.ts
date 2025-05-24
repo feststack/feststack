@@ -1,5 +1,7 @@
+export const runtime = 'nodejs'
+
 import { NextRequest, NextResponse } from 'next/server'
-import { PrismaClient } from '../../../lib/generated/prisma_data'
+import { PrismaClient } from '../../../lib/generated'
 
 const prisma = new PrismaClient()
 

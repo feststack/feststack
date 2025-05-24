@@ -1,5 +1,7 @@
+export const runtime = 'nodejs'
+
 import { NextRequest, NextResponse } from 'next/server'
-import { PrismaClient } from '../../../lib/generated/prisma_core'
+import { PrismaClient } from '../../../lib/generated'
 
 import bcrypt from 'bcrypt'
 

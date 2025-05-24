@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "next dev --turbopack",          
+    "prebuild": "npx prisma generate",
+    "build": "next build",                
+    "start": "next start",                  
+    "lint": "next lint",                    
     "dev:preprod": "cp .env.preprod .env && next dev",
     "dev:qualif": "cp .env.qualif .env && next dev",
     "dev:prod": "cp .env.prod .env && next start"
@@ -43,8 +44,5 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seeds/index.ts"
   }
 }

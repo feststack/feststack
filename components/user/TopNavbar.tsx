@@ -16,7 +16,7 @@ export default function TopNavbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 h-16 bg-primary text-white px-6 shadow-md z-50">
+    <nav className="fixed top-0 left-0 right-0 h-16 bg-blue-600 text-white px-6 shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center h-full">
         <Link href="/user/userHome" className="text-2xl font-bold">
           ManaFest
