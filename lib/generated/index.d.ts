@@ -84,6 +84,16 @@ export type Languages = $Result.DefaultSelection<Prisma.$LanguagesPayload>
  */
 export type AdGroups = $Result.DefaultSelection<Prisma.$AdGroupsPayload>
 /**
+ * Model AdGroupsFamilies
+ * 
+ */
+export type AdGroupsFamilies = $Result.DefaultSelection<Prisma.$AdGroupsFamiliesPayload>
+/**
+ * Model AdGroupsRights
+ * 
+ */
+export type AdGroupsRights = $Result.DefaultSelection<Prisma.$AdGroupsRightsPayload>
+/**
  * Model UsersAdGroups
  * 
  */
@@ -353,6 +363,26 @@ export class PrismaClient<
     * ```
     */
   get adGroups(): Prisma.AdGroupsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.adGroupsFamilies`: Exposes CRUD operations for the **AdGroupsFamilies** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdGroupsFamilies
+    * const adGroupsFamilies = await prisma.adGroupsFamilies.findMany()
+    * ```
+    */
+  get adGroupsFamilies(): Prisma.AdGroupsFamiliesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.adGroupsRights`: Exposes CRUD operations for the **AdGroupsRights** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdGroupsRights
+    * const adGroupsRights = await prisma.adGroupsRights.findMany()
+    * ```
+    */
+  get adGroupsRights(): Prisma.AdGroupsRightsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.usersAdGroups`: Exposes CRUD operations for the **UsersAdGroups** model.
@@ -817,6 +847,8 @@ export namespace Prisma {
     UsersAuth: 'UsersAuth',
     Languages: 'Languages',
     AdGroups: 'AdGroups',
+    AdGroupsFamilies: 'AdGroupsFamilies',
+    AdGroupsRights: 'AdGroupsRights',
     UsersAdGroups: 'UsersAdGroups'
   };
 
@@ -836,7 +868,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "usersAdGroups"
+      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "adGroupsFamilies" | "adGroupsRights" | "usersAdGroups"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1764,6 +1796,138 @@ export namespace Prisma {
           }
         }
       }
+      AdGroupsFamilies: {
+        payload: Prisma.$AdGroupsFamiliesPayload<ExtArgs>
+        fields: Prisma.AdGroupsFamiliesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdGroupsFamiliesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdGroupsFamiliesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          findFirst: {
+            args: Prisma.AdGroupsFamiliesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdGroupsFamiliesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          findMany: {
+            args: Prisma.AdGroupsFamiliesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>[]
+          }
+          create: {
+            args: Prisma.AdGroupsFamiliesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          createMany: {
+            args: Prisma.AdGroupsFamiliesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdGroupsFamiliesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          update: {
+            args: Prisma.AdGroupsFamiliesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdGroupsFamiliesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdGroupsFamiliesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdGroupsFamiliesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsFamiliesPayload>
+          }
+          aggregate: {
+            args: Prisma.AdGroupsFamiliesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdGroupsFamilies>
+          }
+          groupBy: {
+            args: Prisma.AdGroupsFamiliesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdGroupsFamiliesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdGroupsFamiliesCountArgs<ExtArgs>
+            result: $Utils.Optional<AdGroupsFamiliesCountAggregateOutputType> | number
+          }
+        }
+      }
+      AdGroupsRights: {
+        payload: Prisma.$AdGroupsRightsPayload<ExtArgs>
+        fields: Prisma.AdGroupsRightsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdGroupsRightsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdGroupsRightsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          findFirst: {
+            args: Prisma.AdGroupsRightsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdGroupsRightsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          findMany: {
+            args: Prisma.AdGroupsRightsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>[]
+          }
+          create: {
+            args: Prisma.AdGroupsRightsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          createMany: {
+            args: Prisma.AdGroupsRightsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdGroupsRightsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          update: {
+            args: Prisma.AdGroupsRightsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdGroupsRightsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdGroupsRightsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdGroupsRightsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdGroupsRightsPayload>
+          }
+          aggregate: {
+            args: Prisma.AdGroupsRightsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdGroupsRights>
+          }
+          groupBy: {
+            args: Prisma.AdGroupsRightsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdGroupsRightsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdGroupsRightsCountArgs<ExtArgs>
+            result: $Utils.Optional<AdGroupsRightsCountAggregateOutputType> | number
+          }
+        }
+      }
       UsersAdGroups: {
         payload: Prisma.$UsersAdGroupsPayload<ExtArgs>
         fields: Prisma.UsersAdGroupsFieldRefs
@@ -1928,6 +2092,8 @@ export namespace Prisma {
     usersAuth?: UsersAuthOmit
     languages?: LanguagesOmit
     adGroups?: AdGroupsOmit
+    adGroupsFamilies?: AdGroupsFamiliesOmit
+    adGroupsRights?: AdGroupsRightsOmit
     usersAdGroups?: UsersAdGroupsOmit
   }
 
@@ -2365,6 +2531,68 @@ export namespace Prisma {
    */
   export type AdGroupsCountOutputTypeCountUserGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UsersAdGroupsWhereInput
+  }
+
+
+  /**
+   * Count Type AdGroupsFamiliesCountOutputType
+   */
+
+  export type AdGroupsFamiliesCountOutputType = {
+    adGroups: number
+  }
+
+  export type AdGroupsFamiliesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    adGroups?: boolean | AdGroupsFamiliesCountOutputTypeCountAdGroupsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AdGroupsFamiliesCountOutputType without action
+   */
+  export type AdGroupsFamiliesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamiliesCountOutputType
+     */
+    select?: AdGroupsFamiliesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AdGroupsFamiliesCountOutputType without action
+   */
+  export type AdGroupsFamiliesCountOutputTypeCountAdGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdGroupsWhereInput
+  }
+
+
+  /**
+   * Count Type AdGroupsRightsCountOutputType
+   */
+
+  export type AdGroupsRightsCountOutputType = {
+    adGroups: number
+  }
+
+  export type AdGroupsRightsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    adGroups?: boolean | AdGroupsRightsCountOutputTypeCountAdGroupsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AdGroupsRightsCountOutputType without action
+   */
+  export type AdGroupsRightsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRightsCountOutputType
+     */
+    select?: AdGroupsRightsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AdGroupsRightsCountOutputType without action
+   */
+  export type AdGroupsRightsCountOutputTypeCountAdGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdGroupsWhereInput
   }
 
 
@@ -12519,6 +12747,7 @@ export namespace Prisma {
     userLastName: string | null
     userCode: string | null
     languageId: number | null
+    isActive: boolean | null
     createdAt: Date | null
     createdBy: string | null
     isDeleted: boolean | null
@@ -12530,6 +12759,7 @@ export namespace Prisma {
     userLastName: string | null
     userCode: string | null
     languageId: number | null
+    isActive: boolean | null
     createdAt: Date | null
     createdBy: string | null
     isDeleted: boolean | null
@@ -12541,6 +12771,7 @@ export namespace Prisma {
     userLastName: number
     userCode: number
     languageId: number
+    isActive: number
     createdAt: number
     createdBy: number
     isDeleted: number
@@ -12564,6 +12795,7 @@ export namespace Prisma {
     userLastName?: true
     userCode?: true
     languageId?: true
+    isActive?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -12575,6 +12807,7 @@ export namespace Prisma {
     userLastName?: true
     userCode?: true
     languageId?: true
+    isActive?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -12586,6 +12819,7 @@ export namespace Prisma {
     userLastName?: true
     userCode?: true
     languageId?: true
+    isActive?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -12684,6 +12918,7 @@ export namespace Prisma {
     userLastName: string
     userCode: string
     languageId: number
+    isActive: boolean
     createdAt: Date
     createdBy: string
     isDeleted: boolean
@@ -12714,6 +12949,7 @@ export namespace Prisma {
     userLastName?: boolean
     userCode?: boolean
     languageId?: boolean
+    isActive?: boolean
     createdAt?: boolean
     createdBy?: boolean
     isDeleted?: boolean
@@ -12731,12 +12967,13 @@ export namespace Prisma {
     userLastName?: boolean
     userCode?: boolean
     languageId?: boolean
+    isActive?: boolean
     createdAt?: boolean
     createdBy?: boolean
     isDeleted?: boolean
   }
 
-  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "userFirstName" | "userLastName" | "userCode" | "languageId" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["users"]>
+  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "userFirstName" | "userLastName" | "userCode" | "languageId" | "isActive" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     language?: boolean | LanguagesDefaultArgs<ExtArgs>
     userGroups?: boolean | Users$userGroupsArgs<ExtArgs>
@@ -12757,6 +12994,7 @@ export namespace Prisma {
       userLastName: string
       userCode: string
       languageId: number
+      isActive: boolean
       createdAt: Date
       createdBy: string
       isDeleted: boolean
@@ -13137,6 +13375,7 @@ export namespace Prisma {
     readonly userLastName: FieldRef<"Users", 'String'>
     readonly userCode: FieldRef<"Users", 'String'>
     readonly languageId: FieldRef<"Users", 'Int'>
+    readonly isActive: FieldRef<"Users", 'Boolean'>
     readonly createdAt: FieldRef<"Users", 'DateTime'>
     readonly createdBy: FieldRef<"Users", 'String'>
     readonly isDeleted: FieldRef<"Users", 'Boolean'>
@@ -15547,15 +15786,20 @@ export namespace Prisma {
 
   export type AdGroupsAvgAggregateOutputType = {
     adGroupId: number | null
+    adGroupFamilyId: number | null
+    adGroupRightId: number | null
   }
 
   export type AdGroupsSumAggregateOutputType = {
     adGroupId: number | null
+    adGroupFamilyId: number | null
+    adGroupRightId: number | null
   }
 
   export type AdGroupsMinAggregateOutputType = {
     adGroupId: number | null
-    adGroupName: string | null
+    adGroupFamilyId: number | null
+    adGroupRightId: number | null
     createdAt: Date | null
     createdBy: string | null
     isDeleted: boolean | null
@@ -15563,7 +15807,8 @@ export namespace Prisma {
 
   export type AdGroupsMaxAggregateOutputType = {
     adGroupId: number | null
-    adGroupName: string | null
+    adGroupFamilyId: number | null
+    adGroupRightId: number | null
     createdAt: Date | null
     createdBy: string | null
     isDeleted: boolean | null
@@ -15571,7 +15816,8 @@ export namespace Prisma {
 
   export type AdGroupsCountAggregateOutputType = {
     adGroupId: number
-    adGroupName: number
+    adGroupFamilyId: number
+    adGroupRightId: number
     createdAt: number
     createdBy: number
     isDeleted: number
@@ -15581,15 +15827,20 @@ export namespace Prisma {
 
   export type AdGroupsAvgAggregateInputType = {
     adGroupId?: true
+    adGroupFamilyId?: true
+    adGroupRightId?: true
   }
 
   export type AdGroupsSumAggregateInputType = {
     adGroupId?: true
+    adGroupFamilyId?: true
+    adGroupRightId?: true
   }
 
   export type AdGroupsMinAggregateInputType = {
     adGroupId?: true
-    adGroupName?: true
+    adGroupFamilyId?: true
+    adGroupRightId?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -15597,7 +15848,8 @@ export namespace Prisma {
 
   export type AdGroupsMaxAggregateInputType = {
     adGroupId?: true
-    adGroupName?: true
+    adGroupFamilyId?: true
+    adGroupRightId?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -15605,7 +15857,8 @@ export namespace Prisma {
 
   export type AdGroupsCountAggregateInputType = {
     adGroupId?: true
-    adGroupName?: true
+    adGroupFamilyId?: true
+    adGroupRightId?: true
     createdAt?: true
     createdBy?: true
     isDeleted?: true
@@ -15700,7 +15953,8 @@ export namespace Prisma {
 
   export type AdGroupsGroupByOutputType = {
     adGroupId: number
-    adGroupName: string
+    adGroupFamilyId: number
+    adGroupRightId: number
     createdAt: Date
     createdBy: string
     isDeleted: boolean
@@ -15727,10 +15981,13 @@ export namespace Prisma {
 
   export type AdGroupsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     adGroupId?: boolean
-    adGroupName?: boolean
+    adGroupFamilyId?: boolean
+    adGroupRightId?: boolean
     createdAt?: boolean
     createdBy?: boolean
     isDeleted?: boolean
+    adGroupFamily?: boolean | AdGroupsFamiliesDefaultArgs<ExtArgs>
+    adGroupRight?: boolean | AdGroupsRightsDefaultArgs<ExtArgs>
     userGroups?: boolean | AdGroups$userGroupsArgs<ExtArgs>
     _count?: boolean | AdGroupsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["adGroups"]>
@@ -15739,14 +15996,17 @@ export namespace Prisma {
 
   export type AdGroupsSelectScalar = {
     adGroupId?: boolean
-    adGroupName?: boolean
+    adGroupFamilyId?: boolean
+    adGroupRightId?: boolean
     createdAt?: boolean
     createdBy?: boolean
     isDeleted?: boolean
   }
 
-  export type AdGroupsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"adGroupId" | "adGroupName" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["adGroups"]>
+  export type AdGroupsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"adGroupId" | "adGroupFamilyId" | "adGroupRightId" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["adGroups"]>
   export type AdGroupsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    adGroupFamily?: boolean | AdGroupsFamiliesDefaultArgs<ExtArgs>
+    adGroupRight?: boolean | AdGroupsRightsDefaultArgs<ExtArgs>
     userGroups?: boolean | AdGroups$userGroupsArgs<ExtArgs>
     _count?: boolean | AdGroupsCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -15754,11 +16014,14 @@ export namespace Prisma {
   export type $AdGroupsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AdGroups"
     objects: {
+      adGroupFamily: Prisma.$AdGroupsFamiliesPayload<ExtArgs>
+      adGroupRight: Prisma.$AdGroupsRightsPayload<ExtArgs>
       userGroups: Prisma.$UsersAdGroupsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       adGroupId: number
-      adGroupName: string
+      adGroupFamilyId: number
+      adGroupRightId: number
       createdAt: Date
       createdBy: string
       isDeleted: boolean
@@ -16102,6 +16365,8 @@ export namespace Prisma {
    */
   export interface Prisma__AdGroupsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    adGroupFamily<T extends AdGroupsFamiliesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdGroupsFamiliesDefaultArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    adGroupRight<T extends AdGroupsRightsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdGroupsRightsDefaultArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     userGroups<T extends AdGroups$userGroupsArgs<ExtArgs> = {}>(args?: Subset<T, AdGroups$userGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsersAdGroupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -16133,7 +16398,8 @@ export namespace Prisma {
    */
   interface AdGroupsFieldRefs {
     readonly adGroupId: FieldRef<"AdGroups", 'Int'>
-    readonly adGroupName: FieldRef<"AdGroups", 'String'>
+    readonly adGroupFamilyId: FieldRef<"AdGroups", 'Int'>
+    readonly adGroupRightId: FieldRef<"AdGroups", 'Int'>
     readonly createdAt: FieldRef<"AdGroups", 'DateTime'>
     readonly createdBy: FieldRef<"AdGroups", 'String'>
     readonly isDeleted: FieldRef<"AdGroups", 'Boolean'>
@@ -16519,6 +16785,1984 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: AdGroupsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdGroupsFamilies
+   */
+
+  export type AggregateAdGroupsFamilies = {
+    _count: AdGroupsFamiliesCountAggregateOutputType | null
+    _avg: AdGroupsFamiliesAvgAggregateOutputType | null
+    _sum: AdGroupsFamiliesSumAggregateOutputType | null
+    _min: AdGroupsFamiliesMinAggregateOutputType | null
+    _max: AdGroupsFamiliesMaxAggregateOutputType | null
+  }
+
+  export type AdGroupsFamiliesAvgAggregateOutputType = {
+    adGroupFamilyId: number | null
+  }
+
+  export type AdGroupsFamiliesSumAggregateOutputType = {
+    adGroupFamilyId: number | null
+  }
+
+  export type AdGroupsFamiliesMinAggregateOutputType = {
+    adGroupFamilyId: number | null
+    adGroupFamilyName: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AdGroupsFamiliesMaxAggregateOutputType = {
+    adGroupFamilyId: number | null
+    adGroupFamilyName: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AdGroupsFamiliesCountAggregateOutputType = {
+    adGroupFamilyId: number
+    adGroupFamilyName: number
+    createdAt: number
+    createdBy: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type AdGroupsFamiliesAvgAggregateInputType = {
+    adGroupFamilyId?: true
+  }
+
+  export type AdGroupsFamiliesSumAggregateInputType = {
+    adGroupFamilyId?: true
+  }
+
+  export type AdGroupsFamiliesMinAggregateInputType = {
+    adGroupFamilyId?: true
+    adGroupFamilyName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AdGroupsFamiliesMaxAggregateInputType = {
+    adGroupFamilyId?: true
+    adGroupFamilyName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AdGroupsFamiliesCountAggregateInputType = {
+    adGroupFamilyId?: true
+    adGroupFamilyName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type AdGroupsFamiliesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdGroupsFamilies to aggregate.
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsFamilies to fetch.
+     */
+    orderBy?: AdGroupsFamiliesOrderByWithRelationInput | AdGroupsFamiliesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdGroupsFamiliesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsFamilies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsFamilies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdGroupsFamilies
+    **/
+    _count?: true | AdGroupsFamiliesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdGroupsFamiliesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdGroupsFamiliesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdGroupsFamiliesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdGroupsFamiliesMaxAggregateInputType
+  }
+
+  export type GetAdGroupsFamiliesAggregateType<T extends AdGroupsFamiliesAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdGroupsFamilies]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdGroupsFamilies[P]>
+      : GetScalarType<T[P], AggregateAdGroupsFamilies[P]>
+  }
+
+
+
+
+  export type AdGroupsFamiliesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdGroupsFamiliesWhereInput
+    orderBy?: AdGroupsFamiliesOrderByWithAggregationInput | AdGroupsFamiliesOrderByWithAggregationInput[]
+    by: AdGroupsFamiliesScalarFieldEnum[] | AdGroupsFamiliesScalarFieldEnum
+    having?: AdGroupsFamiliesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdGroupsFamiliesCountAggregateInputType | true
+    _avg?: AdGroupsFamiliesAvgAggregateInputType
+    _sum?: AdGroupsFamiliesSumAggregateInputType
+    _min?: AdGroupsFamiliesMinAggregateInputType
+    _max?: AdGroupsFamiliesMaxAggregateInputType
+  }
+
+  export type AdGroupsFamiliesGroupByOutputType = {
+    adGroupFamilyId: number
+    adGroupFamilyName: string
+    createdAt: Date
+    createdBy: string
+    isDeleted: boolean
+    _count: AdGroupsFamiliesCountAggregateOutputType | null
+    _avg: AdGroupsFamiliesAvgAggregateOutputType | null
+    _sum: AdGroupsFamiliesSumAggregateOutputType | null
+    _min: AdGroupsFamiliesMinAggregateOutputType | null
+    _max: AdGroupsFamiliesMaxAggregateOutputType | null
+  }
+
+  type GetAdGroupsFamiliesGroupByPayload<T extends AdGroupsFamiliesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdGroupsFamiliesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdGroupsFamiliesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdGroupsFamiliesGroupByOutputType[P]>
+            : GetScalarType<T[P], AdGroupsFamiliesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdGroupsFamiliesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    adGroupFamilyId?: boolean
+    adGroupFamilyName?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+    adGroups?: boolean | AdGroupsFamilies$adGroupsArgs<ExtArgs>
+    _count?: boolean | AdGroupsFamiliesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["adGroupsFamilies"]>
+
+
+
+  export type AdGroupsFamiliesSelectScalar = {
+    adGroupFamilyId?: boolean
+    adGroupFamilyName?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsFamiliesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"adGroupFamilyId" | "adGroupFamilyName" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["adGroupsFamilies"]>
+  export type AdGroupsFamiliesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    adGroups?: boolean | AdGroupsFamilies$adGroupsArgs<ExtArgs>
+    _count?: boolean | AdGroupsFamiliesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AdGroupsFamiliesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdGroupsFamilies"
+    objects: {
+      adGroups: Prisma.$AdGroupsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      adGroupFamilyId: number
+      adGroupFamilyName: string
+      createdAt: Date
+      createdBy: string
+      isDeleted: boolean
+    }, ExtArgs["result"]["adGroupsFamilies"]>
+    composites: {}
+  }
+
+  type AdGroupsFamiliesGetPayload<S extends boolean | null | undefined | AdGroupsFamiliesDefaultArgs> = $Result.GetResult<Prisma.$AdGroupsFamiliesPayload, S>
+
+  type AdGroupsFamiliesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdGroupsFamiliesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdGroupsFamiliesCountAggregateInputType | true
+    }
+
+  export interface AdGroupsFamiliesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdGroupsFamilies'], meta: { name: 'AdGroupsFamilies' } }
+    /**
+     * Find zero or one AdGroupsFamilies that matches the filter.
+     * @param {AdGroupsFamiliesFindUniqueArgs} args - Arguments to find a AdGroupsFamilies
+     * @example
+     * // Get one AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdGroupsFamiliesFindUniqueArgs>(args: SelectSubset<T, AdGroupsFamiliesFindUniqueArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdGroupsFamilies that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdGroupsFamiliesFindUniqueOrThrowArgs} args - Arguments to find a AdGroupsFamilies
+     * @example
+     * // Get one AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdGroupsFamiliesFindUniqueOrThrowArgs>(args: SelectSubset<T, AdGroupsFamiliesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdGroupsFamilies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesFindFirstArgs} args - Arguments to find a AdGroupsFamilies
+     * @example
+     * // Get one AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdGroupsFamiliesFindFirstArgs>(args?: SelectSubset<T, AdGroupsFamiliesFindFirstArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdGroupsFamilies that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesFindFirstOrThrowArgs} args - Arguments to find a AdGroupsFamilies
+     * @example
+     * // Get one AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdGroupsFamiliesFindFirstOrThrowArgs>(args?: SelectSubset<T, AdGroupsFamiliesFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdGroupsFamilies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findMany()
+     * 
+     * // Get first 10 AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.findMany({ take: 10 })
+     * 
+     * // Only select the `adGroupFamilyId`
+     * const adGroupsFamiliesWithAdGroupFamilyIdOnly = await prisma.adGroupsFamilies.findMany({ select: { adGroupFamilyId: true } })
+     * 
+     */
+    findMany<T extends AdGroupsFamiliesFindManyArgs>(args?: SelectSubset<T, AdGroupsFamiliesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdGroupsFamilies.
+     * @param {AdGroupsFamiliesCreateArgs} args - Arguments to create a AdGroupsFamilies.
+     * @example
+     * // Create one AdGroupsFamilies
+     * const AdGroupsFamilies = await prisma.adGroupsFamilies.create({
+     *   data: {
+     *     // ... data to create a AdGroupsFamilies
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdGroupsFamiliesCreateArgs>(args: SelectSubset<T, AdGroupsFamiliesCreateArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdGroupsFamilies.
+     * @param {AdGroupsFamiliesCreateManyArgs} args - Arguments to create many AdGroupsFamilies.
+     * @example
+     * // Create many AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdGroupsFamiliesCreateManyArgs>(args?: SelectSubset<T, AdGroupsFamiliesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdGroupsFamilies.
+     * @param {AdGroupsFamiliesDeleteArgs} args - Arguments to delete one AdGroupsFamilies.
+     * @example
+     * // Delete one AdGroupsFamilies
+     * const AdGroupsFamilies = await prisma.adGroupsFamilies.delete({
+     *   where: {
+     *     // ... filter to delete one AdGroupsFamilies
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdGroupsFamiliesDeleteArgs>(args: SelectSubset<T, AdGroupsFamiliesDeleteArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdGroupsFamilies.
+     * @param {AdGroupsFamiliesUpdateArgs} args - Arguments to update one AdGroupsFamilies.
+     * @example
+     * // Update one AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdGroupsFamiliesUpdateArgs>(args: SelectSubset<T, AdGroupsFamiliesUpdateArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdGroupsFamilies.
+     * @param {AdGroupsFamiliesDeleteManyArgs} args - Arguments to filter AdGroupsFamilies to delete.
+     * @example
+     * // Delete a few AdGroupsFamilies
+     * const { count } = await prisma.adGroupsFamilies.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdGroupsFamiliesDeleteManyArgs>(args?: SelectSubset<T, AdGroupsFamiliesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdGroupsFamilies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdGroupsFamiliesUpdateManyArgs>(args: SelectSubset<T, AdGroupsFamiliesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdGroupsFamilies.
+     * @param {AdGroupsFamiliesUpsertArgs} args - Arguments to update or create a AdGroupsFamilies.
+     * @example
+     * // Update or create a AdGroupsFamilies
+     * const adGroupsFamilies = await prisma.adGroupsFamilies.upsert({
+     *   create: {
+     *     // ... data to create a AdGroupsFamilies
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdGroupsFamilies we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdGroupsFamiliesUpsertArgs>(args: SelectSubset<T, AdGroupsFamiliesUpsertArgs<ExtArgs>>): Prisma__AdGroupsFamiliesClient<$Result.GetResult<Prisma.$AdGroupsFamiliesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AdGroupsFamilies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesCountArgs} args - Arguments to filter AdGroupsFamilies to count.
+     * @example
+     * // Count the number of AdGroupsFamilies
+     * const count = await prisma.adGroupsFamilies.count({
+     *   where: {
+     *     // ... the filter for the AdGroupsFamilies we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdGroupsFamiliesCountArgs>(
+      args?: Subset<T, AdGroupsFamiliesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdGroupsFamiliesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdGroupsFamilies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdGroupsFamiliesAggregateArgs>(args: Subset<T, AdGroupsFamiliesAggregateArgs>): Prisma.PrismaPromise<GetAdGroupsFamiliesAggregateType<T>>
+
+    /**
+     * Group by AdGroupsFamilies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsFamiliesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdGroupsFamiliesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdGroupsFamiliesGroupByArgs['orderBy'] }
+        : { orderBy?: AdGroupsFamiliesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdGroupsFamiliesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdGroupsFamiliesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdGroupsFamilies model
+   */
+  readonly fields: AdGroupsFamiliesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdGroupsFamilies.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdGroupsFamiliesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    adGroups<T extends AdGroupsFamilies$adGroupsArgs<ExtArgs> = {}>(args?: Subset<T, AdGroupsFamilies$adGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdGroupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdGroupsFamilies model
+   */
+  interface AdGroupsFamiliesFieldRefs {
+    readonly adGroupFamilyId: FieldRef<"AdGroupsFamilies", 'Int'>
+    readonly adGroupFamilyName: FieldRef<"AdGroupsFamilies", 'String'>
+    readonly createdAt: FieldRef<"AdGroupsFamilies", 'DateTime'>
+    readonly createdBy: FieldRef<"AdGroupsFamilies", 'String'>
+    readonly isDeleted: FieldRef<"AdGroupsFamilies", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdGroupsFamilies findUnique
+   */
+  export type AdGroupsFamiliesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsFamilies to fetch.
+     */
+    where: AdGroupsFamiliesWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsFamilies findUniqueOrThrow
+   */
+  export type AdGroupsFamiliesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsFamilies to fetch.
+     */
+    where: AdGroupsFamiliesWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsFamilies findFirst
+   */
+  export type AdGroupsFamiliesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsFamilies to fetch.
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsFamilies to fetch.
+     */
+    orderBy?: AdGroupsFamiliesOrderByWithRelationInput | AdGroupsFamiliesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdGroupsFamilies.
+     */
+    cursor?: AdGroupsFamiliesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsFamilies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsFamilies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdGroupsFamilies.
+     */
+    distinct?: AdGroupsFamiliesScalarFieldEnum | AdGroupsFamiliesScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsFamilies findFirstOrThrow
+   */
+  export type AdGroupsFamiliesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsFamilies to fetch.
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsFamilies to fetch.
+     */
+    orderBy?: AdGroupsFamiliesOrderByWithRelationInput | AdGroupsFamiliesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdGroupsFamilies.
+     */
+    cursor?: AdGroupsFamiliesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsFamilies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsFamilies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdGroupsFamilies.
+     */
+    distinct?: AdGroupsFamiliesScalarFieldEnum | AdGroupsFamiliesScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsFamilies findMany
+   */
+  export type AdGroupsFamiliesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsFamilies to fetch.
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsFamilies to fetch.
+     */
+    orderBy?: AdGroupsFamiliesOrderByWithRelationInput | AdGroupsFamiliesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdGroupsFamilies.
+     */
+    cursor?: AdGroupsFamiliesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsFamilies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsFamilies.
+     */
+    skip?: number
+    distinct?: AdGroupsFamiliesScalarFieldEnum | AdGroupsFamiliesScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsFamilies create
+   */
+  export type AdGroupsFamiliesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdGroupsFamilies.
+     */
+    data: XOR<AdGroupsFamiliesCreateInput, AdGroupsFamiliesUncheckedCreateInput>
+  }
+
+  /**
+   * AdGroupsFamilies createMany
+   */
+  export type AdGroupsFamiliesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdGroupsFamilies.
+     */
+    data: AdGroupsFamiliesCreateManyInput | AdGroupsFamiliesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdGroupsFamilies update
+   */
+  export type AdGroupsFamiliesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdGroupsFamilies.
+     */
+    data: XOR<AdGroupsFamiliesUpdateInput, AdGroupsFamiliesUncheckedUpdateInput>
+    /**
+     * Choose, which AdGroupsFamilies to update.
+     */
+    where: AdGroupsFamiliesWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsFamilies updateMany
+   */
+  export type AdGroupsFamiliesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdGroupsFamilies.
+     */
+    data: XOR<AdGroupsFamiliesUpdateManyMutationInput, AdGroupsFamiliesUncheckedUpdateManyInput>
+    /**
+     * Filter which AdGroupsFamilies to update
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * Limit how many AdGroupsFamilies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdGroupsFamilies upsert
+   */
+  export type AdGroupsFamiliesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdGroupsFamilies to update in case it exists.
+     */
+    where: AdGroupsFamiliesWhereUniqueInput
+    /**
+     * In case the AdGroupsFamilies found by the `where` argument doesn't exist, create a new AdGroupsFamilies with this data.
+     */
+    create: XOR<AdGroupsFamiliesCreateInput, AdGroupsFamiliesUncheckedCreateInput>
+    /**
+     * In case the AdGroupsFamilies was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdGroupsFamiliesUpdateInput, AdGroupsFamiliesUncheckedUpdateInput>
+  }
+
+  /**
+   * AdGroupsFamilies delete
+   */
+  export type AdGroupsFamiliesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+    /**
+     * Filter which AdGroupsFamilies to delete.
+     */
+    where: AdGroupsFamiliesWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsFamilies deleteMany
+   */
+  export type AdGroupsFamiliesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdGroupsFamilies to delete
+     */
+    where?: AdGroupsFamiliesWhereInput
+    /**
+     * Limit how many AdGroupsFamilies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdGroupsFamilies.adGroups
+   */
+  export type AdGroupsFamilies$adGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroups
+     */
+    select?: AdGroupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroups
+     */
+    omit?: AdGroupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsInclude<ExtArgs> | null
+    where?: AdGroupsWhereInput
+    orderBy?: AdGroupsOrderByWithRelationInput | AdGroupsOrderByWithRelationInput[]
+    cursor?: AdGroupsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdGroupsScalarFieldEnum | AdGroupsScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsFamilies without action
+   */
+  export type AdGroupsFamiliesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsFamilies
+     */
+    select?: AdGroupsFamiliesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsFamilies
+     */
+    omit?: AdGroupsFamiliesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsFamiliesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdGroupsRights
+   */
+
+  export type AggregateAdGroupsRights = {
+    _count: AdGroupsRightsCountAggregateOutputType | null
+    _avg: AdGroupsRightsAvgAggregateOutputType | null
+    _sum: AdGroupsRightsSumAggregateOutputType | null
+    _min: AdGroupsRightsMinAggregateOutputType | null
+    _max: AdGroupsRightsMaxAggregateOutputType | null
+  }
+
+  export type AdGroupsRightsAvgAggregateOutputType = {
+    adGroupRightId: number | null
+  }
+
+  export type AdGroupsRightsSumAggregateOutputType = {
+    adGroupRightId: number | null
+  }
+
+  export type AdGroupsRightsMinAggregateOutputType = {
+    adGroupRightId: number | null
+    adGroupRightName: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AdGroupsRightsMaxAggregateOutputType = {
+    adGroupRightId: number | null
+    adGroupRightName: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AdGroupsRightsCountAggregateOutputType = {
+    adGroupRightId: number
+    adGroupRightName: number
+    createdAt: number
+    createdBy: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type AdGroupsRightsAvgAggregateInputType = {
+    adGroupRightId?: true
+  }
+
+  export type AdGroupsRightsSumAggregateInputType = {
+    adGroupRightId?: true
+  }
+
+  export type AdGroupsRightsMinAggregateInputType = {
+    adGroupRightId?: true
+    adGroupRightName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AdGroupsRightsMaxAggregateInputType = {
+    adGroupRightId?: true
+    adGroupRightName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AdGroupsRightsCountAggregateInputType = {
+    adGroupRightId?: true
+    adGroupRightName?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type AdGroupsRightsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdGroupsRights to aggregate.
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsRights to fetch.
+     */
+    orderBy?: AdGroupsRightsOrderByWithRelationInput | AdGroupsRightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdGroupsRightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsRights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsRights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdGroupsRights
+    **/
+    _count?: true | AdGroupsRightsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdGroupsRightsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdGroupsRightsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdGroupsRightsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdGroupsRightsMaxAggregateInputType
+  }
+
+  export type GetAdGroupsRightsAggregateType<T extends AdGroupsRightsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdGroupsRights]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdGroupsRights[P]>
+      : GetScalarType<T[P], AggregateAdGroupsRights[P]>
+  }
+
+
+
+
+  export type AdGroupsRightsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdGroupsRightsWhereInput
+    orderBy?: AdGroupsRightsOrderByWithAggregationInput | AdGroupsRightsOrderByWithAggregationInput[]
+    by: AdGroupsRightsScalarFieldEnum[] | AdGroupsRightsScalarFieldEnum
+    having?: AdGroupsRightsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdGroupsRightsCountAggregateInputType | true
+    _avg?: AdGroupsRightsAvgAggregateInputType
+    _sum?: AdGroupsRightsSumAggregateInputType
+    _min?: AdGroupsRightsMinAggregateInputType
+    _max?: AdGroupsRightsMaxAggregateInputType
+  }
+
+  export type AdGroupsRightsGroupByOutputType = {
+    adGroupRightId: number
+    adGroupRightName: string
+    createdAt: Date
+    createdBy: string
+    isDeleted: boolean
+    _count: AdGroupsRightsCountAggregateOutputType | null
+    _avg: AdGroupsRightsAvgAggregateOutputType | null
+    _sum: AdGroupsRightsSumAggregateOutputType | null
+    _min: AdGroupsRightsMinAggregateOutputType | null
+    _max: AdGroupsRightsMaxAggregateOutputType | null
+  }
+
+  type GetAdGroupsRightsGroupByPayload<T extends AdGroupsRightsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdGroupsRightsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdGroupsRightsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdGroupsRightsGroupByOutputType[P]>
+            : GetScalarType<T[P], AdGroupsRightsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdGroupsRightsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    adGroupRightId?: boolean
+    adGroupRightName?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+    adGroups?: boolean | AdGroupsRights$adGroupsArgs<ExtArgs>
+    _count?: boolean | AdGroupsRightsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["adGroupsRights"]>
+
+
+
+  export type AdGroupsRightsSelectScalar = {
+    adGroupRightId?: boolean
+    adGroupRightName?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsRightsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"adGroupRightId" | "adGroupRightName" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["adGroupsRights"]>
+  export type AdGroupsRightsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    adGroups?: boolean | AdGroupsRights$adGroupsArgs<ExtArgs>
+    _count?: boolean | AdGroupsRightsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AdGroupsRightsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdGroupsRights"
+    objects: {
+      adGroups: Prisma.$AdGroupsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      adGroupRightId: number
+      adGroupRightName: string
+      createdAt: Date
+      createdBy: string
+      isDeleted: boolean
+    }, ExtArgs["result"]["adGroupsRights"]>
+    composites: {}
+  }
+
+  type AdGroupsRightsGetPayload<S extends boolean | null | undefined | AdGroupsRightsDefaultArgs> = $Result.GetResult<Prisma.$AdGroupsRightsPayload, S>
+
+  type AdGroupsRightsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdGroupsRightsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdGroupsRightsCountAggregateInputType | true
+    }
+
+  export interface AdGroupsRightsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdGroupsRights'], meta: { name: 'AdGroupsRights' } }
+    /**
+     * Find zero or one AdGroupsRights that matches the filter.
+     * @param {AdGroupsRightsFindUniqueArgs} args - Arguments to find a AdGroupsRights
+     * @example
+     * // Get one AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdGroupsRightsFindUniqueArgs>(args: SelectSubset<T, AdGroupsRightsFindUniqueArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdGroupsRights that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdGroupsRightsFindUniqueOrThrowArgs} args - Arguments to find a AdGroupsRights
+     * @example
+     * // Get one AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdGroupsRightsFindUniqueOrThrowArgs>(args: SelectSubset<T, AdGroupsRightsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdGroupsRights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsFindFirstArgs} args - Arguments to find a AdGroupsRights
+     * @example
+     * // Get one AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdGroupsRightsFindFirstArgs>(args?: SelectSubset<T, AdGroupsRightsFindFirstArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdGroupsRights that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsFindFirstOrThrowArgs} args - Arguments to find a AdGroupsRights
+     * @example
+     * // Get one AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdGroupsRightsFindFirstOrThrowArgs>(args?: SelectSubset<T, AdGroupsRightsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdGroupsRights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findMany()
+     * 
+     * // Get first 10 AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.findMany({ take: 10 })
+     * 
+     * // Only select the `adGroupRightId`
+     * const adGroupsRightsWithAdGroupRightIdOnly = await prisma.adGroupsRights.findMany({ select: { adGroupRightId: true } })
+     * 
+     */
+    findMany<T extends AdGroupsRightsFindManyArgs>(args?: SelectSubset<T, AdGroupsRightsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdGroupsRights.
+     * @param {AdGroupsRightsCreateArgs} args - Arguments to create a AdGroupsRights.
+     * @example
+     * // Create one AdGroupsRights
+     * const AdGroupsRights = await prisma.adGroupsRights.create({
+     *   data: {
+     *     // ... data to create a AdGroupsRights
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdGroupsRightsCreateArgs>(args: SelectSubset<T, AdGroupsRightsCreateArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdGroupsRights.
+     * @param {AdGroupsRightsCreateManyArgs} args - Arguments to create many AdGroupsRights.
+     * @example
+     * // Create many AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdGroupsRightsCreateManyArgs>(args?: SelectSubset<T, AdGroupsRightsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdGroupsRights.
+     * @param {AdGroupsRightsDeleteArgs} args - Arguments to delete one AdGroupsRights.
+     * @example
+     * // Delete one AdGroupsRights
+     * const AdGroupsRights = await prisma.adGroupsRights.delete({
+     *   where: {
+     *     // ... filter to delete one AdGroupsRights
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdGroupsRightsDeleteArgs>(args: SelectSubset<T, AdGroupsRightsDeleteArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdGroupsRights.
+     * @param {AdGroupsRightsUpdateArgs} args - Arguments to update one AdGroupsRights.
+     * @example
+     * // Update one AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdGroupsRightsUpdateArgs>(args: SelectSubset<T, AdGroupsRightsUpdateArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdGroupsRights.
+     * @param {AdGroupsRightsDeleteManyArgs} args - Arguments to filter AdGroupsRights to delete.
+     * @example
+     * // Delete a few AdGroupsRights
+     * const { count } = await prisma.adGroupsRights.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdGroupsRightsDeleteManyArgs>(args?: SelectSubset<T, AdGroupsRightsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdGroupsRights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdGroupsRightsUpdateManyArgs>(args: SelectSubset<T, AdGroupsRightsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdGroupsRights.
+     * @param {AdGroupsRightsUpsertArgs} args - Arguments to update or create a AdGroupsRights.
+     * @example
+     * // Update or create a AdGroupsRights
+     * const adGroupsRights = await prisma.adGroupsRights.upsert({
+     *   create: {
+     *     // ... data to create a AdGroupsRights
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdGroupsRights we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdGroupsRightsUpsertArgs>(args: SelectSubset<T, AdGroupsRightsUpsertArgs<ExtArgs>>): Prisma__AdGroupsRightsClient<$Result.GetResult<Prisma.$AdGroupsRightsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AdGroupsRights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsCountArgs} args - Arguments to filter AdGroupsRights to count.
+     * @example
+     * // Count the number of AdGroupsRights
+     * const count = await prisma.adGroupsRights.count({
+     *   where: {
+     *     // ... the filter for the AdGroupsRights we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdGroupsRightsCountArgs>(
+      args?: Subset<T, AdGroupsRightsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdGroupsRightsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdGroupsRights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdGroupsRightsAggregateArgs>(args: Subset<T, AdGroupsRightsAggregateArgs>): Prisma.PrismaPromise<GetAdGroupsRightsAggregateType<T>>
+
+    /**
+     * Group by AdGroupsRights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdGroupsRightsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdGroupsRightsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdGroupsRightsGroupByArgs['orderBy'] }
+        : { orderBy?: AdGroupsRightsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdGroupsRightsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdGroupsRightsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdGroupsRights model
+   */
+  readonly fields: AdGroupsRightsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdGroupsRights.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdGroupsRightsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    adGroups<T extends AdGroupsRights$adGroupsArgs<ExtArgs> = {}>(args?: Subset<T, AdGroupsRights$adGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdGroupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdGroupsRights model
+   */
+  interface AdGroupsRightsFieldRefs {
+    readonly adGroupRightId: FieldRef<"AdGroupsRights", 'Int'>
+    readonly adGroupRightName: FieldRef<"AdGroupsRights", 'String'>
+    readonly createdAt: FieldRef<"AdGroupsRights", 'DateTime'>
+    readonly createdBy: FieldRef<"AdGroupsRights", 'String'>
+    readonly isDeleted: FieldRef<"AdGroupsRights", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdGroupsRights findUnique
+   */
+  export type AdGroupsRightsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsRights to fetch.
+     */
+    where: AdGroupsRightsWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsRights findUniqueOrThrow
+   */
+  export type AdGroupsRightsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsRights to fetch.
+     */
+    where: AdGroupsRightsWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsRights findFirst
+   */
+  export type AdGroupsRightsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsRights to fetch.
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsRights to fetch.
+     */
+    orderBy?: AdGroupsRightsOrderByWithRelationInput | AdGroupsRightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdGroupsRights.
+     */
+    cursor?: AdGroupsRightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsRights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsRights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdGroupsRights.
+     */
+    distinct?: AdGroupsRightsScalarFieldEnum | AdGroupsRightsScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsRights findFirstOrThrow
+   */
+  export type AdGroupsRightsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsRights to fetch.
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsRights to fetch.
+     */
+    orderBy?: AdGroupsRightsOrderByWithRelationInput | AdGroupsRightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdGroupsRights.
+     */
+    cursor?: AdGroupsRightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsRights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsRights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdGroupsRights.
+     */
+    distinct?: AdGroupsRightsScalarFieldEnum | AdGroupsRightsScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsRights findMany
+   */
+  export type AdGroupsRightsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter, which AdGroupsRights to fetch.
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdGroupsRights to fetch.
+     */
+    orderBy?: AdGroupsRightsOrderByWithRelationInput | AdGroupsRightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdGroupsRights.
+     */
+    cursor?: AdGroupsRightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdGroupsRights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdGroupsRights.
+     */
+    skip?: number
+    distinct?: AdGroupsRightsScalarFieldEnum | AdGroupsRightsScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsRights create
+   */
+  export type AdGroupsRightsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdGroupsRights.
+     */
+    data: XOR<AdGroupsRightsCreateInput, AdGroupsRightsUncheckedCreateInput>
+  }
+
+  /**
+   * AdGroupsRights createMany
+   */
+  export type AdGroupsRightsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdGroupsRights.
+     */
+    data: AdGroupsRightsCreateManyInput | AdGroupsRightsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdGroupsRights update
+   */
+  export type AdGroupsRightsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdGroupsRights.
+     */
+    data: XOR<AdGroupsRightsUpdateInput, AdGroupsRightsUncheckedUpdateInput>
+    /**
+     * Choose, which AdGroupsRights to update.
+     */
+    where: AdGroupsRightsWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsRights updateMany
+   */
+  export type AdGroupsRightsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdGroupsRights.
+     */
+    data: XOR<AdGroupsRightsUpdateManyMutationInput, AdGroupsRightsUncheckedUpdateManyInput>
+    /**
+     * Filter which AdGroupsRights to update
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * Limit how many AdGroupsRights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdGroupsRights upsert
+   */
+  export type AdGroupsRightsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdGroupsRights to update in case it exists.
+     */
+    where: AdGroupsRightsWhereUniqueInput
+    /**
+     * In case the AdGroupsRights found by the `where` argument doesn't exist, create a new AdGroupsRights with this data.
+     */
+    create: XOR<AdGroupsRightsCreateInput, AdGroupsRightsUncheckedCreateInput>
+    /**
+     * In case the AdGroupsRights was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdGroupsRightsUpdateInput, AdGroupsRightsUncheckedUpdateInput>
+  }
+
+  /**
+   * AdGroupsRights delete
+   */
+  export type AdGroupsRightsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
+    /**
+     * Filter which AdGroupsRights to delete.
+     */
+    where: AdGroupsRightsWhereUniqueInput
+  }
+
+  /**
+   * AdGroupsRights deleteMany
+   */
+  export type AdGroupsRightsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdGroupsRights to delete
+     */
+    where?: AdGroupsRightsWhereInput
+    /**
+     * Limit how many AdGroupsRights to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdGroupsRights.adGroups
+   */
+  export type AdGroupsRights$adGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroups
+     */
+    select?: AdGroupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroups
+     */
+    omit?: AdGroupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsInclude<ExtArgs> | null
+    where?: AdGroupsWhereInput
+    orderBy?: AdGroupsOrderByWithRelationInput | AdGroupsOrderByWithRelationInput[]
+    cursor?: AdGroupsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdGroupsScalarFieldEnum | AdGroupsScalarFieldEnum[]
+  }
+
+  /**
+   * AdGroupsRights without action
+   */
+  export type AdGroupsRightsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdGroupsRights
+     */
+    select?: AdGroupsRightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdGroupsRights
+     */
+    omit?: AdGroupsRightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdGroupsRightsInclude<ExtArgs> | null
   }
 
 
@@ -17652,6 +19896,7 @@ export namespace Prisma {
     userLastName: 'userLastName',
     userCode: 'userCode',
     languageId: 'languageId',
+    isActive: 'isActive',
     createdAt: 'createdAt',
     createdBy: 'createdBy',
     isDeleted: 'isDeleted'
@@ -17687,13 +19932,36 @@ export namespace Prisma {
 
   export const AdGroupsScalarFieldEnum: {
     adGroupId: 'adGroupId',
-    adGroupName: 'adGroupName',
+    adGroupFamilyId: 'adGroupFamilyId',
+    adGroupRightId: 'adGroupRightId',
     createdAt: 'createdAt',
     createdBy: 'createdBy',
     isDeleted: 'isDeleted'
   };
 
   export type AdGroupsScalarFieldEnum = (typeof AdGroupsScalarFieldEnum)[keyof typeof AdGroupsScalarFieldEnum]
+
+
+  export const AdGroupsFamiliesScalarFieldEnum: {
+    adGroupFamilyId: 'adGroupFamilyId',
+    adGroupFamilyName: 'adGroupFamilyName',
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    isDeleted: 'isDeleted'
+  };
+
+  export type AdGroupsFamiliesScalarFieldEnum = (typeof AdGroupsFamiliesScalarFieldEnum)[keyof typeof AdGroupsFamiliesScalarFieldEnum]
+
+
+  export const AdGroupsRightsScalarFieldEnum: {
+    adGroupRightId: 'adGroupRightId',
+    adGroupRightName: 'adGroupRightName',
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    isDeleted: 'isDeleted'
+  };
+
+  export type AdGroupsRightsScalarFieldEnum = (typeof AdGroupsRightsScalarFieldEnum)[keyof typeof AdGroupsRightsScalarFieldEnum]
 
 
   export const UsersAdGroupsScalarFieldEnum: {
@@ -17827,11 +20095,26 @@ export namespace Prisma {
 
 
   export const AdGroupsOrderByRelevanceFieldEnum: {
-    adGroupName: 'adGroupName',
     createdBy: 'createdBy'
   };
 
   export type AdGroupsOrderByRelevanceFieldEnum = (typeof AdGroupsOrderByRelevanceFieldEnum)[keyof typeof AdGroupsOrderByRelevanceFieldEnum]
+
+
+  export const AdGroupsFamiliesOrderByRelevanceFieldEnum: {
+    adGroupFamilyName: 'adGroupFamilyName',
+    createdBy: 'createdBy'
+  };
+
+  export type AdGroupsFamiliesOrderByRelevanceFieldEnum = (typeof AdGroupsFamiliesOrderByRelevanceFieldEnum)[keyof typeof AdGroupsFamiliesOrderByRelevanceFieldEnum]
+
+
+  export const AdGroupsRightsOrderByRelevanceFieldEnum: {
+    adGroupRightName: 'adGroupRightName',
+    createdBy: 'createdBy'
+  };
+
+  export type AdGroupsRightsOrderByRelevanceFieldEnum = (typeof AdGroupsRightsOrderByRelevanceFieldEnum)[keyof typeof AdGroupsRightsOrderByRelevanceFieldEnum]
 
 
   export const UsersAdGroupsOrderByRelevanceFieldEnum: {
@@ -18573,6 +20856,7 @@ export namespace Prisma {
     userLastName?: StringFilter<"Users"> | string
     userCode?: StringFilter<"Users"> | string
     languageId?: IntFilter<"Users"> | number
+    isActive?: BoolFilter<"Users"> | boolean
     createdAt?: DateTimeFilter<"Users"> | Date | string
     createdBy?: StringFilter<"Users"> | string
     isDeleted?: BoolFilter<"Users"> | boolean
@@ -18587,6 +20871,7 @@ export namespace Prisma {
     userLastName?: SortOrder
     userCode?: SortOrder
     languageId?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -18605,6 +20890,7 @@ export namespace Prisma {
     userLastName?: StringFilter<"Users"> | string
     userCode?: StringFilter<"Users"> | string
     languageId?: IntFilter<"Users"> | number
+    isActive?: BoolFilter<"Users"> | boolean
     createdAt?: DateTimeFilter<"Users"> | Date | string
     createdBy?: StringFilter<"Users"> | string
     isDeleted?: BoolFilter<"Users"> | boolean
@@ -18619,6 +20905,7 @@ export namespace Prisma {
     userLastName?: SortOrder
     userCode?: SortOrder
     languageId?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -18638,6 +20925,7 @@ export namespace Prisma {
     userLastName?: StringWithAggregatesFilter<"Users"> | string
     userCode?: StringWithAggregatesFilter<"Users"> | string
     languageId?: IntWithAggregatesFilter<"Users"> | number
+    isActive?: BoolWithAggregatesFilter<"Users"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Users"> | Date | string
     createdBy?: StringWithAggregatesFilter<"Users"> | string
     isDeleted?: BoolWithAggregatesFilter<"Users"> | boolean
@@ -18737,16 +21025,16 @@ export namespace Prisma {
 
   export type LanguagesWhereUniqueInput = Prisma.AtLeast<{
     languageId?: number
+    languageCode?: string
     AND?: LanguagesWhereInput | LanguagesWhereInput[]
     OR?: LanguagesWhereInput[]
     NOT?: LanguagesWhereInput | LanguagesWhereInput[]
     languageName?: StringFilter<"Languages"> | string
-    languageCode?: StringFilter<"Languages"> | string
     createdAt?: DateTimeFilter<"Languages"> | Date | string
     createdBy?: StringFilter<"Languages"> | string
     isDeleted?: BoolFilter<"Languages"> | boolean
     users?: UsersListRelationFilter
-  }, "languageId">
+  }, "languageId" | "languageCode">
 
   export type LanguagesOrderByWithAggregationInput = {
     languageId?: SortOrder
@@ -18779,19 +21067,25 @@ export namespace Prisma {
     OR?: AdGroupsWhereInput[]
     NOT?: AdGroupsWhereInput | AdGroupsWhereInput[]
     adGroupId?: IntFilter<"AdGroups"> | number
-    adGroupName?: StringFilter<"AdGroups"> | string
+    adGroupFamilyId?: IntFilter<"AdGroups"> | number
+    adGroupRightId?: IntFilter<"AdGroups"> | number
     createdAt?: DateTimeFilter<"AdGroups"> | Date | string
     createdBy?: StringFilter<"AdGroups"> | string
     isDeleted?: BoolFilter<"AdGroups"> | boolean
+    adGroupFamily?: XOR<AdGroupsFamiliesScalarRelationFilter, AdGroupsFamiliesWhereInput>
+    adGroupRight?: XOR<AdGroupsRightsScalarRelationFilter, AdGroupsRightsWhereInput>
     userGroups?: UsersAdGroupsListRelationFilter
   }
 
   export type AdGroupsOrderByWithRelationInput = {
     adGroupId?: SortOrder
-    adGroupName?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
+    adGroupFamily?: AdGroupsFamiliesOrderByWithRelationInput
+    adGroupRight?: AdGroupsRightsOrderByWithRelationInput
     userGroups?: UsersAdGroupsOrderByRelationAggregateInput
     _relevance?: AdGroupsOrderByRelevanceInput
   }
@@ -18801,16 +21095,20 @@ export namespace Prisma {
     AND?: AdGroupsWhereInput | AdGroupsWhereInput[]
     OR?: AdGroupsWhereInput[]
     NOT?: AdGroupsWhereInput | AdGroupsWhereInput[]
-    adGroupName?: StringFilter<"AdGroups"> | string
+    adGroupFamilyId?: IntFilter<"AdGroups"> | number
+    adGroupRightId?: IntFilter<"AdGroups"> | number
     createdAt?: DateTimeFilter<"AdGroups"> | Date | string
     createdBy?: StringFilter<"AdGroups"> | string
     isDeleted?: BoolFilter<"AdGroups"> | boolean
+    adGroupFamily?: XOR<AdGroupsFamiliesScalarRelationFilter, AdGroupsFamiliesWhereInput>
+    adGroupRight?: XOR<AdGroupsRightsScalarRelationFilter, AdGroupsRightsWhereInput>
     userGroups?: UsersAdGroupsListRelationFilter
   }, "adGroupId">
 
   export type AdGroupsOrderByWithAggregationInput = {
     adGroupId?: SortOrder
-    adGroupName?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -18826,10 +21124,127 @@ export namespace Prisma {
     OR?: AdGroupsScalarWhereWithAggregatesInput[]
     NOT?: AdGroupsScalarWhereWithAggregatesInput | AdGroupsScalarWhereWithAggregatesInput[]
     adGroupId?: IntWithAggregatesFilter<"AdGroups"> | number
-    adGroupName?: StringWithAggregatesFilter<"AdGroups"> | string
+    adGroupFamilyId?: IntWithAggregatesFilter<"AdGroups"> | number
+    adGroupRightId?: IntWithAggregatesFilter<"AdGroups"> | number
     createdAt?: DateTimeWithAggregatesFilter<"AdGroups"> | Date | string
     createdBy?: StringWithAggregatesFilter<"AdGroups"> | string
     isDeleted?: BoolWithAggregatesFilter<"AdGroups"> | boolean
+  }
+
+  export type AdGroupsFamiliesWhereInput = {
+    AND?: AdGroupsFamiliesWhereInput | AdGroupsFamiliesWhereInput[]
+    OR?: AdGroupsFamiliesWhereInput[]
+    NOT?: AdGroupsFamiliesWhereInput | AdGroupsFamiliesWhereInput[]
+    adGroupFamilyId?: IntFilter<"AdGroupsFamilies"> | number
+    adGroupFamilyName?: StringFilter<"AdGroupsFamilies"> | string
+    createdAt?: DateTimeFilter<"AdGroupsFamilies"> | Date | string
+    createdBy?: StringFilter<"AdGroupsFamilies"> | string
+    isDeleted?: BoolFilter<"AdGroupsFamilies"> | boolean
+    adGroups?: AdGroupsListRelationFilter
+  }
+
+  export type AdGroupsFamiliesOrderByWithRelationInput = {
+    adGroupFamilyId?: SortOrder
+    adGroupFamilyName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    adGroups?: AdGroupsOrderByRelationAggregateInput
+    _relevance?: AdGroupsFamiliesOrderByRelevanceInput
+  }
+
+  export type AdGroupsFamiliesWhereUniqueInput = Prisma.AtLeast<{
+    adGroupFamilyId?: number
+    AND?: AdGroupsFamiliesWhereInput | AdGroupsFamiliesWhereInput[]
+    OR?: AdGroupsFamiliesWhereInput[]
+    NOT?: AdGroupsFamiliesWhereInput | AdGroupsFamiliesWhereInput[]
+    adGroupFamilyName?: StringFilter<"AdGroupsFamilies"> | string
+    createdAt?: DateTimeFilter<"AdGroupsFamilies"> | Date | string
+    createdBy?: StringFilter<"AdGroupsFamilies"> | string
+    isDeleted?: BoolFilter<"AdGroupsFamilies"> | boolean
+    adGroups?: AdGroupsListRelationFilter
+  }, "adGroupFamilyId">
+
+  export type AdGroupsFamiliesOrderByWithAggregationInput = {
+    adGroupFamilyId?: SortOrder
+    adGroupFamilyName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _count?: AdGroupsFamiliesCountOrderByAggregateInput
+    _avg?: AdGroupsFamiliesAvgOrderByAggregateInput
+    _max?: AdGroupsFamiliesMaxOrderByAggregateInput
+    _min?: AdGroupsFamiliesMinOrderByAggregateInput
+    _sum?: AdGroupsFamiliesSumOrderByAggregateInput
+  }
+
+  export type AdGroupsFamiliesScalarWhereWithAggregatesInput = {
+    AND?: AdGroupsFamiliesScalarWhereWithAggregatesInput | AdGroupsFamiliesScalarWhereWithAggregatesInput[]
+    OR?: AdGroupsFamiliesScalarWhereWithAggregatesInput[]
+    NOT?: AdGroupsFamiliesScalarWhereWithAggregatesInput | AdGroupsFamiliesScalarWhereWithAggregatesInput[]
+    adGroupFamilyId?: IntWithAggregatesFilter<"AdGroupsFamilies"> | number
+    adGroupFamilyName?: StringWithAggregatesFilter<"AdGroupsFamilies"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AdGroupsFamilies"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"AdGroupsFamilies"> | string
+    isDeleted?: BoolWithAggregatesFilter<"AdGroupsFamilies"> | boolean
+  }
+
+  export type AdGroupsRightsWhereInput = {
+    AND?: AdGroupsRightsWhereInput | AdGroupsRightsWhereInput[]
+    OR?: AdGroupsRightsWhereInput[]
+    NOT?: AdGroupsRightsWhereInput | AdGroupsRightsWhereInput[]
+    adGroupRightId?: IntFilter<"AdGroupsRights"> | number
+    adGroupRightName?: StringFilter<"AdGroupsRights"> | string
+    createdAt?: DateTimeFilter<"AdGroupsRights"> | Date | string
+    createdBy?: StringFilter<"AdGroupsRights"> | string
+    isDeleted?: BoolFilter<"AdGroupsRights"> | boolean
+    adGroups?: AdGroupsListRelationFilter
+  }
+
+  export type AdGroupsRightsOrderByWithRelationInput = {
+    adGroupRightId?: SortOrder
+    adGroupRightName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    adGroups?: AdGroupsOrderByRelationAggregateInput
+    _relevance?: AdGroupsRightsOrderByRelevanceInput
+  }
+
+  export type AdGroupsRightsWhereUniqueInput = Prisma.AtLeast<{
+    adGroupRightId?: number
+    AND?: AdGroupsRightsWhereInput | AdGroupsRightsWhereInput[]
+    OR?: AdGroupsRightsWhereInput[]
+    NOT?: AdGroupsRightsWhereInput | AdGroupsRightsWhereInput[]
+    adGroupRightName?: StringFilter<"AdGroupsRights"> | string
+    createdAt?: DateTimeFilter<"AdGroupsRights"> | Date | string
+    createdBy?: StringFilter<"AdGroupsRights"> | string
+    isDeleted?: BoolFilter<"AdGroupsRights"> | boolean
+    adGroups?: AdGroupsListRelationFilter
+  }, "adGroupRightId">
+
+  export type AdGroupsRightsOrderByWithAggregationInput = {
+    adGroupRightId?: SortOrder
+    adGroupRightName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _count?: AdGroupsRightsCountOrderByAggregateInput
+    _avg?: AdGroupsRightsAvgOrderByAggregateInput
+    _max?: AdGroupsRightsMaxOrderByAggregateInput
+    _min?: AdGroupsRightsMinOrderByAggregateInput
+    _sum?: AdGroupsRightsSumOrderByAggregateInput
+  }
+
+  export type AdGroupsRightsScalarWhereWithAggregatesInput = {
+    AND?: AdGroupsRightsScalarWhereWithAggregatesInput | AdGroupsRightsScalarWhereWithAggregatesInput[]
+    OR?: AdGroupsRightsScalarWhereWithAggregatesInput[]
+    NOT?: AdGroupsRightsScalarWhereWithAggregatesInput | AdGroupsRightsScalarWhereWithAggregatesInput[]
+    adGroupRightId?: IntWithAggregatesFilter<"AdGroupsRights"> | number
+    adGroupRightName?: StringWithAggregatesFilter<"AdGroupsRights"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AdGroupsRights"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"AdGroupsRights"> | string
+    isDeleted?: BoolWithAggregatesFilter<"AdGroupsRights"> | boolean
   }
 
   export type UsersAdGroupsWhereInput = {
@@ -19560,6 +21975,7 @@ export namespace Prisma {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -19574,6 +21990,7 @@ export namespace Prisma {
     userLastName: string
     userCode: string
     languageId: number
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -19585,6 +22002,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19599,6 +22017,7 @@ export namespace Prisma {
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
     languageId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19612,6 +22031,7 @@ export namespace Prisma {
     userLastName: string
     userCode: string
     languageId: number
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -19621,6 +22041,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19632,6 +22053,7 @@ export namespace Prisma {
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
     languageId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19768,16 +22190,18 @@ export namespace Prisma {
   }
 
   export type AdGroupsCreateInput = {
-    adGroupName: string
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
+    adGroupFamily: AdGroupsFamiliesCreateNestedOneWithoutAdGroupsInput
+    adGroupRight: AdGroupsRightsCreateNestedOneWithoutAdGroupsInput
     userGroups?: UsersAdGroupsCreateNestedManyWithoutAdGroupInput
   }
 
   export type AdGroupsUncheckedCreateInput = {
     adGroupId?: number
-    adGroupName: string
+    adGroupFamilyId: number
+    adGroupRightId: number
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -19785,16 +22209,18 @@ export namespace Prisma {
   }
 
   export type AdGroupsUpdateInput = {
-    adGroupName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroupFamily?: AdGroupsFamiliesUpdateOneRequiredWithoutAdGroupsNestedInput
+    adGroupRight?: AdGroupsRightsUpdateOneRequiredWithoutAdGroupsNestedInput
     userGroups?: UsersAdGroupsUpdateManyWithoutAdGroupNestedInput
   }
 
   export type AdGroupsUncheckedUpdateInput = {
     adGroupId?: IntFieldUpdateOperationsInput | number
-    adGroupName?: StringFieldUpdateOperationsInput | string
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19803,14 +22229,14 @@ export namespace Prisma {
 
   export type AdGroupsCreateManyInput = {
     adGroupId?: number
-    adGroupName: string
+    adGroupFamilyId: number
+    adGroupRightId: number
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
   }
 
   export type AdGroupsUpdateManyMutationInput = {
-    adGroupName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -19818,7 +22244,122 @@ export namespace Prisma {
 
   export type AdGroupsUncheckedUpdateManyInput = {
     adGroupId?: IntFieldUpdateOperationsInput | number
-    adGroupName?: StringFieldUpdateOperationsInput | string
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsFamiliesCreateInput = {
+    adGroupFamilyName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroups?: AdGroupsCreateNestedManyWithoutAdGroupFamilyInput
+  }
+
+  export type AdGroupsFamiliesUncheckedCreateInput = {
+    adGroupFamilyId?: number
+    adGroupFamilyName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroups?: AdGroupsUncheckedCreateNestedManyWithoutAdGroupFamilyInput
+  }
+
+  export type AdGroupsFamiliesUpdateInput = {
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroups?: AdGroupsUpdateManyWithoutAdGroupFamilyNestedInput
+  }
+
+  export type AdGroupsFamiliesUncheckedUpdateInput = {
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroups?: AdGroupsUncheckedUpdateManyWithoutAdGroupFamilyNestedInput
+  }
+
+  export type AdGroupsFamiliesCreateManyInput = {
+    adGroupFamilyId?: number
+    adGroupFamilyName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsFamiliesUpdateManyMutationInput = {
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsFamiliesUncheckedUpdateManyInput = {
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsRightsCreateInput = {
+    adGroupRightName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroups?: AdGroupsCreateNestedManyWithoutAdGroupRightInput
+  }
+
+  export type AdGroupsRightsUncheckedCreateInput = {
+    adGroupRightId?: number
+    adGroupRightName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroups?: AdGroupsUncheckedCreateNestedManyWithoutAdGroupRightInput
+  }
+
+  export type AdGroupsRightsUpdateInput = {
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroups?: AdGroupsUpdateManyWithoutAdGroupRightNestedInput
+  }
+
+  export type AdGroupsRightsUncheckedUpdateInput = {
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroups?: AdGroupsUncheckedUpdateManyWithoutAdGroupRightNestedInput
+  }
+
+  export type AdGroupsRightsCreateManyInput = {
+    adGroupRightId?: number
+    adGroupRightName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsRightsUpdateManyMutationInput = {
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsRightsUncheckedUpdateManyInput = {
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -20556,6 +23097,7 @@ export namespace Prisma {
     userLastName?: SortOrder
     userCode?: SortOrder
     languageId?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20572,6 +23114,7 @@ export namespace Prisma {
     userLastName?: SortOrder
     userCode?: SortOrder
     languageId?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20583,6 +23126,7 @@ export namespace Prisma {
     userLastName?: SortOrder
     userCode?: SortOrder
     languageId?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20695,6 +23239,16 @@ export namespace Prisma {
     languageId?: SortOrder
   }
 
+  export type AdGroupsFamiliesScalarRelationFilter = {
+    is?: AdGroupsFamiliesWhereInput
+    isNot?: AdGroupsFamiliesWhereInput
+  }
+
+  export type AdGroupsRightsScalarRelationFilter = {
+    is?: AdGroupsRightsWhereInput
+    isNot?: AdGroupsRightsWhereInput
+  }
+
   export type AdGroupsOrderByRelevanceInput = {
     fields: AdGroupsOrderByRelevanceFieldEnum | AdGroupsOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -20703,7 +23257,8 @@ export namespace Prisma {
 
   export type AdGroupsCountOrderByAggregateInput = {
     adGroupId?: SortOrder
-    adGroupName?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20711,11 +23266,14 @@ export namespace Prisma {
 
   export type AdGroupsAvgOrderByAggregateInput = {
     adGroupId?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
   }
 
   export type AdGroupsMaxOrderByAggregateInput = {
     adGroupId?: SortOrder
-    adGroupName?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20723,7 +23281,8 @@ export namespace Prisma {
 
   export type AdGroupsMinOrderByAggregateInput = {
     adGroupId?: SortOrder
-    adGroupName?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
     isDeleted?: SortOrder
@@ -20731,6 +23290,94 @@ export namespace Prisma {
 
   export type AdGroupsSumOrderByAggregateInput = {
     adGroupId?: SortOrder
+    adGroupFamilyId?: SortOrder
+    adGroupRightId?: SortOrder
+  }
+
+  export type AdGroupsListRelationFilter = {
+    every?: AdGroupsWhereInput
+    some?: AdGroupsWhereInput
+    none?: AdGroupsWhereInput
+  }
+
+  export type AdGroupsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AdGroupsFamiliesOrderByRelevanceInput = {
+    fields: AdGroupsFamiliesOrderByRelevanceFieldEnum | AdGroupsFamiliesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type AdGroupsFamiliesCountOrderByAggregateInput = {
+    adGroupFamilyId?: SortOrder
+    adGroupFamilyName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsFamiliesAvgOrderByAggregateInput = {
+    adGroupFamilyId?: SortOrder
+  }
+
+  export type AdGroupsFamiliesMaxOrderByAggregateInput = {
+    adGroupFamilyId?: SortOrder
+    adGroupFamilyName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsFamiliesMinOrderByAggregateInput = {
+    adGroupFamilyId?: SortOrder
+    adGroupFamilyName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsFamiliesSumOrderByAggregateInput = {
+    adGroupFamilyId?: SortOrder
+  }
+
+  export type AdGroupsRightsOrderByRelevanceInput = {
+    fields: AdGroupsRightsOrderByRelevanceFieldEnum | AdGroupsRightsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type AdGroupsRightsCountOrderByAggregateInput = {
+    adGroupRightId?: SortOrder
+    adGroupRightName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsRightsAvgOrderByAggregateInput = {
+    adGroupRightId?: SortOrder
+  }
+
+  export type AdGroupsRightsMaxOrderByAggregateInput = {
+    adGroupRightId?: SortOrder
+    adGroupRightName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsRightsMinOrderByAggregateInput = {
+    adGroupRightId?: SortOrder
+    adGroupRightName?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AdGroupsRightsSumOrderByAggregateInput = {
+    adGroupRightId?: SortOrder
   }
 
   export type AdGroupsScalarRelationFilter = {
@@ -21497,6 +24144,18 @@ export namespace Prisma {
     deleteMany?: UsersScalarWhereInput | UsersScalarWhereInput[]
   }
 
+  export type AdGroupsFamiliesCreateNestedOneWithoutAdGroupsInput = {
+    create?: XOR<AdGroupsFamiliesCreateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedCreateWithoutAdGroupsInput>
+    connectOrCreate?: AdGroupsFamiliesCreateOrConnectWithoutAdGroupsInput
+    connect?: AdGroupsFamiliesWhereUniqueInput
+  }
+
+  export type AdGroupsRightsCreateNestedOneWithoutAdGroupsInput = {
+    create?: XOR<AdGroupsRightsCreateWithoutAdGroupsInput, AdGroupsRightsUncheckedCreateWithoutAdGroupsInput>
+    connectOrCreate?: AdGroupsRightsCreateOrConnectWithoutAdGroupsInput
+    connect?: AdGroupsRightsWhereUniqueInput
+  }
+
   export type UsersAdGroupsCreateNestedManyWithoutAdGroupInput = {
     create?: XOR<UsersAdGroupsCreateWithoutAdGroupInput, UsersAdGroupsUncheckedCreateWithoutAdGroupInput> | UsersAdGroupsCreateWithoutAdGroupInput[] | UsersAdGroupsUncheckedCreateWithoutAdGroupInput[]
     connectOrCreate?: UsersAdGroupsCreateOrConnectWithoutAdGroupInput | UsersAdGroupsCreateOrConnectWithoutAdGroupInput[]
@@ -21509,6 +24168,22 @@ export namespace Prisma {
     connectOrCreate?: UsersAdGroupsCreateOrConnectWithoutAdGroupInput | UsersAdGroupsCreateOrConnectWithoutAdGroupInput[]
     createMany?: UsersAdGroupsCreateManyAdGroupInputEnvelope
     connect?: UsersAdGroupsWhereUniqueInput | UsersAdGroupsWhereUniqueInput[]
+  }
+
+  export type AdGroupsFamiliesUpdateOneRequiredWithoutAdGroupsNestedInput = {
+    create?: XOR<AdGroupsFamiliesCreateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedCreateWithoutAdGroupsInput>
+    connectOrCreate?: AdGroupsFamiliesCreateOrConnectWithoutAdGroupsInput
+    upsert?: AdGroupsFamiliesUpsertWithoutAdGroupsInput
+    connect?: AdGroupsFamiliesWhereUniqueInput
+    update?: XOR<XOR<AdGroupsFamiliesUpdateToOneWithWhereWithoutAdGroupsInput, AdGroupsFamiliesUpdateWithoutAdGroupsInput>, AdGroupsFamiliesUncheckedUpdateWithoutAdGroupsInput>
+  }
+
+  export type AdGroupsRightsUpdateOneRequiredWithoutAdGroupsNestedInput = {
+    create?: XOR<AdGroupsRightsCreateWithoutAdGroupsInput, AdGroupsRightsUncheckedCreateWithoutAdGroupsInput>
+    connectOrCreate?: AdGroupsRightsCreateOrConnectWithoutAdGroupsInput
+    upsert?: AdGroupsRightsUpsertWithoutAdGroupsInput
+    connect?: AdGroupsRightsWhereUniqueInput
+    update?: XOR<XOR<AdGroupsRightsUpdateToOneWithWhereWithoutAdGroupsInput, AdGroupsRightsUpdateWithoutAdGroupsInput>, AdGroupsRightsUncheckedUpdateWithoutAdGroupsInput>
   }
 
   export type UsersAdGroupsUpdateManyWithoutAdGroupNestedInput = {
@@ -21537,6 +24212,90 @@ export namespace Prisma {
     update?: UsersAdGroupsUpdateWithWhereUniqueWithoutAdGroupInput | UsersAdGroupsUpdateWithWhereUniqueWithoutAdGroupInput[]
     updateMany?: UsersAdGroupsUpdateManyWithWhereWithoutAdGroupInput | UsersAdGroupsUpdateManyWithWhereWithoutAdGroupInput[]
     deleteMany?: UsersAdGroupsScalarWhereInput | UsersAdGroupsScalarWhereInput[]
+  }
+
+  export type AdGroupsCreateNestedManyWithoutAdGroupFamilyInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput> | AdGroupsCreateWithoutAdGroupFamilyInput[] | AdGroupsUncheckedCreateWithoutAdGroupFamilyInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupFamilyInput | AdGroupsCreateOrConnectWithoutAdGroupFamilyInput[]
+    createMany?: AdGroupsCreateManyAdGroupFamilyInputEnvelope
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+  }
+
+  export type AdGroupsUncheckedCreateNestedManyWithoutAdGroupFamilyInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput> | AdGroupsCreateWithoutAdGroupFamilyInput[] | AdGroupsUncheckedCreateWithoutAdGroupFamilyInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupFamilyInput | AdGroupsCreateOrConnectWithoutAdGroupFamilyInput[]
+    createMany?: AdGroupsCreateManyAdGroupFamilyInputEnvelope
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+  }
+
+  export type AdGroupsUpdateManyWithoutAdGroupFamilyNestedInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput> | AdGroupsCreateWithoutAdGroupFamilyInput[] | AdGroupsUncheckedCreateWithoutAdGroupFamilyInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupFamilyInput | AdGroupsCreateOrConnectWithoutAdGroupFamilyInput[]
+    upsert?: AdGroupsUpsertWithWhereUniqueWithoutAdGroupFamilyInput | AdGroupsUpsertWithWhereUniqueWithoutAdGroupFamilyInput[]
+    createMany?: AdGroupsCreateManyAdGroupFamilyInputEnvelope
+    set?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    disconnect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    delete?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    update?: AdGroupsUpdateWithWhereUniqueWithoutAdGroupFamilyInput | AdGroupsUpdateWithWhereUniqueWithoutAdGroupFamilyInput[]
+    updateMany?: AdGroupsUpdateManyWithWhereWithoutAdGroupFamilyInput | AdGroupsUpdateManyWithWhereWithoutAdGroupFamilyInput[]
+    deleteMany?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
+  }
+
+  export type AdGroupsUncheckedUpdateManyWithoutAdGroupFamilyNestedInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput> | AdGroupsCreateWithoutAdGroupFamilyInput[] | AdGroupsUncheckedCreateWithoutAdGroupFamilyInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupFamilyInput | AdGroupsCreateOrConnectWithoutAdGroupFamilyInput[]
+    upsert?: AdGroupsUpsertWithWhereUniqueWithoutAdGroupFamilyInput | AdGroupsUpsertWithWhereUniqueWithoutAdGroupFamilyInput[]
+    createMany?: AdGroupsCreateManyAdGroupFamilyInputEnvelope
+    set?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    disconnect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    delete?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    update?: AdGroupsUpdateWithWhereUniqueWithoutAdGroupFamilyInput | AdGroupsUpdateWithWhereUniqueWithoutAdGroupFamilyInput[]
+    updateMany?: AdGroupsUpdateManyWithWhereWithoutAdGroupFamilyInput | AdGroupsUpdateManyWithWhereWithoutAdGroupFamilyInput[]
+    deleteMany?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
+  }
+
+  export type AdGroupsCreateNestedManyWithoutAdGroupRightInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput> | AdGroupsCreateWithoutAdGroupRightInput[] | AdGroupsUncheckedCreateWithoutAdGroupRightInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupRightInput | AdGroupsCreateOrConnectWithoutAdGroupRightInput[]
+    createMany?: AdGroupsCreateManyAdGroupRightInputEnvelope
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+  }
+
+  export type AdGroupsUncheckedCreateNestedManyWithoutAdGroupRightInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput> | AdGroupsCreateWithoutAdGroupRightInput[] | AdGroupsUncheckedCreateWithoutAdGroupRightInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupRightInput | AdGroupsCreateOrConnectWithoutAdGroupRightInput[]
+    createMany?: AdGroupsCreateManyAdGroupRightInputEnvelope
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+  }
+
+  export type AdGroupsUpdateManyWithoutAdGroupRightNestedInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput> | AdGroupsCreateWithoutAdGroupRightInput[] | AdGroupsUncheckedCreateWithoutAdGroupRightInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupRightInput | AdGroupsCreateOrConnectWithoutAdGroupRightInput[]
+    upsert?: AdGroupsUpsertWithWhereUniqueWithoutAdGroupRightInput | AdGroupsUpsertWithWhereUniqueWithoutAdGroupRightInput[]
+    createMany?: AdGroupsCreateManyAdGroupRightInputEnvelope
+    set?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    disconnect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    delete?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    update?: AdGroupsUpdateWithWhereUniqueWithoutAdGroupRightInput | AdGroupsUpdateWithWhereUniqueWithoutAdGroupRightInput[]
+    updateMany?: AdGroupsUpdateManyWithWhereWithoutAdGroupRightInput | AdGroupsUpdateManyWithWhereWithoutAdGroupRightInput[]
+    deleteMany?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
+  }
+
+  export type AdGroupsUncheckedUpdateManyWithoutAdGroupRightNestedInput = {
+    create?: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput> | AdGroupsCreateWithoutAdGroupRightInput[] | AdGroupsUncheckedCreateWithoutAdGroupRightInput[]
+    connectOrCreate?: AdGroupsCreateOrConnectWithoutAdGroupRightInput | AdGroupsCreateOrConnectWithoutAdGroupRightInput[]
+    upsert?: AdGroupsUpsertWithWhereUniqueWithoutAdGroupRightInput | AdGroupsUpsertWithWhereUniqueWithoutAdGroupRightInput[]
+    createMany?: AdGroupsCreateManyAdGroupRightInputEnvelope
+    set?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    disconnect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    delete?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    connect?: AdGroupsWhereUniqueInput | AdGroupsWhereUniqueInput[]
+    update?: AdGroupsUpdateWithWhereUniqueWithoutAdGroupRightInput | AdGroupsUpdateWithWhereUniqueWithoutAdGroupRightInput[]
+    updateMany?: AdGroupsUpdateManyWithWhereWithoutAdGroupRightInput | AdGroupsUpdateManyWithWhereWithoutAdGroupRightInput[]
+    deleteMany?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
   }
 
   export type UsersCreateNestedOneWithoutUserGroupsInput = {
@@ -22885,6 +25644,7 @@ export namespace Prisma {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -22898,6 +25658,7 @@ export namespace Prisma {
     userLastName: string
     userCode: string
     languageId: number
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -22924,6 +25685,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -22937,6 +25699,7 @@ export namespace Prisma {
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
     languageId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -22947,6 +25710,7 @@ export namespace Prisma {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -22959,6 +25723,7 @@ export namespace Prisma {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -23001,9 +25766,50 @@ export namespace Prisma {
     userLastName?: StringFilter<"Users"> | string
     userCode?: StringFilter<"Users"> | string
     languageId?: IntFilter<"Users"> | number
+    isActive?: BoolFilter<"Users"> | boolean
     createdAt?: DateTimeFilter<"Users"> | Date | string
     createdBy?: StringFilter<"Users"> | string
     isDeleted?: BoolFilter<"Users"> | boolean
+  }
+
+  export type AdGroupsFamiliesCreateWithoutAdGroupsInput = {
+    adGroupFamilyName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsFamiliesUncheckedCreateWithoutAdGroupsInput = {
+    adGroupFamilyId?: number
+    adGroupFamilyName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsFamiliesCreateOrConnectWithoutAdGroupsInput = {
+    where: AdGroupsFamiliesWhereUniqueInput
+    create: XOR<AdGroupsFamiliesCreateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedCreateWithoutAdGroupsInput>
+  }
+
+  export type AdGroupsRightsCreateWithoutAdGroupsInput = {
+    adGroupRightName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsRightsUncheckedCreateWithoutAdGroupsInput = {
+    adGroupRightId?: number
+    adGroupRightName: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsRightsCreateOrConnectWithoutAdGroupsInput = {
+    where: AdGroupsRightsWhereUniqueInput
+    create: XOR<AdGroupsRightsCreateWithoutAdGroupsInput, AdGroupsRightsUncheckedCreateWithoutAdGroupsInput>
   }
 
   export type UsersAdGroupsCreateWithoutAdGroupInput = {
@@ -23031,6 +25837,58 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type AdGroupsFamiliesUpsertWithoutAdGroupsInput = {
+    update: XOR<AdGroupsFamiliesUpdateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedUpdateWithoutAdGroupsInput>
+    create: XOR<AdGroupsFamiliesCreateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedCreateWithoutAdGroupsInput>
+    where?: AdGroupsFamiliesWhereInput
+  }
+
+  export type AdGroupsFamiliesUpdateToOneWithWhereWithoutAdGroupsInput = {
+    where?: AdGroupsFamiliesWhereInput
+    data: XOR<AdGroupsFamiliesUpdateWithoutAdGroupsInput, AdGroupsFamiliesUncheckedUpdateWithoutAdGroupsInput>
+  }
+
+  export type AdGroupsFamiliesUpdateWithoutAdGroupsInput = {
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsFamiliesUncheckedUpdateWithoutAdGroupsInput = {
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupFamilyName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsRightsUpsertWithoutAdGroupsInput = {
+    update: XOR<AdGroupsRightsUpdateWithoutAdGroupsInput, AdGroupsRightsUncheckedUpdateWithoutAdGroupsInput>
+    create: XOR<AdGroupsRightsCreateWithoutAdGroupsInput, AdGroupsRightsUncheckedCreateWithoutAdGroupsInput>
+    where?: AdGroupsRightsWhereInput
+  }
+
+  export type AdGroupsRightsUpdateToOneWithWhereWithoutAdGroupsInput = {
+    where?: AdGroupsRightsWhereInput
+    data: XOR<AdGroupsRightsUpdateWithoutAdGroupsInput, AdGroupsRightsUncheckedUpdateWithoutAdGroupsInput>
+  }
+
+  export type AdGroupsRightsUpdateWithoutAdGroupsInput = {
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsRightsUncheckedUpdateWithoutAdGroupsInput = {
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    adGroupRightName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type UsersAdGroupsUpsertWithWhereUniqueWithoutAdGroupInput = {
     where: UsersAdGroupsWhereUniqueInput
     update: XOR<UsersAdGroupsUpdateWithoutAdGroupInput, UsersAdGroupsUncheckedUpdateWithoutAdGroupInput>
@@ -23047,10 +25905,109 @@ export namespace Prisma {
     data: XOR<UsersAdGroupsUpdateManyMutationInput, UsersAdGroupsUncheckedUpdateManyWithoutAdGroupInput>
   }
 
+  export type AdGroupsCreateWithoutAdGroupFamilyInput = {
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroupRight: AdGroupsRightsCreateNestedOneWithoutAdGroupsInput
+    userGroups?: UsersAdGroupsCreateNestedManyWithoutAdGroupInput
+  }
+
+  export type AdGroupsUncheckedCreateWithoutAdGroupFamilyInput = {
+    adGroupId?: number
+    adGroupRightId: number
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    userGroups?: UsersAdGroupsUncheckedCreateNestedManyWithoutAdGroupInput
+  }
+
+  export type AdGroupsCreateOrConnectWithoutAdGroupFamilyInput = {
+    where: AdGroupsWhereUniqueInput
+    create: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput>
+  }
+
+  export type AdGroupsCreateManyAdGroupFamilyInputEnvelope = {
+    data: AdGroupsCreateManyAdGroupFamilyInput | AdGroupsCreateManyAdGroupFamilyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AdGroupsUpsertWithWhereUniqueWithoutAdGroupFamilyInput = {
+    where: AdGroupsWhereUniqueInput
+    update: XOR<AdGroupsUpdateWithoutAdGroupFamilyInput, AdGroupsUncheckedUpdateWithoutAdGroupFamilyInput>
+    create: XOR<AdGroupsCreateWithoutAdGroupFamilyInput, AdGroupsUncheckedCreateWithoutAdGroupFamilyInput>
+  }
+
+  export type AdGroupsUpdateWithWhereUniqueWithoutAdGroupFamilyInput = {
+    where: AdGroupsWhereUniqueInput
+    data: XOR<AdGroupsUpdateWithoutAdGroupFamilyInput, AdGroupsUncheckedUpdateWithoutAdGroupFamilyInput>
+  }
+
+  export type AdGroupsUpdateManyWithWhereWithoutAdGroupFamilyInput = {
+    where: AdGroupsScalarWhereInput
+    data: XOR<AdGroupsUpdateManyMutationInput, AdGroupsUncheckedUpdateManyWithoutAdGroupFamilyInput>
+  }
+
+  export type AdGroupsScalarWhereInput = {
+    AND?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
+    OR?: AdGroupsScalarWhereInput[]
+    NOT?: AdGroupsScalarWhereInput | AdGroupsScalarWhereInput[]
+    adGroupId?: IntFilter<"AdGroups"> | number
+    adGroupFamilyId?: IntFilter<"AdGroups"> | number
+    adGroupRightId?: IntFilter<"AdGroups"> | number
+    createdAt?: DateTimeFilter<"AdGroups"> | Date | string
+    createdBy?: StringFilter<"AdGroups"> | string
+    isDeleted?: BoolFilter<"AdGroups"> | boolean
+  }
+
+  export type AdGroupsCreateWithoutAdGroupRightInput = {
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    adGroupFamily: AdGroupsFamiliesCreateNestedOneWithoutAdGroupsInput
+    userGroups?: UsersAdGroupsCreateNestedManyWithoutAdGroupInput
+  }
+
+  export type AdGroupsUncheckedCreateWithoutAdGroupRightInput = {
+    adGroupId?: number
+    adGroupFamilyId: number
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+    userGroups?: UsersAdGroupsUncheckedCreateNestedManyWithoutAdGroupInput
+  }
+
+  export type AdGroupsCreateOrConnectWithoutAdGroupRightInput = {
+    where: AdGroupsWhereUniqueInput
+    create: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput>
+  }
+
+  export type AdGroupsCreateManyAdGroupRightInputEnvelope = {
+    data: AdGroupsCreateManyAdGroupRightInput | AdGroupsCreateManyAdGroupRightInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AdGroupsUpsertWithWhereUniqueWithoutAdGroupRightInput = {
+    where: AdGroupsWhereUniqueInput
+    update: XOR<AdGroupsUpdateWithoutAdGroupRightInput, AdGroupsUncheckedUpdateWithoutAdGroupRightInput>
+    create: XOR<AdGroupsCreateWithoutAdGroupRightInput, AdGroupsUncheckedCreateWithoutAdGroupRightInput>
+  }
+
+  export type AdGroupsUpdateWithWhereUniqueWithoutAdGroupRightInput = {
+    where: AdGroupsWhereUniqueInput
+    data: XOR<AdGroupsUpdateWithoutAdGroupRightInput, AdGroupsUncheckedUpdateWithoutAdGroupRightInput>
+  }
+
+  export type AdGroupsUpdateManyWithWhereWithoutAdGroupRightInput = {
+    where: AdGroupsScalarWhereInput
+    data: XOR<AdGroupsUpdateManyMutationInput, AdGroupsUncheckedUpdateManyWithoutAdGroupRightInput>
+  }
+
   export type UsersCreateWithoutUserGroupsInput = {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -23064,6 +26021,7 @@ export namespace Prisma {
     userLastName: string
     userCode: string
     languageId: number
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -23076,15 +26034,17 @@ export namespace Prisma {
   }
 
   export type AdGroupsCreateWithoutUserGroupsInput = {
-    adGroupName: string
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
+    adGroupFamily: AdGroupsFamiliesCreateNestedOneWithoutAdGroupsInput
+    adGroupRight: AdGroupsRightsCreateNestedOneWithoutAdGroupsInput
   }
 
   export type AdGroupsUncheckedCreateWithoutUserGroupsInput = {
     adGroupId?: number
-    adGroupName: string
+    adGroupFamilyId: number
+    adGroupRightId: number
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -23110,6 +26070,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23123,6 +26084,7 @@ export namespace Prisma {
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
     languageId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23141,15 +26103,17 @@ export namespace Prisma {
   }
 
   export type AdGroupsUpdateWithoutUserGroupsInput = {
-    adGroupName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroupFamily?: AdGroupsFamiliesUpdateOneRequiredWithoutAdGroupsNestedInput
+    adGroupRight?: AdGroupsRightsUpdateOneRequiredWithoutAdGroupsNestedInput
   }
 
   export type AdGroupsUncheckedUpdateWithoutUserGroupsInput = {
     adGroupId?: IntFieldUpdateOperationsInput | number
-    adGroupName?: StringFieldUpdateOperationsInput | string
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23530,6 +26494,7 @@ export namespace Prisma {
     userFirstName: string
     userLastName: string
     userCode: string
+    isActive: boolean
     createdAt?: Date | string
     createdBy?: string
     isDeleted?: boolean
@@ -23539,6 +26504,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23551,6 +26517,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23563,6 +26530,7 @@ export namespace Prisma {
     userFirstName?: StringFieldUpdateOperationsInput | string
     userLastName?: StringFieldUpdateOperationsInput | string
     userCode?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -23594,6 +26562,72 @@ export namespace Prisma {
   export type UsersAdGroupsUncheckedUpdateManyWithoutAdGroupInput = {
     userAdGroupId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsCreateManyAdGroupFamilyInput = {
+    adGroupId?: number
+    adGroupRightId: number
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsUpdateWithoutAdGroupFamilyInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroupRight?: AdGroupsRightsUpdateOneRequiredWithoutAdGroupsNestedInput
+    userGroups?: UsersAdGroupsUpdateManyWithoutAdGroupNestedInput
+  }
+
+  export type AdGroupsUncheckedUpdateWithoutAdGroupFamilyInput = {
+    adGroupId?: IntFieldUpdateOperationsInput | number
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    userGroups?: UsersAdGroupsUncheckedUpdateManyWithoutAdGroupNestedInput
+  }
+
+  export type AdGroupsUncheckedUpdateManyWithoutAdGroupFamilyInput = {
+    adGroupId?: IntFieldUpdateOperationsInput | number
+    adGroupRightId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AdGroupsCreateManyAdGroupRightInput = {
+    adGroupId?: number
+    adGroupFamilyId: number
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AdGroupsUpdateWithoutAdGroupRightInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    adGroupFamily?: AdGroupsFamiliesUpdateOneRequiredWithoutAdGroupsNestedInput
+    userGroups?: UsersAdGroupsUpdateManyWithoutAdGroupNestedInput
+  }
+
+  export type AdGroupsUncheckedUpdateWithoutAdGroupRightInput = {
+    adGroupId?: IntFieldUpdateOperationsInput | number
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    userGroups?: UsersAdGroupsUncheckedUpdateManyWithoutAdGroupNestedInput
+  }
+
+  export type AdGroupsUncheckedUpdateManyWithoutAdGroupRightInput = {
+    adGroupId?: IntFieldUpdateOperationsInput | number
+    adGroupFamilyId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean

@@ -51,7 +51,6 @@ export default function LoginPage() {
     }
   };
   
-
   const changeLang = (locale: string) => {
     document.cookie = `NEXT_LOCALE=${locale}; path=/`;
     router.refresh(); 

@@ -141,11 +141,12 @@ model Contracts {
 }
 
 model Users {
-  userId        Int    @id @default(autoincrement())
+  userId        Int     @id @default(autoincrement())
   userFirstName String
   userLastName  String
   userCode      String
   languageId    Int
+  isActive      Boolean
 
   language   Languages       @relation(fields: [languageId], references: [languageId])
   userGroups UsersAdGroups[]
@@ -173,7 +174,7 @@ model UsersAuth {
 model Languages {
   languageId   Int    @id @default(autoincrement())
   languageName String
-  languageCode String
+  languageCode String @unique
 
   users Users[]
 
@@ -183,10 +184,35 @@ model Languages {
 }
 
 model AdGroups {
-  adGroupId   Int    @id @default(autoincrement())
-  adGroupName String
+  adGroupId       Int              @id @default(autoincrement())
+  adGroupFamilyId Int
+  adGroupFamily   AdGroupsFamilies @relation(fields: [adGroupFamilyId], references: [adGroupFamilyId])
+  adGroupRightId  Int
+  adGroupRight    AdGroupsRights   @relation(fields: [adGroupRightId], references: [adGroupRightId])
 
   userGroups UsersAdGroups[]
+
+  createdAt DateTime @default(now())
+  createdBy String   @default("SYSTEM")
+  isDeleted Boolean  @default(false)
+}
+
+model AdGroupsFamilies {
+  adGroupFamilyId   Int    @id @default(autoincrement())
+  adGroupFamilyName String
+
+  adGroups AdGroups[]
+
+  createdAt DateTime @default(now())
+  createdBy String   @default("SYSTEM")
+  isDeleted Boolean  @default(false)
+}
+
+model AdGroupsRights {
+  adGroupRightId   Int    @id @default(autoincrement())
+  adGroupRightName String
+
+  adGroups AdGroups[]
 
   createdAt DateTime @default(now())
   createdBy String   @default("SYSTEM")

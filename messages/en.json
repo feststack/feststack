@@ -9,7 +9,22 @@
       "lookingForArtist": "Looking for artist",
       "loading": "Loading...",
       "noAccessRight": "You didn't have the right access...",
-      "artist": "Artists"
+      "artist": "Artists",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "users": "Users",
+      "lookingForUser": "Looking for user",
+      "userNotFound": "User not found",
+      "active": "Active",
+      "inactive": "Inactive",
+      "isActive": "Is active",
+      "userCode": "User code",
+      "userLanguage": "User language",
+      "adGroups": "Administrator groups",
+      "addAdGroups": "Add administrator groups",
+      "adGroupFamily": "Groups",
+      "adGroupRights": "Rights",
+      "saveChanges": "Save change"
     },
     "HomePage": {
       "title": "Welcome to",

@@ -34,3 +34,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Account
+
+1. Git: 
+    - mail: feststack.git@gmail.com
+
+2. Prisma:
+    - migration:
+        npx prisma migrate dev --schema=prisma/config/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/config/schema.prisma
+        npx prisma migrate dev --schema=prisma/data/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/data/schema.prisma
+        npx prisma migrate dev --schema=prisma/core/schema.prisma --name init
+            npx prisma migrate dev --schema=prisma/core/schema.prisma
+    - pull:
+        npx prisma db pull --schema=prisma/config/schema.prisma
+        npx prisma db pull --schema=prisma/data/schema.prisma
+        npx prisma db pull --schema=prisma/core/schema.prisma
+    - client generation:
+        npx prisma generate --schema=prisma/config/schema.prisma
+        npx prisma generate --schema=prisma/data/schema.prisma
+        npx prisma generate --schema=prisma/core/schema.prisma
+2. Build local:
+    - npm run build
+
+3. Run:
+    - PreProd: npm run dev:preprod
+    - Qualif: npm run dev:qualif
+    - Prod: npm run dev:prod
+
+4. DB:
+    - remote connection: mysql -u root -p -h 90.26.253.66 -P 3306

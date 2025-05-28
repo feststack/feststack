@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",          
+    "dev": "next dev --turbopack",
     "prebuild": "npx prisma generate",
-    "build": "next build",                
-    "start": "next start",                  
-    "lint": "next lint",                    
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "dev:preprod": "cp .env.preprod .env && next dev",
     "dev:qualif": "cp .env.qualif .env && next dev",
-    "dev:prod": "cp .env.prod .env && next start"
+    "dev:prod": "cp .env.prod .env && next start",
+    "seed": "tsx prisma/seed/index.tsx"
   },
   "dependencies": {
     "@prisma/client": "^6.8.2",

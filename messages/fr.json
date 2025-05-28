@@ -9,7 +9,17 @@
     "lookingForArtist": "Chercher artiste",
     "loading": "Chargement...",
     "noAccessRight": "Vous n'avez pas droits d'accès...",
-    "artist": "Artists"
+    "artist": "Artists",
+    "firstName": "Nom",
+    "lastName": "Prénom",
+    "users": "Utilisateurs",
+    "lookingForUser": "Chercher utilisateur",
+    "userNotFound": "Aucun utilisateur trouvé",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "isActive": "Est actif",
+    "userCode": "Code utilisateur",
+    "userLanguage": "Langue utilisateur"
   },
   "HomePage": {
     "title": "Bienvenus dans",

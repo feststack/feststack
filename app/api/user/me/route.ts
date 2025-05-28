@@ -20,7 +20,12 @@ export async function GET(req: NextRequest) {
           language: true,
           userGroups: {
             include: {
-              adGroup: true,
+              adGroup: {
+                include: {
+                  adGroupFamily: true,
+                  adGroupRight: true,
+                },
+              },
             },
           },
         },
@@ -32,12 +37,36 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: 'Utilisateur introuvable' }, { status: 404 })
   }
 
-  const adGroupNames = userAuth.user.userGroups.map((g) => g.adGroup.adGroupName)
+  const user = userAuth.user
 
+  // 🧠 Création du dictionnaire { [famille]: [droits] }
+  const adGroupAccess: Record<string, string[]> = {}
+
+  user.userGroups.forEach(({ adGroup }) => {
+    const family = adGroup.adGroupFamily?.adGroupFamilyName
+    const right = adGroup.adGroupRight?.adGroupRightName
+
+    if (family && right) {
+      if (!adGroupAccess[family]) {
+        adGroupAccess[family] = []
+      }
+      if (!adGroupAccess[family].includes(right)) {
+        adGroupAccess[family].push(right)
+      }
+    }
+  })
+
+  console.log('[API /api/user/me] Utilisateur connecté :', {
+    email,
+    userFirstName: user.userFirstName,
+    userLastName: user.userLastName,
+    adGroupAccess,
+  })
+  
   return NextResponse.json({
-    userFirstName: userAuth.user.userFirstName,
-    userLastName: userAuth.user.userLastName,
-    languageCode: userAuth.user.language.languageCode,
-    adGroups: adGroupNames,
+    userFirstName: user.userFirstName,
+    userLastName: user.userLastName,
+    languageCode: user.language?.languageCode,
+    adGroupAccess, // ✅ C’est ce qu’on utilisera côté front
   })
 }
