@@ -37,11 +37,10 @@ export default function GetAllUsersPage() {
   const [userAdGroupsEdits, setUserAdGroupsEdits] = useState<Record<number, { family: string; rights: string[] }>>({})
   const [showAdGroupSection, setShowAdGroupSection] = useState<Record<number, boolean>>({})
   const [pendingUserUpdates, setPendingUserUpdates] = useState<Record<number, Partial<User>>>({})  
+  const [canUpdateAdGroups, setCanUpdateAdGroups] = useState(false)
 
   const gt = useTranslations('GlobalTranslation')
   const router = useRouter()
- 
-  const langModificationGroups = ['admin_update']
 
   const fetchUsers = async (query = '', userEmail: string) => {
     setLoading(true)
@@ -81,6 +80,8 @@ export default function GetAllUsersPage() {
 
   useEffect(() => {
     const checkAuth = async () => {
+
+      console.log('checkAuth appelé')
         
       const email = localStorage.getItem('userEmail')
       if (!email) {
@@ -127,6 +128,14 @@ export default function GetAllUsersPage() {
       await fetchLanguages()
       await fetchAdGroupsData()
       setCheckingAuth(false)
+
+      const canUpdateAd = hasRight(data.adGroupAccess, "admin", ["update"])
+      setCanUpdateLangState(canUpdateAd)
+      setCanUpdateAdGroups(canUpdateAd)
+
+      console.log("Vérification des droits dans checkAuth");
+      console.log("adGroupAccess reçu du backend:", data.adGroupAccess);
+      console.log("Résultat de hasRight(admin, ['update']):", canUpdateLang);
     }
 
     checkAuth()
@@ -299,12 +308,13 @@ export default function GetAllUsersPage() {
         ) : (
           <div className="overflow-x-auto rounded-lg shadow border border-gray-200">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-blue-100 text-blue-900">
+            <thead className="bg-blue-100 text-blue-900">
                 <tr>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">{gt('firstName')}</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">{gt('lastName')}</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">{gt('createdBy')}</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">{gt('isActive')}</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{gt('firstName')}</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{gt('lastName')}</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{gt('userCode')}</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{gt('createdBy')}</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{gt('isActive')}</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-100">
@@ -317,15 +327,17 @@ export default function GetAllUsersPage() {
                 ) : (
                     users.map((user, index) => {
                         const isExpanded = expandedUserId === user.userId
-                      
+                        const rowBg = index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+
                         return [
-                          <tr
+                            <tr
                             key={`user-row-${user.userId}`}
-                            className={index % 2 === 0 ? 'bg-gray-50 hover:bg-gray-100 cursor-pointer' : 'bg-white hover:bg-gray-100 cursor-pointer'}
+                            className={`${rowBg} hover:bg-gray-100 cursor-pointer`}
                             onClick={() => toggleExpand(user.userId)}
-                          >
+                            >                   
                             <td className="px-4 py-3 text-sm">{user.userFirstName}</td>
                             <td className="px-4 py-3 text-sm">{user.userLastName}</td>
+                            <td className="px-4 py-3 text-sm">{user.userCode}</td> 
                             <td className="px-4 py-3 text-sm">{user.createdBy}</td>
                             <td className="px-4 py-3 text-sm">
                               <span className={user.isActive ? 'text-green-600 bg-green-100 px-3 py-2 rounded-lg' : 'text-red-600 bg-red-100 px-3 py-2 rounded-lg'}>
@@ -334,9 +346,9 @@ export default function GetAllUsersPage() {
                             </td>
                           </tr>,
                       
-                          isExpanded && (
-                            <tr key={`details-row-${user.userId}`} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                              <td colSpan={4} className="px-4 py-4 text-sm text-gray-700">
+                            isExpanded && (
+                            <tr key={`details-row-${user.userId}`} className={rowBg}>
+                            <td colSpan={5} className="px-4 py-4 text-sm text-gray-700">
                                 <div><strong>{gt('userCode')}:</strong> {user.userCode}</div>
                       
                                 <div className="mt-2">
@@ -394,14 +406,15 @@ export default function GetAllUsersPage() {
                                   )}
                                 </div>
                       
+                                {canUpdateAdGroups && (
                                 <button
-                                  onClick={() => toggleAdGroupSection(user.userId)}
-                                  className="w-full py-2 hover:bg-gray-100 flex items-center text-sm"
+                                    onClick={() => toggleAdGroupSection(user.userId)}
+                                    className="w-full py-2 hover:bg-gray-100 flex items-center text-sm"
                                 >
-                                  {showAdGroupSection[user.userId] ? <ChevronUp /> : <ChevronDown />}
-                                  {gt('addAdGroups')}
+                                    {showAdGroupSection[user.userId] ? <ChevronUp /> : <ChevronDown />}
+                                    {gt('addAdGroups')}
                                 </button>
-                      
+                                )}
                                 {showAdGroupSection[user.userId] && (
                                   <div className="p-4 bg-gray-100 rounded shadow-sm space-y-4">
                                     {/* Famille */}
@@ -497,8 +510,6 @@ export default function GetAllUsersPage() {
                           )
                         ]
                       })
-                      
-                  
                 )}
               </tbody>
             </table>

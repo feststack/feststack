@@ -19,7 +19,12 @@
     "inactive": "Inactif",
     "isActive": "Est actif",
     "userCode": "Code utilisateur",
-    "userLanguage": "Langue utilisateur"
+    "userLanguage": "Langue utilisateur",
+    "adGroups": "Administrator groups",
+    "addAdGroups": "Ajouter un group administrateur",
+    "adGroupFamily": "Groups",
+    "adGroupRights": "Droits",
+    "saveChanges": "Sauvegarder changements"
   },
   "HomePage": {
     "title": "Bienvenus dans",

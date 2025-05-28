@@ -19,18 +19,19 @@ export async function GET(req: NextRequest) {
         include: {
           language: true,
           userGroups: {
+            where: { isDeleted: false }, // OK ici, filtre sur la relation directe
             include: {
-              adGroup: {
+              adGroup: { // Pas de where ici
                 include: {
                   adGroupFamily: true,
                   adGroupRight: true,
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   })
 
   if (!userAuth || !userAuth.user) {
@@ -39,10 +40,13 @@ export async function GET(req: NextRequest) {
 
   const user = userAuth.user
 
-  // 🧠 Création du dictionnaire { [famille]: [droits] }
+  // Filtrer en JS les adGroups isDeleted === false
+  const activeUserGroups = user.userGroups.filter(ug => !ug.adGroup.isDeleted)
+
+  // Construire adGroupAccess à partir de activeUserGroups
   const adGroupAccess: Record<string, string[]> = {}
 
-  user.userGroups.forEach(({ adGroup }) => {
+  activeUserGroups.forEach(({ adGroup }) => {
     const family = adGroup.adGroupFamily?.adGroupFamilyName
     const right = adGroup.adGroupRight?.adGroupRightName
 
@@ -62,11 +66,11 @@ export async function GET(req: NextRequest) {
     userLastName: user.userLastName,
     adGroupAccess,
   })
-  
+
   return NextResponse.json({
     userFirstName: user.userFirstName,
     userLastName: user.userLastName,
     languageCode: user.language?.languageCode,
-    adGroupAccess, // ✅ C’est ce qu’on utilisera côté front
+    adGroupAccess,
   })
 }
