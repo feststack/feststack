@@ -98,6 +98,16 @@ export type AdGroupsRights = $Result.DefaultSelection<Prisma.$AdGroupsRightsPayl
  * 
  */
 export type UsersAdGroups = $Result.DefaultSelection<Prisma.$UsersAdGroupsPayload>
+/**
+ * Model AppConfigs
+ * 
+ */
+export type AppConfigs = $Result.DefaultSelection<Prisma.$AppConfigsPayload>
+/**
+ * Model GraphicThemes
+ * 
+ */
+export type GraphicThemes = $Result.DefaultSelection<Prisma.$GraphicThemesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -393,6 +403,26 @@ export class PrismaClient<
     * ```
     */
   get usersAdGroups(): Prisma.UsersAdGroupsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.appConfigs`: Exposes CRUD operations for the **AppConfigs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AppConfigs
+    * const appConfigs = await prisma.appConfigs.findMany()
+    * ```
+    */
+  get appConfigs(): Prisma.AppConfigsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.graphicThemes`: Exposes CRUD operations for the **GraphicThemes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GraphicThemes
+    * const graphicThemes = await prisma.graphicThemes.findMany()
+    * ```
+    */
+  get graphicThemes(): Prisma.GraphicThemesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -849,7 +879,9 @@ export namespace Prisma {
     AdGroups: 'AdGroups',
     AdGroupsFamilies: 'AdGroupsFamilies',
     AdGroupsRights: 'AdGroupsRights',
-    UsersAdGroups: 'UsersAdGroups'
+    UsersAdGroups: 'UsersAdGroups',
+    AppConfigs: 'AppConfigs',
+    GraphicThemes: 'GraphicThemes'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -868,7 +900,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "adGroupsFamilies" | "adGroupsRights" | "usersAdGroups"
+      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "adGroupsFamilies" | "adGroupsRights" | "usersAdGroups" | "appConfigs" | "graphicThemes"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1994,6 +2026,138 @@ export namespace Prisma {
           }
         }
       }
+      AppConfigs: {
+        payload: Prisma.$AppConfigsPayload<ExtArgs>
+        fields: Prisma.AppConfigsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AppConfigsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AppConfigsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          findFirst: {
+            args: Prisma.AppConfigsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AppConfigsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          findMany: {
+            args: Prisma.AppConfigsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>[]
+          }
+          create: {
+            args: Prisma.AppConfigsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          createMany: {
+            args: Prisma.AppConfigsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AppConfigsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          update: {
+            args: Prisma.AppConfigsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          deleteMany: {
+            args: Prisma.AppConfigsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AppConfigsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AppConfigsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppConfigsPayload>
+          }
+          aggregate: {
+            args: Prisma.AppConfigsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAppConfigs>
+          }
+          groupBy: {
+            args: Prisma.AppConfigsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AppConfigsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AppConfigsCountArgs<ExtArgs>
+            result: $Utils.Optional<AppConfigsCountAggregateOutputType> | number
+          }
+        }
+      }
+      GraphicThemes: {
+        payload: Prisma.$GraphicThemesPayload<ExtArgs>
+        fields: Prisma.GraphicThemesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GraphicThemesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GraphicThemesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          findFirst: {
+            args: Prisma.GraphicThemesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GraphicThemesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          findMany: {
+            args: Prisma.GraphicThemesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>[]
+          }
+          create: {
+            args: Prisma.GraphicThemesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          createMany: {
+            args: Prisma.GraphicThemesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.GraphicThemesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          update: {
+            args: Prisma.GraphicThemesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          deleteMany: {
+            args: Prisma.GraphicThemesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GraphicThemesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.GraphicThemesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GraphicThemesPayload>
+          }
+          aggregate: {
+            args: Prisma.GraphicThemesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGraphicThemes>
+          }
+          groupBy: {
+            args: Prisma.GraphicThemesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GraphicThemesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GraphicThemesCountArgs<ExtArgs>
+            result: $Utils.Optional<GraphicThemesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2095,6 +2259,8 @@ export namespace Prisma {
     adGroupsFamilies?: AdGroupsFamiliesOmit
     adGroupsRights?: AdGroupsRightsOmit
     usersAdGroups?: UsersAdGroupsOmit
+    appConfigs?: AppConfigsOmit
+    graphicThemes?: GraphicThemesOmit
   }
 
   /* Types for Logging */
@@ -19753,6 +19919,1948 @@ export namespace Prisma {
 
 
   /**
+   * Model AppConfigs
+   */
+
+  export type AggregateAppConfigs = {
+    _count: AppConfigsCountAggregateOutputType | null
+    _avg: AppConfigsAvgAggregateOutputType | null
+    _sum: AppConfigsSumAggregateOutputType | null
+    _min: AppConfigsMinAggregateOutputType | null
+    _max: AppConfigsMaxAggregateOutputType | null
+  }
+
+  export type AppConfigsAvgAggregateOutputType = {
+    appConfigId: number | null
+  }
+
+  export type AppConfigsSumAggregateOutputType = {
+    appConfigId: number | null
+  }
+
+  export type AppConfigsMinAggregateOutputType = {
+    appConfigId: number | null
+    appConfigName: string | null
+    appConfigValue: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AppConfigsMaxAggregateOutputType = {
+    appConfigId: number | null
+    appConfigName: string | null
+    appConfigValue: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type AppConfigsCountAggregateOutputType = {
+    appConfigId: number
+    appConfigName: number
+    appConfigValue: number
+    createdAt: number
+    createdBy: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type AppConfigsAvgAggregateInputType = {
+    appConfigId?: true
+  }
+
+  export type AppConfigsSumAggregateInputType = {
+    appConfigId?: true
+  }
+
+  export type AppConfigsMinAggregateInputType = {
+    appConfigId?: true
+    appConfigName?: true
+    appConfigValue?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AppConfigsMaxAggregateInputType = {
+    appConfigId?: true
+    appConfigName?: true
+    appConfigValue?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type AppConfigsCountAggregateInputType = {
+    appConfigId?: true
+    appConfigName?: true
+    appConfigValue?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type AppConfigsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AppConfigs to aggregate.
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AppConfigs to fetch.
+     */
+    orderBy?: AppConfigsOrderByWithRelationInput | AppConfigsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AppConfigsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AppConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AppConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AppConfigs
+    **/
+    _count?: true | AppConfigsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AppConfigsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AppConfigsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AppConfigsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AppConfigsMaxAggregateInputType
+  }
+
+  export type GetAppConfigsAggregateType<T extends AppConfigsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAppConfigs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAppConfigs[P]>
+      : GetScalarType<T[P], AggregateAppConfigs[P]>
+  }
+
+
+
+
+  export type AppConfigsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AppConfigsWhereInput
+    orderBy?: AppConfigsOrderByWithAggregationInput | AppConfigsOrderByWithAggregationInput[]
+    by: AppConfigsScalarFieldEnum[] | AppConfigsScalarFieldEnum
+    having?: AppConfigsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AppConfigsCountAggregateInputType | true
+    _avg?: AppConfigsAvgAggregateInputType
+    _sum?: AppConfigsSumAggregateInputType
+    _min?: AppConfigsMinAggregateInputType
+    _max?: AppConfigsMaxAggregateInputType
+  }
+
+  export type AppConfigsGroupByOutputType = {
+    appConfigId: number
+    appConfigName: string
+    appConfigValue: string
+    createdAt: Date
+    createdBy: string
+    isDeleted: boolean
+    _count: AppConfigsCountAggregateOutputType | null
+    _avg: AppConfigsAvgAggregateOutputType | null
+    _sum: AppConfigsSumAggregateOutputType | null
+    _min: AppConfigsMinAggregateOutputType | null
+    _max: AppConfigsMaxAggregateOutputType | null
+  }
+
+  type GetAppConfigsGroupByPayload<T extends AppConfigsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AppConfigsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AppConfigsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AppConfigsGroupByOutputType[P]>
+            : GetScalarType<T[P], AppConfigsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AppConfigsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    appConfigId?: boolean
+    appConfigName?: boolean
+    appConfigValue?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }, ExtArgs["result"]["appConfigs"]>
+
+
+
+  export type AppConfigsSelectScalar = {
+    appConfigId?: boolean
+    appConfigName?: boolean
+    appConfigValue?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }
+
+  export type AppConfigsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"appConfigId" | "appConfigName" | "appConfigValue" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["appConfigs"]>
+
+  export type $AppConfigsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AppConfigs"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      appConfigId: number
+      appConfigName: string
+      appConfigValue: string
+      createdAt: Date
+      createdBy: string
+      isDeleted: boolean
+    }, ExtArgs["result"]["appConfigs"]>
+    composites: {}
+  }
+
+  type AppConfigsGetPayload<S extends boolean | null | undefined | AppConfigsDefaultArgs> = $Result.GetResult<Prisma.$AppConfigsPayload, S>
+
+  type AppConfigsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AppConfigsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AppConfigsCountAggregateInputType | true
+    }
+
+  export interface AppConfigsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AppConfigs'], meta: { name: 'AppConfigs' } }
+    /**
+     * Find zero or one AppConfigs that matches the filter.
+     * @param {AppConfigsFindUniqueArgs} args - Arguments to find a AppConfigs
+     * @example
+     * // Get one AppConfigs
+     * const appConfigs = await prisma.appConfigs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AppConfigsFindUniqueArgs>(args: SelectSubset<T, AppConfigsFindUniqueArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AppConfigs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AppConfigsFindUniqueOrThrowArgs} args - Arguments to find a AppConfigs
+     * @example
+     * // Get one AppConfigs
+     * const appConfigs = await prisma.appConfigs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AppConfigsFindUniqueOrThrowArgs>(args: SelectSubset<T, AppConfigsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AppConfigs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsFindFirstArgs} args - Arguments to find a AppConfigs
+     * @example
+     * // Get one AppConfigs
+     * const appConfigs = await prisma.appConfigs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AppConfigsFindFirstArgs>(args?: SelectSubset<T, AppConfigsFindFirstArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AppConfigs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsFindFirstOrThrowArgs} args - Arguments to find a AppConfigs
+     * @example
+     * // Get one AppConfigs
+     * const appConfigs = await prisma.appConfigs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AppConfigsFindFirstOrThrowArgs>(args?: SelectSubset<T, AppConfigsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AppConfigs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AppConfigs
+     * const appConfigs = await prisma.appConfigs.findMany()
+     * 
+     * // Get first 10 AppConfigs
+     * const appConfigs = await prisma.appConfigs.findMany({ take: 10 })
+     * 
+     * // Only select the `appConfigId`
+     * const appConfigsWithAppConfigIdOnly = await prisma.appConfigs.findMany({ select: { appConfigId: true } })
+     * 
+     */
+    findMany<T extends AppConfigsFindManyArgs>(args?: SelectSubset<T, AppConfigsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AppConfigs.
+     * @param {AppConfigsCreateArgs} args - Arguments to create a AppConfigs.
+     * @example
+     * // Create one AppConfigs
+     * const AppConfigs = await prisma.appConfigs.create({
+     *   data: {
+     *     // ... data to create a AppConfigs
+     *   }
+     * })
+     * 
+     */
+    create<T extends AppConfigsCreateArgs>(args: SelectSubset<T, AppConfigsCreateArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AppConfigs.
+     * @param {AppConfigsCreateManyArgs} args - Arguments to create many AppConfigs.
+     * @example
+     * // Create many AppConfigs
+     * const appConfigs = await prisma.appConfigs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AppConfigsCreateManyArgs>(args?: SelectSubset<T, AppConfigsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AppConfigs.
+     * @param {AppConfigsDeleteArgs} args - Arguments to delete one AppConfigs.
+     * @example
+     * // Delete one AppConfigs
+     * const AppConfigs = await prisma.appConfigs.delete({
+     *   where: {
+     *     // ... filter to delete one AppConfigs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AppConfigsDeleteArgs>(args: SelectSubset<T, AppConfigsDeleteArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AppConfigs.
+     * @param {AppConfigsUpdateArgs} args - Arguments to update one AppConfigs.
+     * @example
+     * // Update one AppConfigs
+     * const appConfigs = await prisma.appConfigs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AppConfigsUpdateArgs>(args: SelectSubset<T, AppConfigsUpdateArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AppConfigs.
+     * @param {AppConfigsDeleteManyArgs} args - Arguments to filter AppConfigs to delete.
+     * @example
+     * // Delete a few AppConfigs
+     * const { count } = await prisma.appConfigs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AppConfigsDeleteManyArgs>(args?: SelectSubset<T, AppConfigsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AppConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AppConfigs
+     * const appConfigs = await prisma.appConfigs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AppConfigsUpdateManyArgs>(args: SelectSubset<T, AppConfigsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AppConfigs.
+     * @param {AppConfigsUpsertArgs} args - Arguments to update or create a AppConfigs.
+     * @example
+     * // Update or create a AppConfigs
+     * const appConfigs = await prisma.appConfigs.upsert({
+     *   create: {
+     *     // ... data to create a AppConfigs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AppConfigs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AppConfigsUpsertArgs>(args: SelectSubset<T, AppConfigsUpsertArgs<ExtArgs>>): Prisma__AppConfigsClient<$Result.GetResult<Prisma.$AppConfigsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AppConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsCountArgs} args - Arguments to filter AppConfigs to count.
+     * @example
+     * // Count the number of AppConfigs
+     * const count = await prisma.appConfigs.count({
+     *   where: {
+     *     // ... the filter for the AppConfigs we want to count
+     *   }
+     * })
+    **/
+    count<T extends AppConfigsCountArgs>(
+      args?: Subset<T, AppConfigsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AppConfigsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AppConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AppConfigsAggregateArgs>(args: Subset<T, AppConfigsAggregateArgs>): Prisma.PrismaPromise<GetAppConfigsAggregateType<T>>
+
+    /**
+     * Group by AppConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppConfigsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AppConfigsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AppConfigsGroupByArgs['orderBy'] }
+        : { orderBy?: AppConfigsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AppConfigsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAppConfigsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AppConfigs model
+   */
+  readonly fields: AppConfigsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AppConfigs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AppConfigsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AppConfigs model
+   */
+  interface AppConfigsFieldRefs {
+    readonly appConfigId: FieldRef<"AppConfigs", 'Int'>
+    readonly appConfigName: FieldRef<"AppConfigs", 'String'>
+    readonly appConfigValue: FieldRef<"AppConfigs", 'String'>
+    readonly createdAt: FieldRef<"AppConfigs", 'DateTime'>
+    readonly createdBy: FieldRef<"AppConfigs", 'String'>
+    readonly isDeleted: FieldRef<"AppConfigs", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AppConfigs findUnique
+   */
+  export type AppConfigsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter, which AppConfigs to fetch.
+     */
+    where: AppConfigsWhereUniqueInput
+  }
+
+  /**
+   * AppConfigs findUniqueOrThrow
+   */
+  export type AppConfigsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter, which AppConfigs to fetch.
+     */
+    where: AppConfigsWhereUniqueInput
+  }
+
+  /**
+   * AppConfigs findFirst
+   */
+  export type AppConfigsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter, which AppConfigs to fetch.
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AppConfigs to fetch.
+     */
+    orderBy?: AppConfigsOrderByWithRelationInput | AppConfigsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AppConfigs.
+     */
+    cursor?: AppConfigsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AppConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AppConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AppConfigs.
+     */
+    distinct?: AppConfigsScalarFieldEnum | AppConfigsScalarFieldEnum[]
+  }
+
+  /**
+   * AppConfigs findFirstOrThrow
+   */
+  export type AppConfigsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter, which AppConfigs to fetch.
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AppConfigs to fetch.
+     */
+    orderBy?: AppConfigsOrderByWithRelationInput | AppConfigsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AppConfigs.
+     */
+    cursor?: AppConfigsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AppConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AppConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AppConfigs.
+     */
+    distinct?: AppConfigsScalarFieldEnum | AppConfigsScalarFieldEnum[]
+  }
+
+  /**
+   * AppConfigs findMany
+   */
+  export type AppConfigsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter, which AppConfigs to fetch.
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AppConfigs to fetch.
+     */
+    orderBy?: AppConfigsOrderByWithRelationInput | AppConfigsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AppConfigs.
+     */
+    cursor?: AppConfigsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AppConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AppConfigs.
+     */
+    skip?: number
+    distinct?: AppConfigsScalarFieldEnum | AppConfigsScalarFieldEnum[]
+  }
+
+  /**
+   * AppConfigs create
+   */
+  export type AppConfigsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AppConfigs.
+     */
+    data: XOR<AppConfigsCreateInput, AppConfigsUncheckedCreateInput>
+  }
+
+  /**
+   * AppConfigs createMany
+   */
+  export type AppConfigsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AppConfigs.
+     */
+    data: AppConfigsCreateManyInput | AppConfigsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AppConfigs update
+   */
+  export type AppConfigsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AppConfigs.
+     */
+    data: XOR<AppConfigsUpdateInput, AppConfigsUncheckedUpdateInput>
+    /**
+     * Choose, which AppConfigs to update.
+     */
+    where: AppConfigsWhereUniqueInput
+  }
+
+  /**
+   * AppConfigs updateMany
+   */
+  export type AppConfigsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AppConfigs.
+     */
+    data: XOR<AppConfigsUpdateManyMutationInput, AppConfigsUncheckedUpdateManyInput>
+    /**
+     * Filter which AppConfigs to update
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * Limit how many AppConfigs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AppConfigs upsert
+   */
+  export type AppConfigsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AppConfigs to update in case it exists.
+     */
+    where: AppConfigsWhereUniqueInput
+    /**
+     * In case the AppConfigs found by the `where` argument doesn't exist, create a new AppConfigs with this data.
+     */
+    create: XOR<AppConfigsCreateInput, AppConfigsUncheckedCreateInput>
+    /**
+     * In case the AppConfigs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AppConfigsUpdateInput, AppConfigsUncheckedUpdateInput>
+  }
+
+  /**
+   * AppConfigs delete
+   */
+  export type AppConfigsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+    /**
+     * Filter which AppConfigs to delete.
+     */
+    where: AppConfigsWhereUniqueInput
+  }
+
+  /**
+   * AppConfigs deleteMany
+   */
+  export type AppConfigsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AppConfigs to delete
+     */
+    where?: AppConfigsWhereInput
+    /**
+     * Limit how many AppConfigs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AppConfigs without action
+   */
+  export type AppConfigsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AppConfigs
+     */
+    select?: AppConfigsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AppConfigs
+     */
+    omit?: AppConfigsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GraphicThemes
+   */
+
+  export type AggregateGraphicThemes = {
+    _count: GraphicThemesCountAggregateOutputType | null
+    _avg: GraphicThemesAvgAggregateOutputType | null
+    _sum: GraphicThemesSumAggregateOutputType | null
+    _min: GraphicThemesMinAggregateOutputType | null
+    _max: GraphicThemesMaxAggregateOutputType | null
+  }
+
+  export type GraphicThemesAvgAggregateOutputType = {
+    graphicThemeId: number | null
+  }
+
+  export type GraphicThemesSumAggregateOutputType = {
+    graphicThemeId: number | null
+  }
+
+  export type GraphicThemesMinAggregateOutputType = {
+    graphicThemeId: number | null
+    graphicThemeName: string | null
+    backgroundMain: string | null
+    backgroundSecondary: string | null
+    textPrimary: string | null
+    textSecondary: string | null
+    accent: string | null
+    accentHover: string | null
+    success: string | null
+    cardBackground: string | null
+    borderColor: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type GraphicThemesMaxAggregateOutputType = {
+    graphicThemeId: number | null
+    graphicThemeName: string | null
+    backgroundMain: string | null
+    backgroundSecondary: string | null
+    textPrimary: string | null
+    textSecondary: string | null
+    accent: string | null
+    accentHover: string | null
+    success: string | null
+    cardBackground: string | null
+    borderColor: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    isDeleted: boolean | null
+  }
+
+  export type GraphicThemesCountAggregateOutputType = {
+    graphicThemeId: number
+    graphicThemeName: number
+    backgroundMain: number
+    backgroundSecondary: number
+    textPrimary: number
+    textSecondary: number
+    accent: number
+    accentHover: number
+    success: number
+    cardBackground: number
+    borderColor: number
+    createdAt: number
+    createdBy: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type GraphicThemesAvgAggregateInputType = {
+    graphicThemeId?: true
+  }
+
+  export type GraphicThemesSumAggregateInputType = {
+    graphicThemeId?: true
+  }
+
+  export type GraphicThemesMinAggregateInputType = {
+    graphicThemeId?: true
+    graphicThemeName?: true
+    backgroundMain?: true
+    backgroundSecondary?: true
+    textPrimary?: true
+    textSecondary?: true
+    accent?: true
+    accentHover?: true
+    success?: true
+    cardBackground?: true
+    borderColor?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type GraphicThemesMaxAggregateInputType = {
+    graphicThemeId?: true
+    graphicThemeName?: true
+    backgroundMain?: true
+    backgroundSecondary?: true
+    textPrimary?: true
+    textSecondary?: true
+    accent?: true
+    accentHover?: true
+    success?: true
+    cardBackground?: true
+    borderColor?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+  }
+
+  export type GraphicThemesCountAggregateInputType = {
+    graphicThemeId?: true
+    graphicThemeName?: true
+    backgroundMain?: true
+    backgroundSecondary?: true
+    textPrimary?: true
+    textSecondary?: true
+    accent?: true
+    accentHover?: true
+    success?: true
+    cardBackground?: true
+    borderColor?: true
+    createdAt?: true
+    createdBy?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type GraphicThemesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GraphicThemes to aggregate.
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GraphicThemes to fetch.
+     */
+    orderBy?: GraphicThemesOrderByWithRelationInput | GraphicThemesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GraphicThemesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GraphicThemes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GraphicThemes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GraphicThemes
+    **/
+    _count?: true | GraphicThemesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GraphicThemesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GraphicThemesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GraphicThemesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GraphicThemesMaxAggregateInputType
+  }
+
+  export type GetGraphicThemesAggregateType<T extends GraphicThemesAggregateArgs> = {
+        [P in keyof T & keyof AggregateGraphicThemes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGraphicThemes[P]>
+      : GetScalarType<T[P], AggregateGraphicThemes[P]>
+  }
+
+
+
+
+  export type GraphicThemesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GraphicThemesWhereInput
+    orderBy?: GraphicThemesOrderByWithAggregationInput | GraphicThemesOrderByWithAggregationInput[]
+    by: GraphicThemesScalarFieldEnum[] | GraphicThemesScalarFieldEnum
+    having?: GraphicThemesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GraphicThemesCountAggregateInputType | true
+    _avg?: GraphicThemesAvgAggregateInputType
+    _sum?: GraphicThemesSumAggregateInputType
+    _min?: GraphicThemesMinAggregateInputType
+    _max?: GraphicThemesMaxAggregateInputType
+  }
+
+  export type GraphicThemesGroupByOutputType = {
+    graphicThemeId: number
+    graphicThemeName: string
+    backgroundMain: string | null
+    backgroundSecondary: string | null
+    textPrimary: string | null
+    textSecondary: string | null
+    accent: string | null
+    accentHover: string | null
+    success: string | null
+    cardBackground: string | null
+    borderColor: string | null
+    createdAt: Date
+    createdBy: string
+    isDeleted: boolean
+    _count: GraphicThemesCountAggregateOutputType | null
+    _avg: GraphicThemesAvgAggregateOutputType | null
+    _sum: GraphicThemesSumAggregateOutputType | null
+    _min: GraphicThemesMinAggregateOutputType | null
+    _max: GraphicThemesMaxAggregateOutputType | null
+  }
+
+  type GetGraphicThemesGroupByPayload<T extends GraphicThemesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GraphicThemesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GraphicThemesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GraphicThemesGroupByOutputType[P]>
+            : GetScalarType<T[P], GraphicThemesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GraphicThemesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    graphicThemeId?: boolean
+    graphicThemeName?: boolean
+    backgroundMain?: boolean
+    backgroundSecondary?: boolean
+    textPrimary?: boolean
+    textSecondary?: boolean
+    accent?: boolean
+    accentHover?: boolean
+    success?: boolean
+    cardBackground?: boolean
+    borderColor?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }, ExtArgs["result"]["graphicThemes"]>
+
+
+
+  export type GraphicThemesSelectScalar = {
+    graphicThemeId?: boolean
+    graphicThemeName?: boolean
+    backgroundMain?: boolean
+    backgroundSecondary?: boolean
+    textPrimary?: boolean
+    textSecondary?: boolean
+    accent?: boolean
+    accentHover?: boolean
+    success?: boolean
+    cardBackground?: boolean
+    borderColor?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    isDeleted?: boolean
+  }
+
+  export type GraphicThemesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"graphicThemeId" | "graphicThemeName" | "backgroundMain" | "backgroundSecondary" | "textPrimary" | "textSecondary" | "accent" | "accentHover" | "success" | "cardBackground" | "borderColor" | "createdAt" | "createdBy" | "isDeleted", ExtArgs["result"]["graphicThemes"]>
+
+  export type $GraphicThemesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GraphicThemes"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      graphicThemeId: number
+      graphicThemeName: string
+      backgroundMain: string | null
+      backgroundSecondary: string | null
+      textPrimary: string | null
+      textSecondary: string | null
+      accent: string | null
+      accentHover: string | null
+      success: string | null
+      cardBackground: string | null
+      borderColor: string | null
+      createdAt: Date
+      createdBy: string
+      isDeleted: boolean
+    }, ExtArgs["result"]["graphicThemes"]>
+    composites: {}
+  }
+
+  type GraphicThemesGetPayload<S extends boolean | null | undefined | GraphicThemesDefaultArgs> = $Result.GetResult<Prisma.$GraphicThemesPayload, S>
+
+  type GraphicThemesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GraphicThemesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GraphicThemesCountAggregateInputType | true
+    }
+
+  export interface GraphicThemesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GraphicThemes'], meta: { name: 'GraphicThemes' } }
+    /**
+     * Find zero or one GraphicThemes that matches the filter.
+     * @param {GraphicThemesFindUniqueArgs} args - Arguments to find a GraphicThemes
+     * @example
+     * // Get one GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GraphicThemesFindUniqueArgs>(args: SelectSubset<T, GraphicThemesFindUniqueArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GraphicThemes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GraphicThemesFindUniqueOrThrowArgs} args - Arguments to find a GraphicThemes
+     * @example
+     * // Get one GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GraphicThemesFindUniqueOrThrowArgs>(args: SelectSubset<T, GraphicThemesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GraphicThemes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesFindFirstArgs} args - Arguments to find a GraphicThemes
+     * @example
+     * // Get one GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GraphicThemesFindFirstArgs>(args?: SelectSubset<T, GraphicThemesFindFirstArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GraphicThemes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesFindFirstOrThrowArgs} args - Arguments to find a GraphicThemes
+     * @example
+     * // Get one GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GraphicThemesFindFirstOrThrowArgs>(args?: SelectSubset<T, GraphicThemesFindFirstOrThrowArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GraphicThemes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findMany()
+     * 
+     * // Get first 10 GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.findMany({ take: 10 })
+     * 
+     * // Only select the `graphicThemeId`
+     * const graphicThemesWithGraphicThemeIdOnly = await prisma.graphicThemes.findMany({ select: { graphicThemeId: true } })
+     * 
+     */
+    findMany<T extends GraphicThemesFindManyArgs>(args?: SelectSubset<T, GraphicThemesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GraphicThemes.
+     * @param {GraphicThemesCreateArgs} args - Arguments to create a GraphicThemes.
+     * @example
+     * // Create one GraphicThemes
+     * const GraphicThemes = await prisma.graphicThemes.create({
+     *   data: {
+     *     // ... data to create a GraphicThemes
+     *   }
+     * })
+     * 
+     */
+    create<T extends GraphicThemesCreateArgs>(args: SelectSubset<T, GraphicThemesCreateArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GraphicThemes.
+     * @param {GraphicThemesCreateManyArgs} args - Arguments to create many GraphicThemes.
+     * @example
+     * // Create many GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GraphicThemesCreateManyArgs>(args?: SelectSubset<T, GraphicThemesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a GraphicThemes.
+     * @param {GraphicThemesDeleteArgs} args - Arguments to delete one GraphicThemes.
+     * @example
+     * // Delete one GraphicThemes
+     * const GraphicThemes = await prisma.graphicThemes.delete({
+     *   where: {
+     *     // ... filter to delete one GraphicThemes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GraphicThemesDeleteArgs>(args: SelectSubset<T, GraphicThemesDeleteArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GraphicThemes.
+     * @param {GraphicThemesUpdateArgs} args - Arguments to update one GraphicThemes.
+     * @example
+     * // Update one GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GraphicThemesUpdateArgs>(args: SelectSubset<T, GraphicThemesUpdateArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GraphicThemes.
+     * @param {GraphicThemesDeleteManyArgs} args - Arguments to filter GraphicThemes to delete.
+     * @example
+     * // Delete a few GraphicThemes
+     * const { count } = await prisma.graphicThemes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GraphicThemesDeleteManyArgs>(args?: SelectSubset<T, GraphicThemesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GraphicThemes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GraphicThemesUpdateManyArgs>(args: SelectSubset<T, GraphicThemesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one GraphicThemes.
+     * @param {GraphicThemesUpsertArgs} args - Arguments to update or create a GraphicThemes.
+     * @example
+     * // Update or create a GraphicThemes
+     * const graphicThemes = await prisma.graphicThemes.upsert({
+     *   create: {
+     *     // ... data to create a GraphicThemes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GraphicThemes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GraphicThemesUpsertArgs>(args: SelectSubset<T, GraphicThemesUpsertArgs<ExtArgs>>): Prisma__GraphicThemesClient<$Result.GetResult<Prisma.$GraphicThemesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GraphicThemes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesCountArgs} args - Arguments to filter GraphicThemes to count.
+     * @example
+     * // Count the number of GraphicThemes
+     * const count = await prisma.graphicThemes.count({
+     *   where: {
+     *     // ... the filter for the GraphicThemes we want to count
+     *   }
+     * })
+    **/
+    count<T extends GraphicThemesCountArgs>(
+      args?: Subset<T, GraphicThemesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GraphicThemesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GraphicThemes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GraphicThemesAggregateArgs>(args: Subset<T, GraphicThemesAggregateArgs>): Prisma.PrismaPromise<GetGraphicThemesAggregateType<T>>
+
+    /**
+     * Group by GraphicThemes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GraphicThemesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GraphicThemesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GraphicThemesGroupByArgs['orderBy'] }
+        : { orderBy?: GraphicThemesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GraphicThemesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGraphicThemesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GraphicThemes model
+   */
+  readonly fields: GraphicThemesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GraphicThemes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GraphicThemesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GraphicThemes model
+   */
+  interface GraphicThemesFieldRefs {
+    readonly graphicThemeId: FieldRef<"GraphicThemes", 'Int'>
+    readonly graphicThemeName: FieldRef<"GraphicThemes", 'String'>
+    readonly backgroundMain: FieldRef<"GraphicThemes", 'String'>
+    readonly backgroundSecondary: FieldRef<"GraphicThemes", 'String'>
+    readonly textPrimary: FieldRef<"GraphicThemes", 'String'>
+    readonly textSecondary: FieldRef<"GraphicThemes", 'String'>
+    readonly accent: FieldRef<"GraphicThemes", 'String'>
+    readonly accentHover: FieldRef<"GraphicThemes", 'String'>
+    readonly success: FieldRef<"GraphicThemes", 'String'>
+    readonly cardBackground: FieldRef<"GraphicThemes", 'String'>
+    readonly borderColor: FieldRef<"GraphicThemes", 'String'>
+    readonly createdAt: FieldRef<"GraphicThemes", 'DateTime'>
+    readonly createdBy: FieldRef<"GraphicThemes", 'String'>
+    readonly isDeleted: FieldRef<"GraphicThemes", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GraphicThemes findUnique
+   */
+  export type GraphicThemesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter, which GraphicThemes to fetch.
+     */
+    where: GraphicThemesWhereUniqueInput
+  }
+
+  /**
+   * GraphicThemes findUniqueOrThrow
+   */
+  export type GraphicThemesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter, which GraphicThemes to fetch.
+     */
+    where: GraphicThemesWhereUniqueInput
+  }
+
+  /**
+   * GraphicThemes findFirst
+   */
+  export type GraphicThemesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter, which GraphicThemes to fetch.
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GraphicThemes to fetch.
+     */
+    orderBy?: GraphicThemesOrderByWithRelationInput | GraphicThemesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GraphicThemes.
+     */
+    cursor?: GraphicThemesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GraphicThemes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GraphicThemes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GraphicThemes.
+     */
+    distinct?: GraphicThemesScalarFieldEnum | GraphicThemesScalarFieldEnum[]
+  }
+
+  /**
+   * GraphicThemes findFirstOrThrow
+   */
+  export type GraphicThemesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter, which GraphicThemes to fetch.
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GraphicThemes to fetch.
+     */
+    orderBy?: GraphicThemesOrderByWithRelationInput | GraphicThemesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GraphicThemes.
+     */
+    cursor?: GraphicThemesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GraphicThemes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GraphicThemes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GraphicThemes.
+     */
+    distinct?: GraphicThemesScalarFieldEnum | GraphicThemesScalarFieldEnum[]
+  }
+
+  /**
+   * GraphicThemes findMany
+   */
+  export type GraphicThemesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter, which GraphicThemes to fetch.
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GraphicThemes to fetch.
+     */
+    orderBy?: GraphicThemesOrderByWithRelationInput | GraphicThemesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GraphicThemes.
+     */
+    cursor?: GraphicThemesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GraphicThemes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GraphicThemes.
+     */
+    skip?: number
+    distinct?: GraphicThemesScalarFieldEnum | GraphicThemesScalarFieldEnum[]
+  }
+
+  /**
+   * GraphicThemes create
+   */
+  export type GraphicThemesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * The data needed to create a GraphicThemes.
+     */
+    data: XOR<GraphicThemesCreateInput, GraphicThemesUncheckedCreateInput>
+  }
+
+  /**
+   * GraphicThemes createMany
+   */
+  export type GraphicThemesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GraphicThemes.
+     */
+    data: GraphicThemesCreateManyInput | GraphicThemesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GraphicThemes update
+   */
+  export type GraphicThemesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * The data needed to update a GraphicThemes.
+     */
+    data: XOR<GraphicThemesUpdateInput, GraphicThemesUncheckedUpdateInput>
+    /**
+     * Choose, which GraphicThemes to update.
+     */
+    where: GraphicThemesWhereUniqueInput
+  }
+
+  /**
+   * GraphicThemes updateMany
+   */
+  export type GraphicThemesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GraphicThemes.
+     */
+    data: XOR<GraphicThemesUpdateManyMutationInput, GraphicThemesUncheckedUpdateManyInput>
+    /**
+     * Filter which GraphicThemes to update
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * Limit how many GraphicThemes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GraphicThemes upsert
+   */
+  export type GraphicThemesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * The filter to search for the GraphicThemes to update in case it exists.
+     */
+    where: GraphicThemesWhereUniqueInput
+    /**
+     * In case the GraphicThemes found by the `where` argument doesn't exist, create a new GraphicThemes with this data.
+     */
+    create: XOR<GraphicThemesCreateInput, GraphicThemesUncheckedCreateInput>
+    /**
+     * In case the GraphicThemes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GraphicThemesUpdateInput, GraphicThemesUncheckedUpdateInput>
+  }
+
+  /**
+   * GraphicThemes delete
+   */
+  export type GraphicThemesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+    /**
+     * Filter which GraphicThemes to delete.
+     */
+    where: GraphicThemesWhereUniqueInput
+  }
+
+  /**
+   * GraphicThemes deleteMany
+   */
+  export type GraphicThemesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GraphicThemes to delete
+     */
+    where?: GraphicThemesWhereInput
+    /**
+     * Limit how many GraphicThemes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GraphicThemes without action
+   */
+  export type GraphicThemesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GraphicThemes
+     */
+    select?: GraphicThemesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GraphicThemes
+     */
+    omit?: GraphicThemesOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -19976,6 +22084,38 @@ export namespace Prisma {
   export type UsersAdGroupsScalarFieldEnum = (typeof UsersAdGroupsScalarFieldEnum)[keyof typeof UsersAdGroupsScalarFieldEnum]
 
 
+  export const AppConfigsScalarFieldEnum: {
+    appConfigId: 'appConfigId',
+    appConfigName: 'appConfigName',
+    appConfigValue: 'appConfigValue',
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    isDeleted: 'isDeleted'
+  };
+
+  export type AppConfigsScalarFieldEnum = (typeof AppConfigsScalarFieldEnum)[keyof typeof AppConfigsScalarFieldEnum]
+
+
+  export const GraphicThemesScalarFieldEnum: {
+    graphicThemeId: 'graphicThemeId',
+    graphicThemeName: 'graphicThemeName',
+    backgroundMain: 'backgroundMain',
+    backgroundSecondary: 'backgroundSecondary',
+    textPrimary: 'textPrimary',
+    textSecondary: 'textSecondary',
+    accent: 'accent',
+    accentHover: 'accentHover',
+    success: 'success',
+    cardBackground: 'cardBackground',
+    borderColor: 'borderColor',
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    isDeleted: 'isDeleted'
+  };
+
+  export type GraphicThemesScalarFieldEnum = (typeof GraphicThemesScalarFieldEnum)[keyof typeof GraphicThemesScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -20122,6 +22262,40 @@ export namespace Prisma {
   };
 
   export type UsersAdGroupsOrderByRelevanceFieldEnum = (typeof UsersAdGroupsOrderByRelevanceFieldEnum)[keyof typeof UsersAdGroupsOrderByRelevanceFieldEnum]
+
+
+  export const AppConfigsOrderByRelevanceFieldEnum: {
+    appConfigName: 'appConfigName',
+    appConfigValue: 'appConfigValue',
+    createdBy: 'createdBy'
+  };
+
+  export type AppConfigsOrderByRelevanceFieldEnum = (typeof AppConfigsOrderByRelevanceFieldEnum)[keyof typeof AppConfigsOrderByRelevanceFieldEnum]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const GraphicThemesOrderByRelevanceFieldEnum: {
+    graphicThemeName: 'graphicThemeName',
+    backgroundMain: 'backgroundMain',
+    backgroundSecondary: 'backgroundSecondary',
+    textPrimary: 'textPrimary',
+    textSecondary: 'textSecondary',
+    accent: 'accent',
+    accentHover: 'accentHover',
+    success: 'success',
+    cardBackground: 'cardBackground',
+    borderColor: 'borderColor',
+    createdBy: 'createdBy'
+  };
+
+  export type GraphicThemesOrderByRelevanceFieldEnum = (typeof GraphicThemesOrderByRelevanceFieldEnum)[keyof typeof GraphicThemesOrderByRelevanceFieldEnum]
 
 
   /**
@@ -21313,6 +23487,166 @@ export namespace Prisma {
     isDeleted?: BoolWithAggregatesFilter<"UsersAdGroups"> | boolean
   }
 
+  export type AppConfigsWhereInput = {
+    AND?: AppConfigsWhereInput | AppConfigsWhereInput[]
+    OR?: AppConfigsWhereInput[]
+    NOT?: AppConfigsWhereInput | AppConfigsWhereInput[]
+    appConfigId?: IntFilter<"AppConfigs"> | number
+    appConfigName?: StringFilter<"AppConfigs"> | string
+    appConfigValue?: StringFilter<"AppConfigs"> | string
+    createdAt?: DateTimeFilter<"AppConfigs"> | Date | string
+    createdBy?: StringFilter<"AppConfigs"> | string
+    isDeleted?: BoolFilter<"AppConfigs"> | boolean
+  }
+
+  export type AppConfigsOrderByWithRelationInput = {
+    appConfigId?: SortOrder
+    appConfigName?: SortOrder
+    appConfigValue?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _relevance?: AppConfigsOrderByRelevanceInput
+  }
+
+  export type AppConfigsWhereUniqueInput = Prisma.AtLeast<{
+    appConfigId?: number
+    appConfigName?: string
+    AND?: AppConfigsWhereInput | AppConfigsWhereInput[]
+    OR?: AppConfigsWhereInput[]
+    NOT?: AppConfigsWhereInput | AppConfigsWhereInput[]
+    appConfigValue?: StringFilter<"AppConfigs"> | string
+    createdAt?: DateTimeFilter<"AppConfigs"> | Date | string
+    createdBy?: StringFilter<"AppConfigs"> | string
+    isDeleted?: BoolFilter<"AppConfigs"> | boolean
+  }, "appConfigId" | "appConfigName">
+
+  export type AppConfigsOrderByWithAggregationInput = {
+    appConfigId?: SortOrder
+    appConfigName?: SortOrder
+    appConfigValue?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _count?: AppConfigsCountOrderByAggregateInput
+    _avg?: AppConfigsAvgOrderByAggregateInput
+    _max?: AppConfigsMaxOrderByAggregateInput
+    _min?: AppConfigsMinOrderByAggregateInput
+    _sum?: AppConfigsSumOrderByAggregateInput
+  }
+
+  export type AppConfigsScalarWhereWithAggregatesInput = {
+    AND?: AppConfigsScalarWhereWithAggregatesInput | AppConfigsScalarWhereWithAggregatesInput[]
+    OR?: AppConfigsScalarWhereWithAggregatesInput[]
+    NOT?: AppConfigsScalarWhereWithAggregatesInput | AppConfigsScalarWhereWithAggregatesInput[]
+    appConfigId?: IntWithAggregatesFilter<"AppConfigs"> | number
+    appConfigName?: StringWithAggregatesFilter<"AppConfigs"> | string
+    appConfigValue?: StringWithAggregatesFilter<"AppConfigs"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AppConfigs"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"AppConfigs"> | string
+    isDeleted?: BoolWithAggregatesFilter<"AppConfigs"> | boolean
+  }
+
+  export type GraphicThemesWhereInput = {
+    AND?: GraphicThemesWhereInput | GraphicThemesWhereInput[]
+    OR?: GraphicThemesWhereInput[]
+    NOT?: GraphicThemesWhereInput | GraphicThemesWhereInput[]
+    graphicThemeId?: IntFilter<"GraphicThemes"> | number
+    graphicThemeName?: StringFilter<"GraphicThemes"> | string
+    backgroundMain?: StringNullableFilter<"GraphicThemes"> | string | null
+    backgroundSecondary?: StringNullableFilter<"GraphicThemes"> | string | null
+    textPrimary?: StringNullableFilter<"GraphicThemes"> | string | null
+    textSecondary?: StringNullableFilter<"GraphicThemes"> | string | null
+    accent?: StringNullableFilter<"GraphicThemes"> | string | null
+    accentHover?: StringNullableFilter<"GraphicThemes"> | string | null
+    success?: StringNullableFilter<"GraphicThemes"> | string | null
+    cardBackground?: StringNullableFilter<"GraphicThemes"> | string | null
+    borderColor?: StringNullableFilter<"GraphicThemes"> | string | null
+    createdAt?: DateTimeFilter<"GraphicThemes"> | Date | string
+    createdBy?: StringFilter<"GraphicThemes"> | string
+    isDeleted?: BoolFilter<"GraphicThemes"> | boolean
+  }
+
+  export type GraphicThemesOrderByWithRelationInput = {
+    graphicThemeId?: SortOrder
+    graphicThemeName?: SortOrder
+    backgroundMain?: SortOrderInput | SortOrder
+    backgroundSecondary?: SortOrderInput | SortOrder
+    textPrimary?: SortOrderInput | SortOrder
+    textSecondary?: SortOrderInput | SortOrder
+    accent?: SortOrderInput | SortOrder
+    accentHover?: SortOrderInput | SortOrder
+    success?: SortOrderInput | SortOrder
+    cardBackground?: SortOrderInput | SortOrder
+    borderColor?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _relevance?: GraphicThemesOrderByRelevanceInput
+  }
+
+  export type GraphicThemesWhereUniqueInput = Prisma.AtLeast<{
+    graphicThemeId?: number
+    graphicThemeName?: string
+    AND?: GraphicThemesWhereInput | GraphicThemesWhereInput[]
+    OR?: GraphicThemesWhereInput[]
+    NOT?: GraphicThemesWhereInput | GraphicThemesWhereInput[]
+    backgroundMain?: StringNullableFilter<"GraphicThemes"> | string | null
+    backgroundSecondary?: StringNullableFilter<"GraphicThemes"> | string | null
+    textPrimary?: StringNullableFilter<"GraphicThemes"> | string | null
+    textSecondary?: StringNullableFilter<"GraphicThemes"> | string | null
+    accent?: StringNullableFilter<"GraphicThemes"> | string | null
+    accentHover?: StringNullableFilter<"GraphicThemes"> | string | null
+    success?: StringNullableFilter<"GraphicThemes"> | string | null
+    cardBackground?: StringNullableFilter<"GraphicThemes"> | string | null
+    borderColor?: StringNullableFilter<"GraphicThemes"> | string | null
+    createdAt?: DateTimeFilter<"GraphicThemes"> | Date | string
+    createdBy?: StringFilter<"GraphicThemes"> | string
+    isDeleted?: BoolFilter<"GraphicThemes"> | boolean
+  }, "graphicThemeId" | "graphicThemeName">
+
+  export type GraphicThemesOrderByWithAggregationInput = {
+    graphicThemeId?: SortOrder
+    graphicThemeName?: SortOrder
+    backgroundMain?: SortOrderInput | SortOrder
+    backgroundSecondary?: SortOrderInput | SortOrder
+    textPrimary?: SortOrderInput | SortOrder
+    textSecondary?: SortOrderInput | SortOrder
+    accent?: SortOrderInput | SortOrder
+    accentHover?: SortOrderInput | SortOrder
+    success?: SortOrderInput | SortOrder
+    cardBackground?: SortOrderInput | SortOrder
+    borderColor?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+    _count?: GraphicThemesCountOrderByAggregateInput
+    _avg?: GraphicThemesAvgOrderByAggregateInput
+    _max?: GraphicThemesMaxOrderByAggregateInput
+    _min?: GraphicThemesMinOrderByAggregateInput
+    _sum?: GraphicThemesSumOrderByAggregateInput
+  }
+
+  export type GraphicThemesScalarWhereWithAggregatesInput = {
+    AND?: GraphicThemesScalarWhereWithAggregatesInput | GraphicThemesScalarWhereWithAggregatesInput[]
+    OR?: GraphicThemesScalarWhereWithAggregatesInput[]
+    NOT?: GraphicThemesScalarWhereWithAggregatesInput | GraphicThemesScalarWhereWithAggregatesInput[]
+    graphicThemeId?: IntWithAggregatesFilter<"GraphicThemes"> | number
+    graphicThemeName?: StringWithAggregatesFilter<"GraphicThemes"> | string
+    backgroundMain?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    backgroundSecondary?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    textPrimary?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    textSecondary?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    accent?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    accentHover?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    success?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    cardBackground?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    borderColor?: StringNullableWithAggregatesFilter<"GraphicThemes"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"GraphicThemes"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"GraphicThemes"> | string
+    isDeleted?: BoolWithAggregatesFilter<"GraphicThemes"> | boolean
+  }
+
   export type EditionsCreateInput = {
     editionName: string
     editionYear: number
@@ -22423,6 +24757,182 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type AppConfigsCreateInput = {
+    appConfigName: string
+    appConfigValue: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AppConfigsUncheckedCreateInput = {
+    appConfigId?: number
+    appConfigName: string
+    appConfigValue: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AppConfigsUpdateInput = {
+    appConfigName?: StringFieldUpdateOperationsInput | string
+    appConfigValue?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AppConfigsUncheckedUpdateInput = {
+    appConfigId?: IntFieldUpdateOperationsInput | number
+    appConfigName?: StringFieldUpdateOperationsInput | string
+    appConfigValue?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AppConfigsCreateManyInput = {
+    appConfigId?: number
+    appConfigName: string
+    appConfigValue: string
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type AppConfigsUpdateManyMutationInput = {
+    appConfigName?: StringFieldUpdateOperationsInput | string
+    appConfigValue?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AppConfigsUncheckedUpdateManyInput = {
+    appConfigId?: IntFieldUpdateOperationsInput | number
+    appConfigName?: StringFieldUpdateOperationsInput | string
+    appConfigValue?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GraphicThemesCreateInput = {
+    graphicThemeName: string
+    backgroundMain?: string | null
+    backgroundSecondary?: string | null
+    textPrimary?: string | null
+    textSecondary?: string | null
+    accent?: string | null
+    accentHover?: string | null
+    success?: string | null
+    cardBackground?: string | null
+    borderColor?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type GraphicThemesUncheckedCreateInput = {
+    graphicThemeId?: number
+    graphicThemeName: string
+    backgroundMain?: string | null
+    backgroundSecondary?: string | null
+    textPrimary?: string | null
+    textSecondary?: string | null
+    accent?: string | null
+    accentHover?: string | null
+    success?: string | null
+    cardBackground?: string | null
+    borderColor?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type GraphicThemesUpdateInput = {
+    graphicThemeName?: StringFieldUpdateOperationsInput | string
+    backgroundMain?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    textPrimary?: NullableStringFieldUpdateOperationsInput | string | null
+    textSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    accentHover?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: NullableStringFieldUpdateOperationsInput | string | null
+    cardBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    borderColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GraphicThemesUncheckedUpdateInput = {
+    graphicThemeId?: IntFieldUpdateOperationsInput | number
+    graphicThemeName?: StringFieldUpdateOperationsInput | string
+    backgroundMain?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    textPrimary?: NullableStringFieldUpdateOperationsInput | string | null
+    textSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    accentHover?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: NullableStringFieldUpdateOperationsInput | string | null
+    cardBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    borderColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GraphicThemesCreateManyInput = {
+    graphicThemeId?: number
+    graphicThemeName: string
+    backgroundMain?: string | null
+    backgroundSecondary?: string | null
+    textPrimary?: string | null
+    textSecondary?: string | null
+    accent?: string | null
+    accentHover?: string | null
+    success?: string | null
+    cardBackground?: string | null
+    borderColor?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    isDeleted?: boolean
+  }
+
+  export type GraphicThemesUpdateManyMutationInput = {
+    graphicThemeName?: StringFieldUpdateOperationsInput | string
+    backgroundMain?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    textPrimary?: NullableStringFieldUpdateOperationsInput | string | null
+    textSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    accentHover?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: NullableStringFieldUpdateOperationsInput | string | null
+    cardBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    borderColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GraphicThemesUncheckedUpdateManyInput = {
+    graphicThemeId?: IntFieldUpdateOperationsInput | number
+    graphicThemeName?: StringFieldUpdateOperationsInput | string
+    backgroundMain?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    textPrimary?: NullableStringFieldUpdateOperationsInput | string | null
+    textSecondary?: NullableStringFieldUpdateOperationsInput | string | null
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    accentHover?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: NullableStringFieldUpdateOperationsInput | string | null
+    cardBackground?: NullableStringFieldUpdateOperationsInput | string | null
+    borderColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -23430,6 +25940,150 @@ export namespace Prisma {
     adGroupId?: SortOrder
   }
 
+  export type AppConfigsOrderByRelevanceInput = {
+    fields: AppConfigsOrderByRelevanceFieldEnum | AppConfigsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type AppConfigsCountOrderByAggregateInput = {
+    appConfigId?: SortOrder
+    appConfigName?: SortOrder
+    appConfigValue?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AppConfigsAvgOrderByAggregateInput = {
+    appConfigId?: SortOrder
+  }
+
+  export type AppConfigsMaxOrderByAggregateInput = {
+    appConfigId?: SortOrder
+    appConfigName?: SortOrder
+    appConfigValue?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AppConfigsMinOrderByAggregateInput = {
+    appConfigId?: SortOrder
+    appConfigName?: SortOrder
+    appConfigValue?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type AppConfigsSumOrderByAggregateInput = {
+    appConfigId?: SortOrder
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type GraphicThemesOrderByRelevanceInput = {
+    fields: GraphicThemesOrderByRelevanceFieldEnum | GraphicThemesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type GraphicThemesCountOrderByAggregateInput = {
+    graphicThemeId?: SortOrder
+    graphicThemeName?: SortOrder
+    backgroundMain?: SortOrder
+    backgroundSecondary?: SortOrder
+    textPrimary?: SortOrder
+    textSecondary?: SortOrder
+    accent?: SortOrder
+    accentHover?: SortOrder
+    success?: SortOrder
+    cardBackground?: SortOrder
+    borderColor?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type GraphicThemesAvgOrderByAggregateInput = {
+    graphicThemeId?: SortOrder
+  }
+
+  export type GraphicThemesMaxOrderByAggregateInput = {
+    graphicThemeId?: SortOrder
+    graphicThemeName?: SortOrder
+    backgroundMain?: SortOrder
+    backgroundSecondary?: SortOrder
+    textPrimary?: SortOrder
+    textSecondary?: SortOrder
+    accent?: SortOrder
+    accentHover?: SortOrder
+    success?: SortOrder
+    cardBackground?: SortOrder
+    borderColor?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type GraphicThemesMinOrderByAggregateInput = {
+    graphicThemeId?: SortOrder
+    graphicThemeName?: SortOrder
+    backgroundMain?: SortOrder
+    backgroundSecondary?: SortOrder
+    textPrimary?: SortOrder
+    textSecondary?: SortOrder
+    accent?: SortOrder
+    accentHover?: SortOrder
+    success?: SortOrder
+    cardBackground?: SortOrder
+    borderColor?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type GraphicThemesSumOrderByAggregateInput = {
+    graphicThemeId?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type EditionsStatusesCreateNestedOneWithoutEditionsInput = {
     create?: XOR<EditionsStatusesCreateWithoutEditionsInput, EditionsStatusesUncheckedCreateWithoutEditionsInput>
     connectOrCreate?: EditionsStatusesCreateOrConnectWithoutEditionsInput
@@ -24326,6 +26980,10 @@ export namespace Prisma {
     update?: XOR<XOR<AdGroupsUpdateToOneWithWhereWithoutUserGroupsInput, AdGroupsUpdateWithoutUserGroupsInput>, AdGroupsUncheckedUpdateWithoutUserGroupsInput>
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -24433,6 +27091,50 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type EditionsStatusesCreateWithoutEditionsInput = {

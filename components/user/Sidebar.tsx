@@ -15,6 +15,24 @@ import {
   X
 } from 'lucide-react'
 
+type GraphicTheme = {
+  graphicThemeName: string
+  backgroundMain: string
+  backgroundSecondary: string
+  textPrimary: string
+  textSecondary: string
+  accent: string
+  accentHover: string
+  success: string
+  cardBackground: string
+  borderColor: string
+}
+
+type AppConfig = {
+  appConfigName: string
+  appConfigValue: string
+}
+
 export default function Sidebar({
   isCollapsed,
   setIsCollapsed
@@ -28,6 +46,8 @@ export default function Sidebar({
 
   const [hasUserAccess, setHasUserAccess] = useState(false)
   const [checkingAuth, setCheckingAuth] = useState(true)
+
+  const [theme, setTheme] = useState<GraphicTheme | null>(null)
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -54,12 +74,41 @@ export default function Sidebar({
 
       setCheckingAuth(false)
     }
+    async function fetchThemeAndConfig() {
+      const resConfig = await fetch('/api/appConfig')
+      if (!resConfig.ok) return
+  
+      const appConfig: AppConfig[] = await resConfig.json()
+      console.log('appConfig:', appConfig)
+
+      // Trouver le thème par défaut
+      const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
+      const defaultThemeName = defaultThemeConfig?.appConfigValue || 'dark_theme'
+  
+      // Récupérer la liste des thèmes graphiques
+      const resThemes = await fetch('/api/graphicTheme')
+      if (!resThemes.ok) return
+      const themes: GraphicTheme[] = await resThemes.json()
+      console.log('themes:', themes)
+      // Appliquer le thème correspondant
+      const defaultTheme = themes.find(t => t.graphicThemeName === defaultThemeName)
+      console.log('defaultTheme found:', defaultTheme)
+      if (defaultTheme) setTheme(defaultTheme)
+    }
 
     checkAuth()
+    fetchThemeAndConfig()
   }, [])
 
   return (
-    <aside className={`fixed ${isCollapsed ? 'w-16' : 'w-56'} text-[14px] min-h-screen bg-blue-300 p-4 pt-20 shadow-inner hidden md:flex flex-col transition-all duration-200`}>
+    <aside 
+    style={{
+      backgroundColor: theme?.backgroundMain || '#1F2937',
+      color: theme?.textPrimary || '#FFFFFF',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    }}
+    className={`fixed ${isCollapsed ? 'w-16' : 'w-56'} text-[14px] min-h-screen bg-blue-300 p-4 pt-20 shadow-inner hidden md:flex flex-col transition-all duration-200`}
+    >
       
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}

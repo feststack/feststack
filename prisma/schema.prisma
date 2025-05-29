@@ -234,3 +234,32 @@ model UsersAdGroups {
   createdBy     String    @default("SYSTEM")
   isDeleted     Boolean   @default(false)
 }
+
+model AppConfigs {
+  appConfigId Int @id @default(autoincrement())
+  appConfigName String  @unique
+  appConfigValue  String
+
+  createdAt     DateTime  @default(now())
+  createdBy     String    @default("SYSTEM")
+  isDeleted     Boolean   @default(false)
+}
+
+model GraphicThemes {
+  graphicThemeId      Int      @id @default(autoincrement())
+  graphicThemeName    String   @unique
+  backgroundMain      String?
+  backgroundSecondary String?
+  textPrimary         String?
+  textSecondary       String?
+  accent              String?
+  accentHover         String?
+  success             String?
+  cardBackground      String?
+  borderColor         String?
+  
+  createdAt           DateTime @default(now())
+  createdBy           String   @default("SYSTEM")
+  isDeleted           Boolean  @default(false)
+}
+

@@ -5,7 +5,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,                  // Pas d'émission car Next gère la compilation
+    "noEmit": true,              
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]                // Alias @ pointant vers racine du projet
+      "@/*": ["./*"]          
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

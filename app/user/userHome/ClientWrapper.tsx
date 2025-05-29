@@ -15,7 +15,7 @@ export default function ClientWrapper() {
       <div className="flex">
         <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
         <main
-          className="flex-1 p-6 pt-13 transition-all duration-200"
+          className="flex-1 transition-all duration-200"
           style={{ marginLeft: isCollapsed ? '4rem' : '14rem' }}
         >
           <UserHomePage />
