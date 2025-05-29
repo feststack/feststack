@@ -24,6 +24,24 @@ interface User {
   adGroupAccess: Record<string, string[]>
 }
 
+type GraphicTheme = {
+  graphicThemeName: string
+  backgroundMain: string
+  backgroundSecondary: string
+  textPrimary: string
+  textSecondary: string
+  accent: string
+  accentHover: string
+  success: string
+  cardBackground: string
+  borderColor: string
+}
+
+type AppConfig = {
+  appConfigName: string
+  appConfigValue: string
+}
+
 export default function GetAllUsersPage() {
   const [users, setUsers] = useState<User[] | null>([])
   const [languages, setLanguages] = useState<Language[]>([])
@@ -38,6 +56,7 @@ export default function GetAllUsersPage() {
   const [showAdGroupSection, setShowAdGroupSection] = useState<Record<number, boolean>>({})
   const [pendingUserUpdates, setPendingUserUpdates] = useState<Record<number, Partial<User>>>({})  
   const [canUpdateAdGroups, setCanUpdateAdGroups] = useState(false)
+  const [theme, setTheme] = useState<GraphicTheme | null>(null)
 
   const gt = useTranslations('GlobalTranslation')
   const router = useRouter()
@@ -137,6 +156,30 @@ export default function GetAllUsersPage() {
       console.log("adGroupAccess reçu du backend:", data.adGroupAccess);
       console.log("Résultat de hasRight(admin, ['update']):", canUpdateLang);
     }
+
+    async function fetchThemeAndConfig() {
+      const resConfig = await fetch('/api/appConfig')
+      if (!resConfig.ok) return
+  
+      const appConfig: AppConfig[] = await resConfig.json()
+      console.log('appConfig:', appConfig)
+  
+      // Trouver le thème par défaut
+      const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
+      const defaultThemeName = defaultThemeConfig?.appConfigValue || 'dark_theme'
+  
+      // Récupérer la liste des thèmes graphiques
+      const resThemes = await fetch('/api/graphicTheme')
+      if (!resThemes.ok) return
+      const themes: GraphicTheme[] = await resThemes.json()
+      console.log('themes:', themes)
+      // Appliquer le thème correspondant
+      const defaultTheme = themes.find(t => t.graphicThemeName === defaultThemeName)
+      console.log('defaultTheme found:', defaultTheme)
+      if (defaultTheme) setTheme(defaultTheme)
+    }
+  
+    fetchThemeAndConfig()
 
     checkAuth()
   }, [router])
@@ -290,8 +333,22 @@ export default function GetAllUsersPage() {
     )
   }
 
+  function hexToRgba(hex: string, alpha: number) {
+    const bigint = parseInt(hex.replace('#', ''), 16)
+    const r = (bigint >> 16) & 255
+    const g = (bigint >> 8) & 255
+    const b = bigint & 255
+  
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }  
+
   return (
-    <div className="min-h-screen bg-white text-gray-800 p-6">
+    <div 
+    style={{
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    }}
+    className="min-h-screen w-full p-6 pt-19"
+    >
         <div className="w-full">
         <h1 className="text-3xl font-bold mb-6">{gt('users')}</h1>
 
@@ -300,15 +357,27 @@ export default function GetAllUsersPage() {
           value={search}
           onChange={onSearchChange}
           placeholder={`🔍 ${gt('lookingForUser')}`}
+          style={{
+            backgroundColor: theme?.backgroundMain || '#1F2937',
+            color: theme?.textPrimary || '#FFFFFF',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          }}
           className="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         {loading ? (
           <p className="text-center text-gray-500">{gt('loading')}</p>
         ) : (
-          <div className="overflow-x-auto rounded-lg shadow border border-gray-200">
+          <div className="text-gray-800 overflow-x-auto rounded-lg shadow border border-gray-200">
             <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-blue-100 text-blue-900">
+            <thead 
+              style={{
+                backgroundColor: theme?.backgroundMain || '#1F2937',
+                color: theme?.textPrimary || '#FFFFFF',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              }}
+              // className="bg-gray-800 text-blue-900"
+            >
                 <tr>
                     <th className="px-4 py-3 text-left text-sm font-semibold">{gt('firstName')}</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold">{gt('lastName')}</th>

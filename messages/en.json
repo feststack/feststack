@@ -24,7 +24,9 @@
       "addAdGroups": "Add administrator groups",
       "adGroupFamily": "Groups",
       "adGroupRights": "Rights",
-      "saveChanges": "Save change"
+      "saveChanges": "Save change",
+      "managementApp": "management application",
+      "hello": "Hello"
     },
     "HomePage": {
       "title": "Welcome to",

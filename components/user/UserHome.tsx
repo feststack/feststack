@@ -22,11 +22,12 @@ type AppConfig = {
 }
 
 export default function UserHomePage() {
-  const [user, setUser] = useState<{ userName: string; userSurname: string } | null>(null)
+  const [user, setUser] = useState<{ userFirstName: string; userLastName: string } | null>(null)
   const [loading, setLoading] = useState(true)
   const gt = useTranslations('GlobalTranslation')
 
   const [theme, setTheme] = useState<GraphicTheme | null>(null)
+  const [appName, setAppName] = useState<string>('ManaFest')
 
   useEffect(() => {
     async function fetchUser() {
@@ -65,6 +66,11 @@ export default function UserHomePage() {
       const appConfig: AppConfig[] = await resConfig.json()
       console.log('appConfig:', appConfig)
 
+      // Trouver le nom de l'app
+      const appNameConfig = appConfig.find(c => c.appConfigName === 'app_name')
+      const appName = appNameConfig?.appConfigValue || 'ManaFest'
+      setAppName(appName)
+
       // Trouver le thème par défaut
       const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
       const defaultThemeName = defaultThemeConfig?.appConfigValue || 'dark_theme'
@@ -90,17 +96,20 @@ export default function UserHomePage() {
   return (
     <div
       style={{
-        backgroundColor: theme?.backgroundSecondary
-          ? `${hexToRgba(theme.backgroundSecondary, 0.25)}`
-          : 'rgba(31, 41, 55, 0.25)',
+        // backgroundColor: theme?.backgroundSecondary
+        //   ? `${hexToRgba(theme.backgroundSecondary, 0.25)}`
+        //   : 'rgba(31, 41, 55, 0.25)',
         color: theme?.textPrimary || '#FFFFFF',
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       }}
       className="min-h-screen w-full p-6 pt-19"
     >
       <h1 className="text-xl font-semibold">
-        {gt('welcome')}, {user.userName} {user.userSurname} 👋
+        {gt('hello')} {user.userFirstName} 👋
       </h1>
+      <h2>
+      {gt('welcome')} into <span style={{ color: theme?.textSecondary || '#D72631' }}>{appName}</span> {gt('managementApp')} !
+      </h2>
     </div>
   )
   

@@ -26,8 +26,7 @@ export default function TopNavbar() {
   const router = useRouter()
 
   const [theme, setTheme] = useState<GraphicTheme | null>(null)
-  const [appName, setAppName] = useState<string>('ManaFest') // valeur par défaut
-
+  
   useEffect(() => {
     async function fetchThemeAndConfig() {
       const resConfig = await fetch('/api/appConfig')
@@ -35,12 +34,6 @@ export default function TopNavbar() {
   
       const appConfig: AppConfig[] = await resConfig.json()
       console.log('appConfig:', appConfig)
-
-  
-      // Trouver le nom de l'app
-      const appNameConfig = appConfig.find(c => c.appConfigName === 'app_name')
-      const appName = appNameConfig?.appConfigValue || 'ManaFest'
-      setAppName(appName)
   
       // Trouver le thème par défaut
       const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
@@ -75,13 +68,21 @@ export default function TopNavbar() {
       className="fixed top-0 left-0 right-0 h-16 px-6 z-50"
     >
       <div className="w-full flex justify-between items-center h-full">
-        <Link href="/user/userHome" className="text-2xl font-bold" style={{ color: theme?.color2 || '#D72631' }}>
+      <Link href="/user/userHome" className="flex items-center space-x-3">
+        <img
+          src="/images/logos/main_logo.png"
+          alt="Logo"
+          className="h-25 w-25 object-contain"
+        />
+        {/* <span className="text-2xl font-bold" style={{ color: theme?.textPrimary || '#D72631' }}>
           {appName}
-        </Link>
-        <button onClick={handleLogout} className="hover:underline" style={{ color: theme?.color2 || '#D72631' }}>
-          {t('signout')}
-        </button>
-      </div>
+        </span> */}
+      </Link>
+
+      <button onClick={handleLogout} className="hover:underline" style={{ color: theme?.textPrimary || '#D72631' }}>
+        {t('signout')}
+      </button>
+    </div>
     </nav>
   )
 }
