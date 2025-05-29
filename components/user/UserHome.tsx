@@ -90,7 +90,9 @@ export default function UserHomePage() {
   return (
     <div
       style={{
-        backgroundColor: theme?.backgroundSecondary || '#1F2937',
+        backgroundColor: theme?.backgroundSecondary
+          ? `${hexToRgba(theme.backgroundSecondary, 0.25)}`
+          : 'rgba(31, 41, 55, 0.25)',
         color: theme?.textPrimary || '#FFFFFF',
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       }}
@@ -101,4 +103,13 @@ export default function UserHomePage() {
       </h1>
     </div>
   )
+  
+  function hexToRgba(hex: string, alpha: number) {
+    const bigint = parseInt(hex.replace('#', ''), 16)
+    const r = (bigint >> 16) & 255
+    const g = (bigint >> 8) & 255
+    const b = bigint & 255
+  
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }  
 }  
