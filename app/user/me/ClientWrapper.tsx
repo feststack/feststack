@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import UserCreationForm from '../../../components/user/UserCreationForm';
+import UserMePage from '../../../components/user/userMePage';
 import TopNavbar from '../../../components/user/TopNavbar'
 import Sidebar from '../../../components/user/Sidebar'
 
@@ -20,10 +20,10 @@ export default function ClientWrapper() {
       <div className="flex">
         <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
         <main
-          className="flex-1 p-6 pt-13 transition-all duration-200"
+          className="flex-1 transition-all duration-200"
           style={{ marginLeft: isCollapsed ? '4rem' : '14rem' }}
         >
-          <UserCreationForm />
+          <UserMePage />
         </main>
       </div>
     </div>

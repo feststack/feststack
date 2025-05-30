@@ -10,7 +10,7 @@ export async function seedGraphicThemes() {
       textPrimary: '#FFFFFF',
       textSecondary: '#FF3E3E',
       accent: '#00FF51',
-      accentHover: '#0D47A1',
+      accentHover: '#1E88E5',
       success: '#4CAF50',
       cardBackground: '#1E1E1E',
       borderColor: '#333333',

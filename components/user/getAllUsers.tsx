@@ -1,9 +1,12 @@
 'use client'
 
 import React, { useState, useEffect, Fragment } from 'react'
+import { useMemo } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '../../hooks/useProtectedPage'
 import { ChevronUp, ChevronDown } from 'lucide-react'
+import Link from 'next/link'
 
 interface Language {
   languageId: number
@@ -43,13 +46,13 @@ type AppConfig = {
 }
 
 export default function GetAllUsersPage() {
+  const accessGroups = useMemo(() => ['admin', 'manager'], [])
+  const { user, loading, unauthorized, hasFamilyAccess, canRead, canUpdate } = useAuth(accessGroups)
+
   const [users, setUsers] = useState<User[] | null>([])
   const [languages, setLanguages] = useState<Language[]>([])
   const [search, setSearch] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [checkingAuth, setCheckingAuth] = useState(true)
   const [expandedUserId, setExpandedUserId] = useState<number | null>(null)
-  const [currentUserAccess, setCurrentUserAccess] = useState<Record<string, string[]>>({})
   const [canUpdateLangState, setCanUpdateLangState] = useState(false)
   const [adGroupsData, setAdGroupsData] = useState<Record<string, string[]>>({})
   const [userAdGroupsEdits, setUserAdGroupsEdits] = useState<Record<number, { family: string; rights: string[] }>>({})
@@ -62,14 +65,12 @@ export default function GetAllUsersPage() {
   const router = useRouter()
 
   const fetchUsers = async (query = '', userEmail: string) => {
-    setLoading(true)
     const url = query ? `/api/user?search=${encodeURIComponent(query)}` : '/api/user'
     const res = await fetch(url, {
       headers: { 'x-user-email': userEmail },
     })
     const data: User[] = await res.json()
     setUsers(data)
-    setLoading(false)
   }
 
   const updateUserLanguageLocally = (userId: number, languageId: number) => {
@@ -98,71 +99,12 @@ export default function GetAllUsersPage() {
   }
 
   useEffect(() => {
-    const checkAuth = async () => {
-
-      console.log('checkAuth appelé')
-        
-      const email = localStorage.getItem('userEmail')
-      if (!email) {
-        router.push('/')
-        return
-      }
-
-      const res = await fetch('/api/user/me', {
-        headers: {
-          'x-user-email': email,
-        },
-      })
-
-      if (!res.ok) {
-        router.push('/')
-        return
-      }
-
-      const data = await res.json()
-      console.log("adGroupAccess reçu du backend:", data.adGroupAccess)
-
-      setCurrentUserAccess(data.adGroupAccess)
-
-      const hasRight = (
-        access: Record<string, string[]>,
-        family: string,
-        requiredRights: string[]
-      ) => {
-        const rights = access[family] || []
-        return requiredRights.some(r => rights.includes(r))
-      }      
-
-      const hasAccess = hasRight(data.adGroupAccess, "admin", ["read"])
-      const canUpdateLang = hasRight(data.adGroupAccess, "admin", ["update"])
-      setCanUpdateLangState(canUpdateLang)
-
-      if (!hasAccess) {
-        setCheckingAuth(false)
-        setUsers(null)
-        return
-      }
-
-      await fetchUsers('', email)
-      await fetchLanguages()
-      await fetchAdGroupsData()
-      setCheckingAuth(false)
-
-      const canUpdateAd = hasRight(data.adGroupAccess, "admin", ["update"])
-      setCanUpdateLangState(canUpdateAd)
-      setCanUpdateAdGroups(canUpdateAd)
-
-      console.log("Vérification des droits dans checkAuth");
-      console.log("adGroupAccess reçu du backend:", data.adGroupAccess);
-      console.log("Résultat de hasRight(admin, ['update']):", canUpdateLang);
-    }
 
     async function fetchThemeAndConfig() {
       const resConfig = await fetch('/api/appConfig')
       if (!resConfig.ok) return
   
       const appConfig: AppConfig[] = await resConfig.json()
-      console.log('appConfig:', appConfig)
   
       // Trouver le thème par défaut
       const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
@@ -172,17 +114,14 @@ export default function GetAllUsersPage() {
       const resThemes = await fetch('/api/graphicTheme')
       if (!resThemes.ok) return
       const themes: GraphicTheme[] = await resThemes.json()
-      console.log('themes:', themes)
       // Appliquer le thème correspondant
       const defaultTheme = themes.find(t => t.graphicThemeName === defaultThemeName)
-      console.log('defaultTheme found:', defaultTheme)
+
       if (defaultTheme) setTheme(defaultTheme)
     }
   
-    fetchThemeAndConfig()
-
-    checkAuth()
-  }, [router])
+    fetchThemeAndConfig()    
+  }, [])
 
   const fetchAdGroupsData = async () => {
     const res = await fetch('/api/adgroup')
@@ -190,17 +129,41 @@ export default function GetAllUsersPage() {
       const data: Record<string, string[]> = await res.json()
       setAdGroupsData(data)
     } else {
-      setAdGroupsData({}) // fallback vide ou message erreur
+      setAdGroupsData({})
     }
   }
 
-  
+  useEffect(() => {
+    if (!user || loading || unauthorized) return
+
+    // hasFamilyAccess est un booléen retourné par useAuth
+    if (!hasFamilyAccess) return
+
+    const email = user.userCode
+
+    // Charge les données
+    fetchUsers('', email)
+    fetchLanguages()
+    fetchAdGroupsData()
+
+    setCanUpdateLangState(canUpdate)
+    setCanUpdateAdGroups(canUpdate)
+  }, [user, loading, unauthorized, hasFamilyAccess, canUpdate])
+
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null)
+
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setSearch(value)
+
+    if (searchTimeout) clearTimeout(searchTimeout)
+
     const email = localStorage.getItem('userEmail')
     if (email) {
-      fetchUsers(value, email)
+      const timeout = setTimeout(() => {
+        fetchUsers(value, email)
+      }, 300)
+      setSearchTimeout(timeout)
     }
   }
 
@@ -262,7 +225,7 @@ export default function GetAllUsersPage() {
       const updatedUser: User = await res.json()
   
       setUsers(prev => {
-        if (!prev) return [updatedUser] // si prev était null, initialise avec l'utilisateur mis à jour
+        if (!prev) return [updatedUser]
         return prev.map(u => (u.userId === userId ? updatedUser : u))
       })
       
@@ -320,12 +283,8 @@ export default function GetAllUsersPage() {
   
     return !sortedOriginal.every((r, i) => r === sortedEdited[i]);
   }
-  
-  if (checkingAuth) {
-    return <div className="p-6 text-center">{gt('loading')}</div>
-  }
 
-  if (users === null) {
+  if (unauthorized || !hasFamilyAccess) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6 text-red-600 text-lg font-semibold">
         ❌ {gt('noAccessRight')}
@@ -333,48 +292,59 @@ export default function GetAllUsersPage() {
     )
   }
 
-  function hexToRgba(hex: string, alpha: number) {
-    const bigint = parseInt(hex.replace('#', ''), 16)
-    const r = (bigint >> 16) & 255
-    const g = (bigint >> 8) & 255
-    const b = bigint & 255
-  
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`
-  }  
-
   return (
     <div 
     style={{
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      boxShadow: '0 2px 4px rgba(0,0,0,1)',
     }}
     className="min-h-screen w-full p-6 pt-19"
     >
         <div className="w-full">
-        <h1 className="text-3xl font-bold mb-6">{gt('users')}</h1>
-
-        <input
-          type="text"
-          value={search}
-          onChange={onSearchChange}
-          placeholder={`🔍 ${gt('lookingForUser')}`}
+        <h1 
           style={{
-            backgroundColor: theme?.backgroundMain || '#1F2937',
-            color: theme?.textPrimary || '#FFFFFF',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            color: theme?.accentHover
           }}
-          className="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+          className="text-3xl font-bold mb-1"
+        >{gt('users')}</h1>
+
+        <div className="flex mb-3 h-10"> {/* hauteur fixe ici */}
+          <input
+            type="text"
+            value={search}
+            onChange={onSearchChange}
+            placeholder={`🔍 ${gt('lookingForUser')}`}
+            style={{
+              backgroundColor: theme?.backgroundMain || '#1F2937',
+              color: theme?.textPrimary || '#FFFFFF',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+            className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <Link
+            href="/user/userCreation"
+            style={{
+              background: theme?.accentHover,
+            }}
+            className="h-full px-4 ml-2 rounded-lg text-xl text-center text-white flex items-center justify-center text-nowrap"
+          >
+            {gt('addUser')}
+          </Link>
+        </div>
 
         {loading ? (
           <p className="text-center text-gray-500">{gt('loading')}</p>
         ) : (
-          <div className="text-gray-800 overflow-x-auto rounded-lg shadow border border-gray-200">
+          <div 
+            style={{
+              boxShadow: '0 2px 4px rgba(0,0,0,1)',
+            }}
+            className="text-gray-800 overflow-x-auto rounded-lg shadow">
             <table className="min-w-full divide-y divide-gray-200">
             <thead 
               style={{
                 backgroundColor: theme?.backgroundMain || '#1F2937',
                 color: theme?.textPrimary || '#FFFFFF',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                boxShadow: '0 2px 4px rgba(0,0,0,1)',
               }}
               // className="bg-gray-800 text-blue-900"
             >

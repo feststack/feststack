@@ -1,0 +1,55 @@
+{
+    "GlobalTranslation": {
+      "app-name": "Manafest",
+      "welcome": "Bienvenido",
+      "artistCatalog": "Catálogo de artistas",
+      "artistName": "Nombre del artista",
+      "createdBy": "Creado por",
+      "artistNotFound": "Artista no encontrado",
+      "lookingForArtist": "Buscando un artista",
+      "loading": "Cargando...",
+      "noAccessRight": "No tienes los permisos necesarios...",
+      "artist": "Artistas",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "users": "Usuarios",
+      "lookingForUser": "Buscando un usuario",
+      "userNotFound": "Usuario no encontrado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "isActive": "Está activo",
+      "userCode": "Código de usuario",
+      "userLanguage": "Idioma del usuario",
+      "adGroups": "Grupos de administradores",
+      "addAdGroups": "Agregar grupos de administradores",
+      "adGroupFamily": "Grupos",
+      "adGroupRights": "Permisos",
+      "saveChanges": "Guardar cambios",
+      "managementApp": "aplicación de gestión",
+      "hello": "Hola",
+      "personalData": "Datos personales"
+    },
+    "HomePage": {
+      "title": "Bienvenido a",
+      "sub-title": "Iniciar sesión",
+      "login": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Iniciar sesión"
+    },
+    "UserNavbar": {
+      "signout": "Cerrar sesión",
+      "edition": "Ediciones",
+      "technics": "Técnica",
+      "artists": "Artistas",
+      "backlines": "Backlines",
+      "stages": "Escenarios",
+      "volunteers": "Voluntarios",
+      "partners": "Socios",
+      "logistics": "Logística",
+      "artiststicProduction": "Producción artística",
+      "contracts": "Contratos",
+      "artistManagements": "Gestión de artistas",
+      "artist": "Artistas"
+    }
+  }
+  

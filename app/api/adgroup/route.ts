@@ -31,7 +31,7 @@ export async function GET() {
       result[family.adGroupFamilyName] = uniqueRights
     }
 
-    console.log('API ad-groups result:', result)
+    // console.log('API ad-groups result:', result)
 
     return NextResponse.json(result)
   } catch (error) {
