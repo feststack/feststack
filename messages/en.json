@@ -35,16 +35,7 @@
     "email": "Email",
     "sendRequest": "Send request",
     "cancel": "Cancel",
-    "selectLanguage": "Select language"
-  },
-  "HomePage": {
-    "title": "Welcome to",
-    "sub-title": "Login",
-    "login": "Email",
-    "password": "Password",
-    "button": "Login"
-  },
-  "UserNavbar": {
+    "selectLanguage": "Select language",
     "signout": "Sign out",
     "edition": "Editions",
     "technics": "Technical",
@@ -56,7 +47,16 @@
     "logistics": "Logistics",
     "artiststicProduction": "Artistic production",
     "contracts": "Contracts",
-    "artistManagements": "Artist management",
-    "artist": "Artists"
+    "artistManagements": "Artist management"
+  },
+  "HomePage": {
+    "title": "Welcome to",
+    "sub-title": "Login",
+    "login": "Email",
+    "password": "Password",
+    "button": "Login"
+  },
+  "UserNavbar": {
+    
   }
 }

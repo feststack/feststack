@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import { useGraphicTheme } from '@/hooks/useGraphicTheme'
+import { useAuth } from '@/hooks/useProtectedPage'
 import {
   ChevronDown,
   ChevronRight,
@@ -13,53 +15,98 @@ import {
   KeyboardMusic,
   Forklift,
   Menu,
-  X
+  ArrowLeftFromLine,
 } from 'lucide-react'
-
-type GraphicTheme = {
-  graphicThemeName: string
-  backgroundMain: string
-  backgroundSecondary: string
-  textPrimary: string
-  textSecondary: string
-  accent: string
-  accentHover: string
-  success: string
-  cardBackground: string
-  borderColor: string
-}
-
-type AppConfig = {
-  appConfigName: string
-  appConfigValue: string
-}
 
 type SidebarProps = {
   isCollapsed: boolean
   setIsCollapsed: (val: boolean) => void
 }
 
+type SidebarButtonProps = {
+  children: React.ReactNode
+  icon: React.ReactNode | null
+  id: string
+  href?: string
+  onClick?: () => void
+  isActive: boolean
+  className?: string
+  isCollapsed: boolean
+  styles: {
+    bgActive: string
+    textActive: string
+    bgInactive?: string
+    textInactive: string
+    bgHover: string
+    textHover: string
+  }
+}
+
+function SidebarButton({
+  children,
+  icon,
+  id,
+  href,
+  onClick,
+  isActive,
+  className = '',
+  isCollapsed,
+  styles,
+}: SidebarButtonProps) {
+  const [hovered, setHovered] = useState(false)
+
+  const style = isActive
+    ? { backgroundColor: styles.bgActive, color: styles.textActive }
+    : hovered
+    ? { backgroundColor: styles.bgHover, color: styles.textHover }
+    : { backgroundColor: styles.bgInactive, color: styles.textInactive }
+
+  const commonProps = {
+    onMouseEnter: () => setHovered(true),
+    onMouseLeave: () => setHovered(false),
+    style,
+    className: `flex items-center gap-2 rounded-md px-2 py-1 cursor-pointer transition-colors duration-200 ${className}`,
+    onClick,
+  }
+
+  if (href) {
+    return (
+      <Link href={href} {...commonProps}>
+        {icon}
+        {!isCollapsed && children}
+      </Link>
+    )
+  } else {
+    return (
+      <button type="button" {...commonProps}>
+        {icon}
+        {!isCollapsed && children}
+      </button>
+    )
+  }
+}
+
 export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const pathname = usePathname()
-  const t = useTranslations('UserNavbar')
+  const gt = useTranslations('GlobalTranslation')
+  const { theme, loading: loadingTheme } = useGraphicTheme()
+  const { user, loading } = useAuth()
 
-  // Initialise activeTab selon pathname
-  const initialActiveTab = pathname.includes('/admin/user') ? 'users' :
-                          pathname.includes('/artist/artistHome') ? 'artist' :
-                          pathname.includes('/technic') ? 'technic' : ''
+  const initialActiveTab = pathname.includes('/admin/user')
+    ? 'users'
+    : pathname.includes('/artist/artistHome')
+    ? 'artist'
+    : pathname.includes('/technic')
+    ? 'technic'
+    : ''
 
   const [isArtistMenuOpen, setIsArtistMenuOpen] = useState(false)
   const [isTechnicMenuOpen, setIsTechnicMenuOpen] = useState(false)
-
   const [activeTab, setActiveTab] = useState<string>(initialActiveTab)
   const [activeSubTab, setActiveSubTab] = useState<string>('')
 
-  const [hasUserAccess, setHasUserAccess] = useState(false)
-  const [checkingAuth, setCheckingAuth] = useState(true)
+  const [hoveredButton, setHoveredButton] = useState<string | null>(null)
 
-  const [theme, setTheme] = useState<GraphicTheme | null>(null)
-
-  // Met à jour activeTab et activeSubTab selon pathname à chaque changement
   useEffect(() => {
     if (pathname.includes('/artist/artistHome')) {
       setActiveTab('artist')
@@ -81,6 +128,11 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       setActiveSubTab('')
       setIsArtistMenuOpen(false)
       setIsTechnicMenuOpen(false)
+    } else if (pathname.includes('adGroup/adGroupManagement')) {
+      setActiveTab('adGroup')
+      setActiveSubTab('')
+      setIsArtistMenuOpen(false)
+      setIsTechnicMenuOpen(false)
     } else if (pathname.includes('/technic')) {
       setActiveTab('technic')
       setActiveSubTab('')
@@ -94,54 +146,27 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
     }
   }, [pathname])
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const email = localStorage.getItem('userEmail')
-      if (!email) {
-        setCheckingAuth(false)
-        return
-      }
-
-      const res = await fetch('/api/user/me', {
-        headers: { 'x-user-email': email }
-      })
-
-      if (!res.ok) {
-        setCheckingAuth(false)
-        return
-      }
-
-      const data = await res.json()
-      const adGroupAccess = data.adGroupAccess || {}
-
-      setHasUserAccess('admin' in adGroupAccess)
-
-      setCheckingAuth(false)
-    }
-
-    async function fetchThemeAndConfig() {
-      const resConfig = await fetch('/api/appConfig')
-      if (!resConfig.ok) return
-
-      const appConfig: AppConfig[] = await resConfig.json()
-
-      const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
-      const defaultThemeName = defaultThemeConfig?.appConfigValue || 'dark_theme'
-
-      const resThemes = await fetch('/api/graphicTheme')
-      if (!resThemes.ok) return
-      const themes: GraphicTheme[] = await resThemes.json()
-
-      const defaultTheme = themes.find(t => t.graphicThemeName === defaultThemeName)
-      if (defaultTheme) setTheme(defaultTheme)
-    }
-
-    checkAuth()
-    fetchThemeAndConfig()
-  }, [])
-
   const handleSelectTab = (tabName: string) => {
     setActiveTab(tabName)
+  }
+
+  const canReadUsers = ['admin', 'manager'].some(group =>
+    user?.adGroupAccess?.[group]?.includes('read')
+  )
+
+  const canReadAdGroup = ['admin', 'manager'].some(group =>
+    user?.adGroupAccess?.[group]?.includes('read')
+  )
+
+  const styles = {
+    bgActive: theme?.accentHover || '#2563eb',
+    textActive: theme?.textPrimary || '#ffffff',
+    bgInactive: undefined,
+    textInactive: theme?.textPrimary
+      ? theme.textPrimary + '88'
+      : '#d1d5db',
+    bgHover: theme?.accentHover || '#bfdbfe',
+    textHover: theme?.textPrimary || '#1e40af',
   }
 
   return (
@@ -153,149 +178,186 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       }}
       className={`fixed ${isCollapsed ? 'w-16' : 'w-56'} text-[14px] min-h-screen p-4 pt-20 shadow-inner hidden md:flex flex-col transition-all duration-200`}
     >
-      <button
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className={`mb-6 ${isCollapsed ? 'self-center' : 'self-end'} text-blue-900`}
-        aria-label="Toggle sidebar"
-      >
-        {isCollapsed ? <Menu size={20} /> : <X size={20} />}
-      </button>
-
-      {/* Menu Artistes */}
-      <div className="mb-4">
-        <div
-          className={`flex items-center justify-between cursor-pointer hover:text-blue-600 rounded-md px-2 py-1
-            ${(activeTab === 'artist' || activeSubTab.startsWith('artist')) ? 'bg-blue-600 text-white' : ''}`}
-          onClick={() => {
-            setIsArtistMenuOpen(!isArtistMenuOpen)
-            handleSelectTab('artist')
-            setActiveSubTab('')
-            setIsTechnicMenuOpen(false)
-          }}
-        >
-          <Link
-            href="/artist/getAllArtist"
-            className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-2'}`}
-            onClick={e => {
-              e.preventDefault()
-              handleSelectTab('artist')
-              setIsArtistMenuOpen(true)
-              setIsTechnicMenuOpen(false)
-              setActiveSubTab('')
-            }}
+      {(loading || loadingTheme || !user) ? (
+        <p>Chargement...</p>
+      ) : (
+        <>
+          <SidebarButton
+            id="toggleSidebar"
+            icon={isCollapsed ? <Menu size={20} /> : <ArrowLeftFromLine size={20} />}
+            isActive={false}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className={`${isCollapsed ? 'self-center mb-6' : 'self-end mb-6'} text-blue-900`}
+            isCollapsed={isCollapsed}
+            styles={styles}
           >
-            <UserRoundPen size={20} />
-            {!isCollapsed && t('artiststicProduction')}
-          </Link>
-          {!isCollapsed && (isArtistMenuOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-        </div>
-        {isArtistMenuOpen && !isCollapsed && (
-          <div className="ml-6 mt-2 flex flex-col space-y-1 text-xs text-blue-800">
-            <Link
-              href="/artist/create"
-              className={`block rounded-md px-2 py-1 cursor-pointer
-                ${activeSubTab === 'artist_create' ? 'bg-blue-600 text-white' : 'hover:bg-blue-100'}`}
-              onClick={() => setActiveSubTab('artist_create')}
-            >
-              {t('contracts')}
-            </Link>
-            <Link
-              href="/artist/managements"
-              className={`block rounded-md px-2 py-1 cursor-pointer
-                ${activeSubTab === 'artist_managements' ? 'bg-blue-600 text-white' : 'hover:bg-blue-100'}`}
-              onClick={() => setActiveSubTab('artist_managements')}
-            >
-              {t('artistManagements')}
-            </Link>
-            <Link
-              href="/artist/artistHome"
-              className={`block rounded-md px-2 py-1 cursor-pointer
-                ${activeSubTab === 'artist_artistHome' ? 'bg-blue-600 text-white' : 'hover:bg-blue-100'}`}
-              onClick={() => setActiveSubTab('artist_artistHome')}
-            >
-              {t('artist')}
-            </Link>
+            { '' }
+          </SidebarButton>
+
+          <div className="flex flex-col flex-grow overflow-auto">
+            {/* Menu Artistes */}
+            <div className="mb-4">
+              <div
+                className="flex items-center justify-between cursor-pointer rounded-md px-2 py-1"
+                onClick={() => {
+                  setIsArtistMenuOpen(!isArtistMenuOpen)
+                  handleSelectTab('artist')
+                  setActiveSubTab('')
+                  setIsTechnicMenuOpen(false)
+                }}
+                onMouseEnter={() => setHoveredButton('artist')}
+                onMouseLeave={() => setHoveredButton(null)}
+                style={
+                  activeTab === 'artist' || activeSubTab.startsWith('artist')
+                    ? { backgroundColor: styles.bgActive, color: styles.textActive }
+                    : hoveredButton === 'artist'
+                    ? { backgroundColor: styles.bgHover, color: styles.textHover }
+                    : { backgroundColor: styles.bgInactive, color: styles.textInactive }
+                }
+              >
+                <Link
+                  href="/artist/getAllArtist"
+                  className={`flex items-center w-full ${isCollapsed ? 'justify-center' : 'gap-2'}`}
+                  onClick={e => {
+                    e.preventDefault()
+                    handleSelectTab('artist')
+                    setIsArtistMenuOpen(true)
+                    setIsTechnicMenuOpen(false)
+                    setActiveSubTab('')
+                  }}
+                >
+                  <UserRoundPen size={20} />
+                  {!isCollapsed && gt('artiststicProduction')}
+                </Link>
+                {!isCollapsed && (isArtistMenuOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
+              </div>
+
+              {isArtistMenuOpen && !isCollapsed && (
+                <div className="ml-6 mt-2 flex flex-col space-y-1 text-sm" style={{ color: styles.textInactive }}>
+                  {['artist_create', 'artist_managements', 'artist_artistHome'].map(sub => {
+                    const labelKey =
+                      sub === 'artist_create'
+                        ? 'contracts'
+                        : sub === 'artist_managements'
+                        ? 'artistManagements'
+                        : 'artist'
+                    return (
+                      <SidebarButton
+                        key={sub}
+                        id={sub}
+                        icon={null}
+                        isActive={activeSubTab === sub}
+                        href={`/${sub.replace('_', '/')}`}
+                        onClick={() => setActiveSubTab(sub)}
+                        className="ml-2"
+                        isCollapsed={isCollapsed}
+                        styles={styles}
+                      >
+                        {gt(labelKey)}
+                      </SidebarButton>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Technique */}
+            <div className="mb-4">
+              <div
+                className="flex items-center justify-between cursor-pointer rounded-md px-2 py-1"
+                onClick={() => {
+                  setIsTechnicMenuOpen(!isTechnicMenuOpen)
+                  handleSelectTab('technic')
+                  setActiveSubTab('')
+                  setIsArtistMenuOpen(false)
+                }}
+                onMouseEnter={() => setHoveredButton('technic')}
+                onMouseLeave={() => setHoveredButton(null)}
+                style={
+                  activeTab === 'technic' || activeSubTab.startsWith('technic')
+                    ? { backgroundColor: styles.bgActive, color: styles.textActive }
+                    : hoveredButton === 'technic'
+                    ? { backgroundColor: styles.bgHover, color: styles.textHover }
+                    : { backgroundColor: styles.bgInactive, color: styles.textInactive }
+                }
+              >
+                <Link
+                  href="/technic/technicHome"
+                  className={`flex items-center w-full ${isCollapsed ? 'justify-center' : 'gap-2'}`}
+                  onClick={e => {
+                    e.preventDefault()
+                    handleSelectTab('technic')
+                    setIsTechnicMenuOpen(true)
+                    setIsArtistMenuOpen(false)
+                    setActiveSubTab('')
+                  }}
+                >
+                  <KeyboardMusic size={20} />
+                  {!isCollapsed && gt('technics')}
+                </Link>
+                {!isCollapsed && (isTechnicMenuOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
+              </div>
+
+              {isTechnicMenuOpen && !isCollapsed && (
+                <div className="ml-6 mt-2 flex flex-col space-y-1 text-sm" style={{ color: styles.textInactive }}>
+                  <SidebarButton
+                    id="technic_technicHome"
+                    icon={null}
+                    href="/technic/technicHome"
+                    isActive={activeSubTab === 'technic_technicHome'}
+                    onClick={() => setActiveSubTab('technic_technicHome')}
+                    isCollapsed={isCollapsed}
+                    styles={styles}
+                  >
+                    {gt('technicHome')}
+                  </SidebarButton>
+                </div>
+              )}
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* Technique */}
-      <div className="mb-4">
-        <div
-          className={`flex items-center justify-between cursor-pointer hover:text-blue-600 rounded-md px-2 py-1
-          ${activeTab === 'technic' ? 'bg-blue-600 text-white' : ''}`}
-          onClick={() => {
-            setIsTechnicMenuOpen(!isTechnicMenuOpen)
-            handleSelectTab('technic')
-            setIsArtistMenuOpen(false)
-          }}
-        >
-          <Link
-            href="/"
-            className="flex items-center gap-2"
-            onClick={e => {
-              e.preventDefault()
-              handleSelectTab('technic')
-              setIsTechnicMenuOpen(true)
-              setIsArtistMenuOpen(false)
-            }}
-          >
-            <KeyboardMusic size={20} />
-            {!isCollapsed && t('technics')}
-          </Link>
-          {!isCollapsed && (isTechnicMenuOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-        </div>
-        {isTechnicMenuOpen && !isCollapsed && (
-          <div className="ml-6 mt-2 flex flex-col space-y-1 text-xs text-blue-800">
-            <Link href="/">{t('stages')}</Link>
-            <Link href="/">{t('backlines')}</Link>
+          {/* Boutons collés en bas */}
+          <div className="mt-auto flex flex-col">
+            {canReadUsers && (
+              <SidebarButton
+                id="users"
+                icon={<UsersRound size={20} />}
+                href="/admin/user"
+                isActive={activeTab === 'users'}
+                onClick={() => {
+                  handleSelectTab('users')
+                  setIsArtistMenuOpen(false)
+                  setIsTechnicMenuOpen(false)
+                  setActiveSubTab('')
+                }}
+                isCollapsed={isCollapsed}
+                styles={styles}
+                className="mb-2"
+              >
+                {!isCollapsed && gt('users')}
+              </SidebarButton>
+            )}
+
+            {canReadAdGroup && (
+              <SidebarButton
+                id="adGroup"
+                icon={<PersonStanding size={20} />}
+                href="/adGroup/adGroupManagement"
+                isActive={activeTab === 'adGroup'}
+                onClick={() => {
+                  handleSelectTab('adGroup')
+                  setIsArtistMenuOpen(false)
+                  setIsTechnicMenuOpen(false)
+                  setActiveSubTab('')
+                }}
+                isCollapsed={isCollapsed}
+                styles={styles}
+              >
+                {!isCollapsed && gt('adGroups')}
+              </SidebarButton>
+            )}
           </div>
-        )}
-      </div>
-
-      {/* Autres liens */}
-      <Link
-        href="/services"
-        className={`mb-4 flex items-center gap-2 hover:text-blue-600 rounded-md px-2 py-1
-          ${activeTab === 'logistics' ? 'bg-blue-600 text-white' : ''}`}
-        onClick={() => handleSelectTab('logistics')}
-      >
-        <Forklift size={20} />
-        {!isCollapsed && t('logistics')}
-      </Link>
-      <Link
-        href="/services"
-        className={`mb-4 flex items-center gap-2 hover:text-blue-600 rounded-md px-2 py-1
-          ${activeTab === 'partners' ? 'bg-blue-600 text-white' : ''}`}
-        onClick={() => handleSelectTab('partners')}
-      >
-        <UsersRound size={20} />
-        {!isCollapsed && t('partners')}
-      </Link>
-      <Link
-        href="/services"
-        className={`mb-4 flex items-center gap-2 hover:text-blue-600 rounded-md px-2 py-1
-          ${activeTab === 'volunteers' ? 'bg-blue-600 text-white' : ''}`}
-        onClick={() => handleSelectTab('volunteers')}
-      >
-        <PersonStanding size={20} />
-        {!isCollapsed && t('volunteers')}
-      </Link>
-
-      {/* ✅ Bouton Users visible seulement si adGroupsFamilies contient 'admin' */}
-      {!checkingAuth && hasUserAccess && (
-        <Link
-          href="/admin/user/getAllUser"
-          className={`mt-auto flex items-center gap-2 text-white hover:text-blue-100 rounded-md px-2 py-1
-            ${activeTab === 'users' ? 'bg-blue-600 text-white' : ''}`}
-          onClick={() => {
-            handleSelectTab('users')
-            setActiveSubTab('')
-          }}
-        >
-          <UsersRound size={20} />
-          {!isCollapsed && 'Users'}
-        </Link>
+        </>
       )}
     </aside>
   )

@@ -27,7 +27,7 @@ type User = {
 }
 
 export default function TopNavbar() {
-  const t = useTranslations('UserNavbar')
+  const gt = useTranslations('GlobalTranslation')
   const router = useRouter()
 
   const [theme, setTheme] = useState<GraphicTheme | null>(null)
@@ -141,7 +141,7 @@ export default function TopNavbar() {
             onMouseEnter={() => setIsSignoutHovered(true)}
             onMouseLeave={() => setIsSignoutHovered(false)}
           >
-            {t('signout')}
+            {gt('signout')}
           </button>
         </div>
       </div>
