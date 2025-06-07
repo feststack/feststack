@@ -1,22 +1,28 @@
-import { ReactNode } from 'react';
-import { getMessagesAndLocale } from '../../i18n/request';
-import IntlProviderWrapper from '../../components/IntlProviderWrapper';
-import LayoutWrapper from '../../components/LayoutWrapper';
+import { NextIntlClientProvider } from 'next-intl';
+import nextIntlConfig from '../../next-intl.config.js';
+import type { ReactNode } from 'react';
+import Header from '../../components/navbar/Header'
 
-interface LocaleLayoutProps {
+type Props = {
   children: ReactNode;
-  params: { locale: string };
-}
+  params: Promise<{ locale: string }>; // ✅ params est désormais un `Promise`
+};
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const { locale, messages } = await getMessagesAndLocale(params.locale);
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params; // ✅ on attend la résolution de `params`
+  const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return (
     <html lang={locale}>
       <body>
-        <IntlProviderWrapper locale={locale} messages={messages}>
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </IntlProviderWrapper>
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+          timeZone={nextIntlConfig.timezone}
+        >
+          <Header currentLocale={locale} />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
