@@ -1,0 +1,10 @@
+{
+    "title": "Bienvenue sur FestStack",
+    "login-title": "Connexion",
+    "login": "Adresse e-mail",
+    "password": "Mot de passe",
+    "button": "Se connecter",
+    "login-error": "L'adresse e-mail et le mot de passe sont requis",
+    "login-failed": "Échec de la connexion"
+  }
+  

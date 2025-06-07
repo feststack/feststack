@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ClientsApps {
+  clientAppId   Int       @id @default(autoincrement())
+  clientAppName String
+  clientAppUrl  String
+
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  createdBy     String    @default("SYSTEM")
+  isDeleted     Boolean   @default(false)
+
+  usersRootings UsersRooting[]  // relation inverse
+}
+
+model Users {
+  userId     Int       @id @default(autoincrement())
+  userEmail  String    @unique
+
+  isActive   Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+  createdBy  String    @default("SYSTEM")
+  isDeleted  Boolean   @default(false)
+
+  usersRootings UsersRooting[]  // relation inverse
+}
+
+model UsersRooting {
+  userRootingId Int       @id @default(autoincrement())
+
+  userId       Int
+  clientAppId  Int
+
+  user         Users       @relation(fields: [userId], references: [userId])
+  clientApp    ClientsApps @relation(fields: [clientAppId], references: [clientAppId])
+  
+  @@unique([userId, clientAppId])  // optionnel : éviter doublons
+}

@@ -1,0 +1,9 @@
+{
+    "title": "Welcome to FestStack",
+    "login-title": "Login",
+    "login": "Email",
+    "password": "Password",
+    "button": "Login",
+    "login-error": "Email and password are required",
+    "login-failed": "Login failed"
+}
