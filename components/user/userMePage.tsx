@@ -24,7 +24,7 @@ interface User {
   adGroupAccess: Record<string, string[]>
 }
 
-export default function UserMePage() {
+export default function UserMeComponent() {
   const [data, setData] = useState<User | null>(null)
   const [languages, setLanguages] = useState<Language[]>([])
   const [error, setError] = useState<string | null>(null)

@@ -27,24 +27,24 @@ export default function LoginPage() {
   
     if (res.ok) {
       const userInfoRes = await fetch('/api/user/me', {
-        headers: {
-          'x-user-email': email,
-        },
+        headers: { 'x-user-email': email },
       });
       const userInfo = await userInfoRes.json();
-  
-      // Normaliser languageCode
+    
       let locale = userInfo.languageCode;
-      if (locale === 'français' || locale === 'fr-FR') {
-        locale = 'fr';
-      } else if (locale === 'anglais' || locale === 'en-US') {
-        locale = 'en';
-      }
+      if (locale === 'français' || locale === 'fr-FR') locale = 'fr';
+      else if (locale === 'anglais' || locale === 'en-US') locale = 'en';
+    
       localStorage.setItem('userEmail', email);
-  
       document.cookie = `NEXT_LOCALE=${locale}; path=/`;
-  
-      router.push('/user/userHome');
+    
+      await new Promise(resolve => setTimeout(resolve, 50))
+      router.push('/user/userHome')
+
+      // Important : recharger pour que LayoutWrapper + useAuth reprennent les nouvelles infos
+      setTimeout(() => {
+        window.location.reload()
+      }, 100)
     } else {
       const data = await res.json();
       setError(data.message || 'Échec de l’authentification');

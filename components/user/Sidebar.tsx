@@ -322,7 +322,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               <SidebarButton
                 id="users"
                 icon={<UsersRound size={20} />}
-                href="/admin/user"
+                href="/user/getAllUser"
                 isActive={activeTab === 'users'}
                 onClick={() => {
                   handleSelectTab('users')
