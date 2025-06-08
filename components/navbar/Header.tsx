@@ -14,7 +14,7 @@ const LOCALES: Record<string, { label: string; flag: string }> = {
 };
 
 export default function Header({ currentLocale }: { currentLocale: string }) {
-  const router = useRouter();
+  // const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
