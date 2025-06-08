@@ -3,9 +3,8 @@ import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
-// Middleware CORS pour les appels cross-origin
 const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*', // Remplace * par ton domaine en production
+  'Access-Control-Allow-Origin': '*', // En prod, remplace par ton domaine exact
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
@@ -18,15 +17,16 @@ type PrismaKnownError = {
 };
 
 export async function OPTIONS() {
+  // Réponse pré-vol CORS
   return new Response(null, {
     status: 204,
     headers: CORS_HEADERS,
   });
 }
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const { email, password, clientAppId } = await req.json();
+    const { email, password, clientAppId } = await request.json();
 
     if (!email || !password || !clientAppId) {
       return new Response(
