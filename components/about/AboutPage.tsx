@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 export default function AboutPage() {
   const t = useTranslations();
 
-  const features = t.raw('about.features.list');
+  const features = t.raw('about_features_list');
   const featureList = Array.isArray(features) ? features : [];
 
   return (
