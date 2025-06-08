@@ -5,6 +5,8 @@
     "password": "Mot de passe",
     "button": "Se connecter",
     "login-error": "L'adresse e-mail et le mot de passe sont requis",
-    "login-failed": "Échec de la connexion"
+    "login-failed": "Échec de la connexion",
+    "welcomeTo": "Bienvenue dans",
+    "appDescription": "Votre plateforme tout-en-un pour gérer festivals, événements et communautés — conçue pour la rapidité et la flexibilité."
   }
   

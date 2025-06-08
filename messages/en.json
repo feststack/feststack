@@ -5,5 +5,7 @@
     "password": "Password",
     "button": "Login",
     "login-error": "Email and password are required",
-    "login-failed": "Login failed"
+    "login-failed": "Login failed",
+    "welcomeTo": "Welcome to",
+    "appDescription": "Your all-in-one platform to manage festivals, events, and communities — built with speed and flexibility in mind."
 }

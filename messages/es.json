@@ -1,0 +1,12 @@
+{
+    "title": "Bienvenido a FestStack",
+    "login-title": "Iniciar sesión",
+    "login": "Correo electrónico",
+    "password": "Contraseña",
+    "button": "Iniciar sesión",
+    "login-error": "Se requieren correo electrónico y contraseña",
+    "login-failed": "Error al iniciar sesión",
+    "welcomeTo": "Bienvenido a",
+    "appDescription": "Tu plataforma todo en uno para gestionar festivales, eventos y comunidades — creada pensando en la rapidez y la flexibilidad."
+  }
+  

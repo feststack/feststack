@@ -1,7 +1,7 @@
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
-import LoginPage from '@/components/user/LoginPage';
+import Homepage from '@/components/home/HomePage';
  
 export default function HomePage() {
-  return <LoginPage />
+  return <Homepage />
 }
