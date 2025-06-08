@@ -14,22 +14,11 @@ const LOCALES: Record<string, { label: string; flag: string }> = {
 };
 
 export default function Header({ currentLocale }: { currentLocale: string }) {
-  // const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
-
-  // const changeLocale = (newLocale: string) => {
-  //   const segments = pathname.split('/');
-  //   segments[1] = newLocale;
-  //   const newPathname = segments.join('/');
-  //   const search = searchParams.toString();
-  //   const url = search ? `${newPathname}?${search}` : newPathname;
-  //   router.push(url);
-  //   setIsOpen(false);
-  // };
 
   const changeLocale = (newLocale: string) => {
     const segments = pathname.split('/');
@@ -37,11 +26,10 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
     const newPathname = segments.join('/');
     const search = searchParams.toString();
     const url = search ? `${newPathname}?${search}` : newPathname;
-    window.location.href = url; // Rechargement complet (comme un Ctrl+R)
+    window.location.href = url;
     setIsOpen(false);
   };  
 
-  // Fermer le menu si clic en dehors
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

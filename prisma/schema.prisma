@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -18,29 +18,29 @@ model ClientsApps {
   createdBy     String    @default("SYSTEM")
   isDeleted     Boolean   @default(false)
 
-  usersRootings UsersRooting[]  // relation inverse
+  usersRootings UsersRooting[]
 }
 
-model Users {
-  userId     Int       @id @default(autoincrement())
-  userEmail  String    @unique
+model UsersAuth {
+  userAuthId Int     @id @default(autoincrement())
+  email      String  @unique
+  password   String
 
-  isActive   Boolean   @default(true)
-  createdAt  DateTime  @default(now())
-  createdBy  String    @default("SYSTEM")
-  isDeleted  Boolean   @default(false)
+  createdAt  DateTime @default(now())
+  createdBy  String   @default("SYSTEM")
+  isDeleted  Boolean  @default(false)
 
-  usersRootings UsersRooting[]  // relation inverse
+  usersRootings UsersRooting[]
 }
 
 model UsersRooting {
   userRootingId Int       @id @default(autoincrement())
 
-  userId       Int
+  userAuthId   Int
   clientAppId  Int
 
-  user         Users       @relation(fields: [userId], references: [userId])
+  userAuth     UsersAuth   @relation(fields: [userAuthId], references: [userAuthId])
   clientApp    ClientsApps @relation(fields: [clientAppId], references: [clientAppId])
-  
-  @@unique([userId, clientAppId])  // optionnel : éviter doublons
+
+  @@unique([userAuthId, clientAppId])
 }
