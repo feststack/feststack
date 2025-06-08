@@ -21,15 +21,25 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
 
+  // const changeLocale = (newLocale: string) => {
+  //   const segments = pathname.split('/');
+  //   segments[1] = newLocale;
+  //   const newPathname = segments.join('/');
+  //   const search = searchParams.toString();
+  //   const url = search ? `${newPathname}?${search}` : newPathname;
+  //   router.push(url);
+  //   setIsOpen(false);
+  // };
+
   const changeLocale = (newLocale: string) => {
     const segments = pathname.split('/');
     segments[1] = newLocale;
     const newPathname = segments.join('/');
     const search = searchParams.toString();
     const url = search ? `${newPathname}?${search}` : newPathname;
-    router.push(url);
+    window.location.href = url; // Rechargement complet (comme un Ctrl+R)
     setIsOpen(false);
-  };
+  };  
 
   // Fermer le menu si clic en dehors
   useEffect(() => {
