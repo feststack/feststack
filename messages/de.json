@@ -7,6 +7,31 @@
     "login-error": "E-Mail und Passwort sind erforderlich",
     "login-failed": "Anmeldung fehlgeschlagen",
     "welcomeTo": "Willkommen bei",
-    "appDescription": "Ihre All-in-One-Plattform zur Verwaltung von Festivals, Veranstaltungen und Gemeinschaften – entwickelt mit Fokus auf Geschwindigkeit und Flexibilität."
+    "appDescription": "Ihre All-in-One-Plattform zur Verwaltung von Festivals, Veranstaltungen und Gemeinschaften – entwickelt mit Fokus auf Geschwindigkeit und Flexibilität.",
+    "about_title": "Über FestStack",
+    "about_intro": "FestStack ist eine All-in-One-Plattform zur einfachen Verwaltung von Festivals, Events und Kultur-Communities. Ob Veranstalter, Vereinsmitglied oder Ticketmanager – FestStack begleitet Sie von der Planung bis zur Nachbereitung.",
+    "about_goal_title": "🎯 Ziel",
+    "about_goal_text": "Unsere Mission ist es, Eventmanagement einfach, kollaborativ und effizient zu gestalten – ganz ohne technische Vorkenntnisse. Mit einer modernen, intuitiven Oberfläche verwalten Sie alles an einem Ort.",
+    "about_features_title": "🧩 Hauptfunktionen",
+    "about_features_list": [
+      "Mehrsprachige Verwaltung von Events und Festivals",
+      "Teamverwaltung & Rollenzuweisung mit AD-Integration",
+      "Benutzerverwaltung & Zugriffskontrolle",
+      "Anpassbare grafische Themes",
+      "Formulare, Ticketing und Logistik",
+      "Medienmanagement (Videos, Bilder, Dokumente)",
+      "Integrierte Datenanalyse (individuelle Dashboards)"
+    ],
+    "about_tech_title": "⚙️ Verwendete Technologien",
+    "about_tech_text": "FestStack basiert auf Next.js für Performance, Tailwind CSS für modernes Design und Prisma + MySQL für die Datenbank. Die Authentifizierung erfolgt über GitHub, die Admin-Oberfläche ist anpassbar.",
+    "about_multilang_title": "🌍 Mehrsprachig & inklusiv",
+    "about_multilang_text": "FestStack ist für ein internationales Publikum konzipiert. Die App unterstützt mehrere Sprachen und ermöglicht dynamisches Wechseln der Anzeige-Sprache.",
+    "about_security_title": "🔐 Sicherheit & Barrierefreiheit",
+    "about_security_text": "Datensicherheit hat oberste Priorität. Der Zugriff wird über AD-Gruppen geregelt, alle Daten sind verschlüsselt. Die Oberfläche ist barrierefrei gestaltet.",
+    "about_evolution_title": "🚀 Stetige Weiterentwicklung",
+    "about_evolution_text": "Wir entwickeln FestStack gemeinsam mit unserer Community weiter. In Arbeit: öffentliche API, Offline-Modus, Integration mit Kalendern, CRMs und Bezahllösungen.",
+    "about_cta": "Sei Teil der Event-Revolution mit FestStack.",
+    "loginTitle": "Anmelden",
+    "aboutTitle": "Über"    
   }
   

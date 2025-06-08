@@ -1,11 +1,46 @@
 {
     "title": "Welcome to FestStack",
     "login-title": "Login",
-    "login": "Email",
+    "login": "Email address",
     "password": "Password",
-    "button": "Login",
+    "button": "Log in",
     "login-error": "Email and password are required",
     "login-failed": "Login failed",
     "welcomeTo": "Welcome to",
-    "appDescription": "Your all-in-one platform to manage festivals, events, and communities — built with speed and flexibility in mind."
-}
+    "appDescription": "Your all-in-one platform to manage festivals, events, and communities — designed for speed and flexibility.",
+    "getStarted": "Get Started",
+  
+    "about_title": "About FestStack",
+    "about_intro": "FestStack is an all-in-one platform designed to simplify the management of festivals, events, and cultural communities. Whether you're an event organizer, a member of an association, or a ticketing manager, FestStack supports you at every stage, from planning to post-event review.",
+  
+    "about_goal_title": "🎯 Goal",
+    "about_goal_text": "Our mission is to make event management smooth, collaborative, and efficient, without requiring technical skills. With a modern and intuitive interface, you can manage multiple aspects of your projects from one place.",
+  
+    "about_features_title": "🧩 Key Features",
+    "about_features_list": [
+      "Multilingual festival and event management",
+      "Team creation and role assignment via AD (Active Directory) integration",
+      "User tracking and access rights management",
+      "Integration of customizable graphic themes",
+      "Support for registration forms, ticketing, and logistics",
+      "Media content management (videos, images, documents)",
+      "Built-in data analytics (custom dashboards)"
+    ],
+  
+    "about_tech_title": "⚙️ Technologies Used",
+    "about_tech_text": "FestStack is built with Next.js for performance, Tailwind CSS for a responsive and modern interface, and Prisma + MySQL for data management_ Authentication is handled via GitHub and the admin interface is highly customizable.",
+  
+    "about_multilang_title": "🌍 Multilingual & Inclusive",
+    "about_multilang_text": "FestStack is designed for an international audience. The app supports multiple languages (English, French, Spanish, German) and allows users to dynamically switch the display language.",
+  
+    "about_security_title": "🔐 Security & Accessibility",
+    "about_security_text": "Data security is a top priority. Each user has access strictly defined by AD groups, and all communications are encrypted. The interface is also designed to be accessible to all user profiles.",
+  
+    "about_evolution_title": "🚀 Constant Evolution",
+    "about_evolution_text": "We actively listen to our user community to evolve FestStack based on real-world needs. Many features are already in development, including a public API, offline mode, and integration with external tools (calendars, CRMs, payment solutions...).",
+  
+    "about_cta": "Join the event revolution with FestStack.",
+    "loginTitle": "Login",
+    "aboutTitle": "About"
+  }
+  

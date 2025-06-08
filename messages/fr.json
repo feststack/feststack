@@ -7,6 +7,32 @@
     "login-error": "L'adresse e-mail et le mot de passe sont requis",
     "login-failed": "Échec de la connexion",
     "welcomeTo": "Bienvenue dans",
-    "appDescription": "Votre plateforme tout-en-un pour gérer festivals, événements et communautés — conçue pour la rapidité et la flexibilité."
+    "appDescription": "Votre plateforme tout-en-un pour gérer festivals, événements et communautés — conçue pour la rapidité et la flexibilité.",
+    "getStarted": "Commencer",
+    "about_title": "À propos de FestStack",
+    "about_intro": "FestStack est une plateforme tout-en-un conçue pour simplifier la gestion des festivals, des événements et des communautés culturelles. Que vous soyez organisateur, membre d'association ou responsable de billetterie, FestStack vous accompagne de la planification au bilan.",
+    "about_goal_title": "🎯 Objectif",
+    "about_goal_text": "Notre mission est de rendre la gestion événementielle fluide, collaborative et performante, sans compétences techniques. Grâce à une interface moderne et intuitive, vous gérez tous vos projets en un seul endroit.",
+    "about_features_title": "🧩 Fonctionnalités principales",
+    "about_features_list": [
+      "Gestion multilingue des festivals et événements",
+      "Création d’équipes et rôles via l'intégration AD",
+      "Suivi des utilisateurs et gestion des droits",
+      "Thèmes graphiques personnalisables",
+      "Formulaires, billetterie et logistique",
+      "Gestion des médias (vidéos, images, documents)",
+      "Analyse de données intégrée (dashboards personnalisés)"
+    ],
+    "about_tech_title": "⚙️ Technologies utilisées",
+    "about_tech_text": "FestStack est développé avec Next.js pour la performance, Tailwind CSS pour une interface moderne, et Prisma + MySQL pour les données. L’authentification passe par GitHub, l’admin est personnalisable.",
+    "about_multilang_title": "🌍 Multilingue & Inclusif",
+    "about_multilang_text": "FestStack s’adresse à une audience internationale. L’application est traduite en plusieurs langues et l’utilisateur peut changer dynamiquement la langue d’affichage.",
+    "about_security_title": "🔐 Sécurité & Accessibilité",
+    "about_security_text": "La sécurité des données est essentielle. Les accès sont définis par groupe AD et toutes les communications sont chiffrées. L’interface est accessible à tous les profils.",
+    "about_evolution_title": "🚀 En constante évolution",
+    "about_evolution_text": "Nous écoutons notre communauté pour faire évoluer FestStac. De nouvelles fonctionnalités arrivent : API publique, mode hors-ligne, intégration CRM, calendrier, paiements...",
+    "about_cta": "Rejoignez la révolution événementielle avec FestStack.",
+    "loginTitle": "Se connecter",
+    "aboutTitle": "À propose"
   }
   

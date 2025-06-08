@@ -14,7 +14,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <body className="relative min-h-screen">
+      <body className="relative min-h-screen overflow-x-hidden">
         {/* Vidéo en arrière-plan */}
         <video
           autoPlay
@@ -27,17 +27,22 @@ export default async function LocaleLayout({ children, params }: Props) {
           Your browser does not support the video tag.
         </video>
 
-        {/* Overlay optionnel pour améliorer lisibilité */}
+        {/* Overlay sombre */}
         <div className="fixed top-0 left-0 w-full h-full bg-black/40 -z-5" />
 
-        {/* Contenu au-dessus */}
+        {/* Provider et contenu */}
         <NextIntlClientProvider
           locale={locale}
           messages={messages}
           timeZone={nextIntlConfig.timezone}
         >
-          <Header currentLocale={locale} />
-          <main className="relative z-10">{children}</main>
+          {/* Header fixé en haut */}
+          <div className="fixed top-0 left-0 w-full z-50">
+            <Header currentLocale={locale} />
+          </div>
+
+          {/* Contenu principal avec marge pour ne pas passer sous le header */}
+          <main className="relative z-10 pt-20 px-4">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

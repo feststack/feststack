@@ -10,7 +10,7 @@ export default function HomePage() {
   const t = useTranslations();
 
   return (
-    <div className="flex items-center justify-center h-screen relative">
+    <div className="flex items-center justify-center h-screen relative font-mono">
       <section className="flex flex-col items-center justify-center text-center px-6 py-24 md:py-32 bg-zinc-1000/60">
         <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
           {t('welcomeTo')} <span className="text-blue-500">FestStack</span>
@@ -19,8 +19,8 @@ export default function HomePage() {
           {t('appDescription')}
         </p>
         <Link href="/login">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md transition">
-            Get Started
+          <button className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md transition cursor-pointer">
+            {t('getStarted')}
           </button>
         </Link>
       </section>
