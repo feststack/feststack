@@ -10,6 +10,13 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
+type PrismaKnownError = {
+  code: string;
+  meta?: {
+    target?: string[];
+  };
+};
+
 export async function OPTIONS() {
   return new Response(null, {
     status: 204,
@@ -50,14 +57,26 @@ export async function POST(req: Request) {
       status: 201,
       headers: CORS_HEADERS,
     });
-  } catch (error: any) {
-    console.error('Error creating user:', error);
-
-    if (error.code === 'P2002' && error.meta?.target?.includes('email')) {
+  } catch (error: unknown) {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'code' in error &&
+      (error as PrismaKnownError).code === 'P2002' &&
+      'meta' in error &&
+      Array.isArray((error as PrismaKnownError).meta?.target) &&
+      (error as PrismaKnownError).meta!.target!.includes('email')
+    ) {
       return new Response(JSON.stringify({ error: 'Email already exists.' }), {
         status: 409,
         headers: CORS_HEADERS,
       });
+    }
+
+    if (error instanceof Error) {
+      console.error('Error creating user:', error);
+    } else {
+      console.error('Unknown error:', error);
     }
 
     return new Response(JSON.stringify({ error: 'Internal server error.' }), {
