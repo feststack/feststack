@@ -263,9 +263,20 @@ model GraphicThemes {
   isDeleted           Boolean  @default(false)
 }
 
-model Images {
+model Image {
   id         Int     @id @default(autoincrement())
   imageName  String  @unique
   imageData  Bytes
   mimeType   String?
+  
+  graphicThemes GraphicTheme[]
+}
+
+model GraphicTheme {
+  id          Int     @id @default(autoincrement())
+  name        String
+  isDeleted   Boolean @default(false)
+  
+  logoImageId Int? 
+  logoImage   Image?  @relation(fields: [logoImageId], references: [id])
 }

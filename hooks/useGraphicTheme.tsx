@@ -1,22 +1,5 @@
 import { useEffect, useState } from 'react'
-
-type GraphicTheme = {
-  graphicThemeName: string
-  backgroundMain: string
-  backgroundSecondary: string
-  textPrimary: string
-  textSecondary: string
-  accent: string
-  accentHover: string
-  success: string
-  cardBackground: string
-  borderColor: string
-}
-
-type AppConfig = {
-  appConfigName: string
-  appConfigValue: string
-}
+import type { GraphicTheme, AppConfig } from './types'
 
 export function useGraphicTheme() {
   const [theme, setTheme] = useState<GraphicTheme | null>(null)
@@ -26,6 +9,7 @@ export function useGraphicTheme() {
   useEffect(() => {
     async function fetchThemeAndConfig() {
       try {
+        // Récupération des configs de l'app
         const resConfig = await fetch('/api/appConfig')
         if (!resConfig.ok) throw new Error('Failed to fetch appConfig')
 
@@ -36,10 +20,12 @@ export function useGraphicTheme() {
         const defaultThemeConfig = appConfig.find(c => c.appConfigName === 'default_graphic_theme')
         const defaultThemeName = defaultThemeConfig?.appConfigValue || 'dark_theme'
 
-        const resThemes = await fetch('/api/graphicTheme')
+        // Récupération des thèmes graphiques
+        const resThemes = await fetch('/api/graphicThemes')  // note le pluriel /graphicThemes si c'est bien l'URL
         if (!resThemes.ok) throw new Error('Failed to fetch themes')
         const themes: GraphicTheme[] = await resThemes.json()
 
+        // Trouver le thème par défaut et le définir
         const defaultTheme = themes.find(t => t.graphicThemeName === defaultThemeName)
         if (defaultTheme) setTheme(defaultTheme)
       } catch (err) {

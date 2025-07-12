@@ -20,7 +20,7 @@ export default function TopNavbar() {
   const [user, setUser] = useState<User | null>(null)
   const [userThemeName, setUserThemeName] = useState<string | undefined>(undefined)
 
-  const { theme, loading } = useGraphicTheme(userThemeName)
+  const { theme, loading } = useGraphicTheme()
   const { imageUrl: logoUrl } = useImage(theme?.logoImage?.imageName ?? null)
 
   const [isHovered, setIsHovered] = useState(false)

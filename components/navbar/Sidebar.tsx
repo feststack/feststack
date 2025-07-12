@@ -99,7 +99,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const gt = useTranslations('GlobalTranslation')
   const { user, loading } = useAuth() as { user: User | null; loading: boolean }
   const [userThemeName, setUserThemeName] = useState<string | undefined>(undefined)
-  const { theme, loading: loadingTheme } = useGraphicTheme(userThemeName)
+  const { theme, loading: loadingTheme } = useGraphicTheme()
 
   const initialActiveTab = pathname.includes('/admin/user')
     ? 'users'
