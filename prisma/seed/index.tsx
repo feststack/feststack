@@ -4,6 +4,7 @@ import { seedAdGroups } from './adGroups';
 import { seedUsers } from './users';
 import { seedAppConfigs } from './appConfigs';
 import { seedGraphicThemes } from './graphicThemes';
+import { seedImages } from './images';
  
 const prisma = new PrismaClient();
 
@@ -13,6 +14,7 @@ async function main() {
   await seedUsers();
   await seedGraphicThemes();
   await seedAppConfigs();
+  await seedImages();
 }
 
 main()

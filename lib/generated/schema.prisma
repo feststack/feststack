@@ -259,3 +259,10 @@ model GraphicThemes {
   createdBy String   @default("SYSTEM")
   isDeleted Boolean  @default(false)
 }
+
+model Images {
+  id        Int     @id @default(autoincrement())
+  imageName String  @unique
+  imageData Bytes
+  mimeType  String?
+}
