@@ -109,10 +109,10 @@ export type AppConfigs = $Result.DefaultSelection<Prisma.$AppConfigsPayload>
  */
 export type GraphicThemes = $Result.DefaultSelection<Prisma.$GraphicThemesPayload>
 /**
- * Model Image
+ * Model Images
  * 
  */
-export type Image = $Result.DefaultSelection<Prisma.$ImagePayload>
+export type Images = $Result.DefaultSelection<Prisma.$ImagesPayload>
 /**
  * Model GraphicTheme
  * 
@@ -435,14 +435,14 @@ export class PrismaClient<
   get graphicThemes(): Prisma.GraphicThemesDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.image`: Exposes CRUD operations for the **Image** model.
+   * `prisma.images`: Exposes CRUD operations for the **Images** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Images
-    * const images = await prisma.image.findMany()
+    * const images = await prisma.images.findMany()
     * ```
     */
-  get image(): Prisma.ImageDelegate<ExtArgs, ClientOptions>;
+  get images(): Prisma.ImagesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.graphicTheme`: Exposes CRUD operations for the **GraphicTheme** model.
@@ -912,7 +912,7 @@ export namespace Prisma {
     UsersAdGroups: 'UsersAdGroups',
     AppConfigs: 'AppConfigs',
     GraphicThemes: 'GraphicThemes',
-    Image: 'Image',
+    Images: 'Images',
     GraphicTheme: 'GraphicTheme'
   };
 
@@ -932,7 +932,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "adGroupsFamilies" | "adGroupsRights" | "usersAdGroups" | "appConfigs" | "graphicThemes" | "image" | "graphicTheme"
+      modelProps: "editions" | "editionsStatuses" | "shows" | "artists" | "showsStatuses" | "artistsManagementsCategories" | "artistsManagements" | "artistsArtistsManagements" | "performances" | "contracts" | "users" | "usersAuth" | "languages" | "adGroups" | "adGroupsFamilies" | "adGroupsRights" | "usersAdGroups" | "appConfigs" | "graphicThemes" | "images" | "graphicTheme"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2190,69 +2190,69 @@ export namespace Prisma {
           }
         }
       }
-      Image: {
-        payload: Prisma.$ImagePayload<ExtArgs>
-        fields: Prisma.ImageFieldRefs
+      Images: {
+        payload: Prisma.$ImagesPayload<ExtArgs>
+        fields: Prisma.ImagesFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ImageFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload> | null
+            args: Prisma.ImagesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ImageFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           findFirst: {
-            args: Prisma.ImageFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload> | null
+            args: Prisma.ImagesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ImageFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           findMany: {
-            args: Prisma.ImageFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>[]
+            args: Prisma.ImagesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>[]
           }
           create: {
-            args: Prisma.ImageCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           createMany: {
-            args: Prisma.ImageCreateManyArgs<ExtArgs>
+            args: Prisma.ImagesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.ImageDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           update: {
-            args: Prisma.ImageUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           deleteMany: {
-            args: Prisma.ImageDeleteManyArgs<ExtArgs>
+            args: Prisma.ImagesDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ImageUpdateManyArgs<ExtArgs>
+            args: Prisma.ImagesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.ImageUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+            args: Prisma.ImagesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagesPayload>
           }
           aggregate: {
-            args: Prisma.ImageAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateImage>
+            args: Prisma.ImagesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateImages>
           }
           groupBy: {
-            args: Prisma.ImageGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ImageGroupByOutputType>[]
+            args: Prisma.ImagesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ImagesGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ImageCountArgs<ExtArgs>
-            result: $Utils.Optional<ImageCountAggregateOutputType> | number
+            args: Prisma.ImagesCountArgs<ExtArgs>
+            result: $Utils.Optional<ImagesCountAggregateOutputType> | number
           }
         }
       }
@@ -2425,7 +2425,7 @@ export namespace Prisma {
     usersAdGroups?: UsersAdGroupsOmit
     appConfigs?: AppConfigsOmit
     graphicThemes?: GraphicThemesOmit
-    image?: ImageOmit
+    images?: ImagesOmit
     graphicTheme?: GraphicThemeOmit
   }
 
@@ -2929,32 +2929,32 @@ export namespace Prisma {
 
 
   /**
-   * Count Type ImageCountOutputType
+   * Count Type ImagesCountOutputType
    */
 
-  export type ImageCountOutputType = {
+  export type ImagesCountOutputType = {
     graphicThemes: number
   }
 
-  export type ImageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    graphicThemes?: boolean | ImageCountOutputTypeCountGraphicThemesArgs
+  export type ImagesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    graphicThemes?: boolean | ImagesCountOutputTypeCountGraphicThemesArgs
   }
 
   // Custom InputTypes
   /**
-   * ImageCountOutputType without action
+   * ImagesCountOutputType without action
    */
-  export type ImageCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ImageCountOutputType
+     * Select specific fields to fetch from the ImagesCountOutputType
      */
-    select?: ImageCountOutputTypeSelect<ExtArgs> | null
+    select?: ImagesCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * ImageCountOutputType without action
+   * ImagesCountOutputType without action
    */
-  export type ImageCountOutputTypeCountGraphicThemesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesCountOutputTypeCountGraphicThemesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GraphicThemeWhereInput
   }
 
@@ -22058,40 +22058,40 @@ export namespace Prisma {
 
 
   /**
-   * Model Image
+   * Model Images
    */
 
-  export type AggregateImage = {
-    _count: ImageCountAggregateOutputType | null
-    _avg: ImageAvgAggregateOutputType | null
-    _sum: ImageSumAggregateOutputType | null
-    _min: ImageMinAggregateOutputType | null
-    _max: ImageMaxAggregateOutputType | null
+  export type AggregateImages = {
+    _count: ImagesCountAggregateOutputType | null
+    _avg: ImagesAvgAggregateOutputType | null
+    _sum: ImagesSumAggregateOutputType | null
+    _min: ImagesMinAggregateOutputType | null
+    _max: ImagesMaxAggregateOutputType | null
   }
 
-  export type ImageAvgAggregateOutputType = {
+  export type ImagesAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type ImageSumAggregateOutputType = {
+  export type ImagesSumAggregateOutputType = {
     id: number | null
   }
 
-  export type ImageMinAggregateOutputType = {
-    id: number | null
-    imageName: string | null
-    imageData: Uint8Array | null
-    mimeType: string | null
-  }
-
-  export type ImageMaxAggregateOutputType = {
+  export type ImagesMinAggregateOutputType = {
     id: number | null
     imageName: string | null
     imageData: Uint8Array | null
     mimeType: string | null
   }
 
-  export type ImageCountAggregateOutputType = {
+  export type ImagesMaxAggregateOutputType = {
+    id: number | null
+    imageName: string | null
+    imageData: Uint8Array | null
+    mimeType: string | null
+  }
+
+  export type ImagesCountAggregateOutputType = {
     id: number
     imageName: number
     imageData: number
@@ -22100,29 +22100,29 @@ export namespace Prisma {
   }
 
 
-  export type ImageAvgAggregateInputType = {
+  export type ImagesAvgAggregateInputType = {
     id?: true
   }
 
-  export type ImageSumAggregateInputType = {
+  export type ImagesSumAggregateInputType = {
     id?: true
   }
 
-  export type ImageMinAggregateInputType = {
-    id?: true
-    imageName?: true
-    imageData?: true
-    mimeType?: true
-  }
-
-  export type ImageMaxAggregateInputType = {
+  export type ImagesMinAggregateInputType = {
     id?: true
     imageName?: true
     imageData?: true
     mimeType?: true
   }
 
-  export type ImageCountAggregateInputType = {
+  export type ImagesMaxAggregateInputType = {
+    id?: true
+    imageName?: true
+    imageData?: true
+    mimeType?: true
+  }
+
+  export type ImagesCountAggregateInputType = {
     id?: true
     imageName?: true
     imageData?: true
@@ -22130,23 +22130,23 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type ImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Image to aggregate.
+     * Filter which Images to aggregate.
      */
-    where?: ImageWhereInput
+    where?: ImagesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Images to fetch.
      */
-    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    orderBy?: ImagesOrderByWithRelationInput | ImagesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ImageWhereUniqueInput
+    cursor?: ImagesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -22164,110 +22164,110 @@ export namespace Prisma {
      * 
      * Count returned Images
     **/
-    _count?: true | ImageCountAggregateInputType
+    _count?: true | ImagesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ImageAvgAggregateInputType
+    _avg?: ImagesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ImageSumAggregateInputType
+    _sum?: ImagesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ImageMinAggregateInputType
+    _min?: ImagesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ImageMaxAggregateInputType
+    _max?: ImagesMaxAggregateInputType
   }
 
-  export type GetImageAggregateType<T extends ImageAggregateArgs> = {
-        [P in keyof T & keyof AggregateImage]: P extends '_count' | 'count'
+  export type GetImagesAggregateType<T extends ImagesAggregateArgs> = {
+        [P in keyof T & keyof AggregateImages]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateImage[P]>
-      : GetScalarType<T[P], AggregateImage[P]>
+        : GetScalarType<T[P], AggregateImages[P]>
+      : GetScalarType<T[P], AggregateImages[P]>
   }
 
 
 
 
-  export type ImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ImageWhereInput
-    orderBy?: ImageOrderByWithAggregationInput | ImageOrderByWithAggregationInput[]
-    by: ImageScalarFieldEnum[] | ImageScalarFieldEnum
-    having?: ImageScalarWhereWithAggregatesInput
+  export type ImagesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImagesWhereInput
+    orderBy?: ImagesOrderByWithAggregationInput | ImagesOrderByWithAggregationInput[]
+    by: ImagesScalarFieldEnum[] | ImagesScalarFieldEnum
+    having?: ImagesScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ImageCountAggregateInputType | true
-    _avg?: ImageAvgAggregateInputType
-    _sum?: ImageSumAggregateInputType
-    _min?: ImageMinAggregateInputType
-    _max?: ImageMaxAggregateInputType
+    _count?: ImagesCountAggregateInputType | true
+    _avg?: ImagesAvgAggregateInputType
+    _sum?: ImagesSumAggregateInputType
+    _min?: ImagesMinAggregateInputType
+    _max?: ImagesMaxAggregateInputType
   }
 
-  export type ImageGroupByOutputType = {
+  export type ImagesGroupByOutputType = {
     id: number
     imageName: string
     imageData: Uint8Array
     mimeType: string | null
-    _count: ImageCountAggregateOutputType | null
-    _avg: ImageAvgAggregateOutputType | null
-    _sum: ImageSumAggregateOutputType | null
-    _min: ImageMinAggregateOutputType | null
-    _max: ImageMaxAggregateOutputType | null
+    _count: ImagesCountAggregateOutputType | null
+    _avg: ImagesAvgAggregateOutputType | null
+    _sum: ImagesSumAggregateOutputType | null
+    _min: ImagesMinAggregateOutputType | null
+    _max: ImagesMaxAggregateOutputType | null
   }
 
-  type GetImageGroupByPayload<T extends ImageGroupByArgs> = Prisma.PrismaPromise<
+  type GetImagesGroupByPayload<T extends ImagesGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ImageGroupByOutputType, T['by']> &
+      PickEnumerable<ImagesGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ImageGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ImagesGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ImageGroupByOutputType[P]>
-            : GetScalarType<T[P], ImageGroupByOutputType[P]>
+              : GetScalarType<T[P], ImagesGroupByOutputType[P]>
+            : GetScalarType<T[P], ImagesGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ImagesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     imageName?: boolean
     imageData?: boolean
     mimeType?: boolean
-    graphicThemes?: boolean | Image$graphicThemesArgs<ExtArgs>
-    _count?: boolean | ImageCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["image"]>
+    graphicThemes?: boolean | Images$graphicThemesArgs<ExtArgs>
+    _count?: boolean | ImagesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["images"]>
 
 
 
-  export type ImageSelectScalar = {
+  export type ImagesSelectScalar = {
     id?: boolean
     imageName?: boolean
     imageData?: boolean
     mimeType?: boolean
   }
 
-  export type ImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imageName" | "imageData" | "mimeType", ExtArgs["result"]["image"]>
-  export type ImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    graphicThemes?: boolean | Image$graphicThemesArgs<ExtArgs>
-    _count?: boolean | ImageCountOutputTypeDefaultArgs<ExtArgs>
+  export type ImagesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imageName" | "imageData" | "mimeType", ExtArgs["result"]["images"]>
+  export type ImagesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    graphicThemes?: boolean | Images$graphicThemesArgs<ExtArgs>
+    _count?: boolean | ImagesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $ImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Image"
+  export type $ImagesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Images"
     objects: {
       graphicThemes: Prisma.$GraphicThemePayload<ExtArgs>[]
     }
@@ -22276,143 +22276,143 @@ export namespace Prisma {
       imageName: string
       imageData: Uint8Array
       mimeType: string | null
-    }, ExtArgs["result"]["image"]>
+    }, ExtArgs["result"]["images"]>
     composites: {}
   }
 
-  type ImageGetPayload<S extends boolean | null | undefined | ImageDefaultArgs> = $Result.GetResult<Prisma.$ImagePayload, S>
+  type ImagesGetPayload<S extends boolean | null | undefined | ImagesDefaultArgs> = $Result.GetResult<Prisma.$ImagesPayload, S>
 
-  type ImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ImageCountAggregateInputType | true
+  type ImagesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ImagesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ImagesCountAggregateInputType | true
     }
 
-  export interface ImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Image'], meta: { name: 'Image' } }
+  export interface ImagesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Images'], meta: { name: 'Images' } }
     /**
-     * Find zero or one Image that matches the filter.
-     * @param {ImageFindUniqueArgs} args - Arguments to find a Image
+     * Find zero or one Images that matches the filter.
+     * @param {ImagesFindUniqueArgs} args - Arguments to find a Images
      * @example
-     * // Get one Image
-     * const image = await prisma.image.findUnique({
+     * // Get one Images
+     * const images = await prisma.images.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ImageFindUniqueArgs>(args: SelectSubset<T, ImageFindUniqueArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ImagesFindUniqueArgs>(args: SelectSubset<T, ImagesFindUniqueArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Image that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Images that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ImageFindUniqueOrThrowArgs} args - Arguments to find a Image
+     * @param {ImagesFindUniqueOrThrowArgs} args - Arguments to find a Images
      * @example
-     * // Get one Image
-     * const image = await prisma.image.findUniqueOrThrow({
+     * // Get one Images
+     * const images = await prisma.images.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ImageFindUniqueOrThrowArgs>(args: SelectSubset<T, ImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ImagesFindUniqueOrThrowArgs>(args: SelectSubset<T, ImagesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Image that matches the filter.
+     * Find the first Images that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageFindFirstArgs} args - Arguments to find a Image
+     * @param {ImagesFindFirstArgs} args - Arguments to find a Images
      * @example
-     * // Get one Image
-     * const image = await prisma.image.findFirst({
+     * // Get one Images
+     * const images = await prisma.images.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ImageFindFirstArgs>(args?: SelectSubset<T, ImageFindFirstArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ImagesFindFirstArgs>(args?: SelectSubset<T, ImagesFindFirstArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Image that matches the filter or
+     * Find the first Images that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageFindFirstOrThrowArgs} args - Arguments to find a Image
+     * @param {ImagesFindFirstOrThrowArgs} args - Arguments to find a Images
      * @example
-     * // Get one Image
-     * const image = await prisma.image.findFirstOrThrow({
+     * // Get one Images
+     * const images = await prisma.images.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ImageFindFirstOrThrowArgs>(args?: SelectSubset<T, ImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ImagesFindFirstOrThrowArgs>(args?: SelectSubset<T, ImagesFindFirstOrThrowArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more Images that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ImagesFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Images
-     * const images = await prisma.image.findMany()
+     * const images = await prisma.images.findMany()
      * 
      * // Get first 10 Images
-     * const images = await prisma.image.findMany({ take: 10 })
+     * const images = await prisma.images.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const imageWithIdOnly = await prisma.image.findMany({ select: { id: true } })
+     * const imagesWithIdOnly = await prisma.images.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ImageFindManyArgs>(args?: SelectSubset<T, ImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ImagesFindManyArgs>(args?: SelectSubset<T, ImagesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Image.
-     * @param {ImageCreateArgs} args - Arguments to create a Image.
+     * Create a Images.
+     * @param {ImagesCreateArgs} args - Arguments to create a Images.
      * @example
-     * // Create one Image
-     * const Image = await prisma.image.create({
+     * // Create one Images
+     * const Images = await prisma.images.create({
      *   data: {
-     *     // ... data to create a Image
+     *     // ... data to create a Images
      *   }
      * })
      * 
      */
-    create<T extends ImageCreateArgs>(args: SelectSubset<T, ImageCreateArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ImagesCreateArgs>(args: SelectSubset<T, ImagesCreateArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many Images.
-     * @param {ImageCreateManyArgs} args - Arguments to create many Images.
+     * @param {ImagesCreateManyArgs} args - Arguments to create many Images.
      * @example
      * // Create many Images
-     * const image = await prisma.image.createMany({
+     * const images = await prisma.images.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ImageCreateManyArgs>(args?: SelectSubset<T, ImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ImagesCreateManyArgs>(args?: SelectSubset<T, ImagesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Image.
-     * @param {ImageDeleteArgs} args - Arguments to delete one Image.
+     * Delete a Images.
+     * @param {ImagesDeleteArgs} args - Arguments to delete one Images.
      * @example
-     * // Delete one Image
-     * const Image = await prisma.image.delete({
+     * // Delete one Images
+     * const Images = await prisma.images.delete({
      *   where: {
-     *     // ... filter to delete one Image
+     *     // ... filter to delete one Images
      *   }
      * })
      * 
      */
-    delete<T extends ImageDeleteArgs>(args: SelectSubset<T, ImageDeleteArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ImagesDeleteArgs>(args: SelectSubset<T, ImagesDeleteArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Image.
-     * @param {ImageUpdateArgs} args - Arguments to update one Image.
+     * Update one Images.
+     * @param {ImagesUpdateArgs} args - Arguments to update one Images.
      * @example
-     * // Update one Image
-     * const image = await prisma.image.update({
+     * // Update one Images
+     * const images = await prisma.images.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -22422,30 +22422,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ImageUpdateArgs>(args: SelectSubset<T, ImageUpdateArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ImagesUpdateArgs>(args: SelectSubset<T, ImagesUpdateArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more Images.
-     * @param {ImageDeleteManyArgs} args - Arguments to filter Images to delete.
+     * @param {ImagesDeleteManyArgs} args - Arguments to filter Images to delete.
      * @example
      * // Delete a few Images
-     * const { count } = await prisma.image.deleteMany({
+     * const { count } = await prisma.images.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ImageDeleteManyArgs>(args?: SelectSubset<T, ImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ImagesDeleteManyArgs>(args?: SelectSubset<T, ImagesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Images.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ImagesUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Images
-     * const image = await prisma.image.updateMany({
+     * const images = await prisma.images.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -22455,56 +22455,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ImageUpdateManyArgs>(args: SelectSubset<T, ImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ImagesUpdateManyArgs>(args: SelectSubset<T, ImagesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Image.
-     * @param {ImageUpsertArgs} args - Arguments to update or create a Image.
+     * Create or update one Images.
+     * @param {ImagesUpsertArgs} args - Arguments to update or create a Images.
      * @example
-     * // Update or create a Image
-     * const image = await prisma.image.upsert({
+     * // Update or create a Images
+     * const images = await prisma.images.upsert({
      *   create: {
-     *     // ... data to create a Image
+     *     // ... data to create a Images
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Image we want to update
+     *     // ... the filter for the Images we want to update
      *   }
      * })
      */
-    upsert<T extends ImageUpsertArgs>(args: SelectSubset<T, ImageUpsertArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ImagesUpsertArgs>(args: SelectSubset<T, ImagesUpsertArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of Images.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageCountArgs} args - Arguments to filter Images to count.
+     * @param {ImagesCountArgs} args - Arguments to filter Images to count.
      * @example
      * // Count the number of Images
-     * const count = await prisma.image.count({
+     * const count = await prisma.images.count({
      *   where: {
      *     // ... the filter for the Images we want to count
      *   }
      * })
     **/
-    count<T extends ImageCountArgs>(
-      args?: Subset<T, ImageCountArgs>,
+    count<T extends ImagesCountArgs>(
+      args?: Subset<T, ImagesCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ImageCountAggregateOutputType>
+          : GetScalarType<T['select'], ImagesCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Image.
+     * Allows you to perform aggregations operations on a Images.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ImagesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -22524,13 +22524,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ImageAggregateArgs>(args: Subset<T, ImageAggregateArgs>): Prisma.PrismaPromise<GetImageAggregateType<T>>
+    aggregate<T extends ImagesAggregateArgs>(args: Subset<T, ImagesAggregateArgs>): Prisma.PrismaPromise<GetImagesAggregateType<T>>
 
     /**
-     * Group by Image.
+     * Group by Images.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ImageGroupByArgs} args - Group by arguments.
+     * @param {ImagesGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -22545,14 +22545,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ImageGroupByArgs,
+      T extends ImagesGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ImageGroupByArgs['orderBy'] }
-        : { orderBy?: ImageGroupByArgs['orderBy'] },
+        ? { orderBy: ImagesGroupByArgs['orderBy'] }
+        : { orderBy?: ImagesGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -22601,22 +22601,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ImagesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImagesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Image model
+   * Fields of the Images model
    */
-  readonly fields: ImageFieldRefs;
+  readonly fields: ImagesFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Image.
+   * The delegate class that acts as a "Promise-like" for Images.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ImagesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    graphicThemes<T extends Image$graphicThemesArgs<ExtArgs> = {}>(args?: Subset<T, Image$graphicThemesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GraphicThemePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    graphicThemes<T extends Images$graphicThemesArgs<ExtArgs> = {}>(args?: Subset<T, Images$graphicThemesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GraphicThemePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22643,197 +22643,197 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Image model
+   * Fields of the Images model
    */
-  interface ImageFieldRefs {
-    readonly id: FieldRef<"Image", 'Int'>
-    readonly imageName: FieldRef<"Image", 'String'>
-    readonly imageData: FieldRef<"Image", 'Bytes'>
-    readonly mimeType: FieldRef<"Image", 'String'>
+  interface ImagesFieldRefs {
+    readonly id: FieldRef<"Images", 'Int'>
+    readonly imageName: FieldRef<"Images", 'String'>
+    readonly imageData: FieldRef<"Images", 'Bytes'>
+    readonly mimeType: FieldRef<"Images", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Image findUnique
+   * Images findUnique
    */
-  export type ImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
-    /**
-     * Filter, which Image to fetch.
-     */
-    where: ImageWhereUniqueInput
-  }
-
-  /**
-   * Image findUniqueOrThrow
-   */
-  export type ImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Image
-     */
-    select?: ImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Image
-     */
-    omit?: ImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ImageInclude<ExtArgs> | null
-    /**
-     * Filter, which Image to fetch.
-     */
-    where: ImageWhereUniqueInput
-  }
-
-  /**
-   * Image findFirst
-   */
-  export type ImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Image
-     */
-    select?: ImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Image
-     */
-    omit?: ImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ImageInclude<ExtArgs> | null
-    /**
-     * Filter, which Image to fetch.
-     */
-    where?: ImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Images to fetch.
-     */
-    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Images.
-     */
-    cursor?: ImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Images from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Images.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Images.
-     */
-    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
-  }
-
-  /**
-   * Image findFirstOrThrow
-   */
-  export type ImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Image
-     */
-    select?: ImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Image
-     */
-    omit?: ImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ImageInclude<ExtArgs> | null
-    /**
-     * Filter, which Image to fetch.
-     */
-    where?: ImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Images to fetch.
-     */
-    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Images.
-     */
-    cursor?: ImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Images from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Images.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Images.
-     */
-    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
-  }
-
-  /**
-   * Image findMany
-   */
-  export type ImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Image
-     */
-    select?: ImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Image
-     */
-    omit?: ImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
     /**
      * Filter, which Images to fetch.
      */
-    where?: ImageWhereInput
+    where: ImagesWhereUniqueInput
+  }
+
+  /**
+   * Images findUniqueOrThrow
+   */
+  export type ImagesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Images
+     */
+    select?: ImagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Images
+     */
+    omit?: ImagesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagesInclude<ExtArgs> | null
+    /**
+     * Filter, which Images to fetch.
+     */
+    where: ImagesWhereUniqueInput
+  }
+
+  /**
+   * Images findFirst
+   */
+  export type ImagesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Images
+     */
+    select?: ImagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Images
+     */
+    omit?: ImagesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagesInclude<ExtArgs> | null
+    /**
+     * Filter, which Images to fetch.
+     */
+    where?: ImagesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Images to fetch.
      */
-    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    orderBy?: ImagesOrderByWithRelationInput | ImagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Images.
+     */
+    cursor?: ImagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Images.
+     */
+    distinct?: ImagesScalarFieldEnum | ImagesScalarFieldEnum[]
+  }
+
+  /**
+   * Images findFirstOrThrow
+   */
+  export type ImagesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Images
+     */
+    select?: ImagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Images
+     */
+    omit?: ImagesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagesInclude<ExtArgs> | null
+    /**
+     * Filter, which Images to fetch.
+     */
+    where?: ImagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImagesOrderByWithRelationInput | ImagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Images.
+     */
+    cursor?: ImagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Images.
+     */
+    distinct?: ImagesScalarFieldEnum | ImagesScalarFieldEnum[]
+  }
+
+  /**
+   * Images findMany
+   */
+  export type ImagesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Images
+     */
+    select?: ImagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Images
+     */
+    omit?: ImagesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagesInclude<ExtArgs> | null
+    /**
+     * Filter, which Images to fetch.
+     */
+    where?: ImagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImagesOrderByWithRelationInput | ImagesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing Images.
      */
-    cursor?: ImageWhereUniqueInput
+    cursor?: ImagesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -22846,80 +22846,80 @@ export namespace Prisma {
      * Skip the first `n` Images.
      */
     skip?: number
-    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+    distinct?: ImagesScalarFieldEnum | ImagesScalarFieldEnum[]
   }
 
   /**
-   * Image create
+   * Images create
    */
-  export type ImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
     /**
-     * The data needed to create a Image.
+     * The data needed to create a Images.
      */
-    data: XOR<ImageCreateInput, ImageUncheckedCreateInput>
+    data: XOR<ImagesCreateInput, ImagesUncheckedCreateInput>
   }
 
   /**
-   * Image createMany
+   * Images createMany
    */
-  export type ImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Images.
      */
-    data: ImageCreateManyInput | ImageCreateManyInput[]
+    data: ImagesCreateManyInput | ImagesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Image update
+   * Images update
    */
-  export type ImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
     /**
-     * The data needed to update a Image.
+     * The data needed to update a Images.
      */
-    data: XOR<ImageUpdateInput, ImageUncheckedUpdateInput>
+    data: XOR<ImagesUpdateInput, ImagesUncheckedUpdateInput>
     /**
-     * Choose, which Image to update.
+     * Choose, which Images to update.
      */
-    where: ImageWhereUniqueInput
+    where: ImagesWhereUniqueInput
   }
 
   /**
-   * Image updateMany
+   * Images updateMany
    */
-  export type ImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Images.
      */
-    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyInput>
+    data: XOR<ImagesUpdateManyMutationInput, ImagesUncheckedUpdateManyInput>
     /**
      * Filter which Images to update
      */
-    where?: ImageWhereInput
+    where?: ImagesWhereInput
     /**
      * Limit how many Images to update.
      */
@@ -22927,65 +22927,65 @@ export namespace Prisma {
   }
 
   /**
-   * Image upsert
+   * Images upsert
    */
-  export type ImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
     /**
-     * The filter to search for the Image to update in case it exists.
+     * The filter to search for the Images to update in case it exists.
      */
-    where: ImageWhereUniqueInput
+    where: ImagesWhereUniqueInput
     /**
-     * In case the Image found by the `where` argument doesn't exist, create a new Image with this data.
+     * In case the Images found by the `where` argument doesn't exist, create a new Images with this data.
      */
-    create: XOR<ImageCreateInput, ImageUncheckedCreateInput>
+    create: XOR<ImagesCreateInput, ImagesUncheckedCreateInput>
     /**
-     * In case the Image was found with the provided `where` argument, update it with this data.
+     * In case the Images was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ImageUpdateInput, ImageUncheckedUpdateInput>
+    update: XOR<ImagesUpdateInput, ImagesUncheckedUpdateInput>
   }
 
   /**
-   * Image delete
+   * Images delete
    */
-  export type ImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
     /**
-     * Filter which Image to delete.
+     * Filter which Images to delete.
      */
-    where: ImageWhereUniqueInput
+    where: ImagesWhereUniqueInput
   }
 
   /**
-   * Image deleteMany
+   * Images deleteMany
    */
-  export type ImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Images to delete
      */
-    where?: ImageWhereInput
+    where?: ImagesWhereInput
     /**
      * Limit how many Images to delete.
      */
@@ -22993,9 +22993,9 @@ export namespace Prisma {
   }
 
   /**
-   * Image.graphicThemes
+   * Images.graphicThemes
    */
-  export type Image$graphicThemesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Images$graphicThemesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the GraphicTheme
      */
@@ -23017,21 +23017,21 @@ export namespace Prisma {
   }
 
   /**
-   * Image without action
+   * Images without action
    */
-  export type ImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ImagesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
+    include?: ImagesInclude<ExtArgs> | null
   }
 
 
@@ -23249,7 +23249,7 @@ export namespace Prisma {
   export type $GraphicThemePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "GraphicTheme"
     objects: {
-      logoImage: Prisma.$ImagePayload<ExtArgs> | null
+      logoImage: Prisma.$ImagesPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -23596,7 +23596,7 @@ export namespace Prisma {
    */
   export interface Prisma__GraphicThemeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    logoImage<T extends GraphicTheme$logoImageArgs<ExtArgs> = {}>(args?: Subset<T, GraphicTheme$logoImageArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    logoImage<T extends GraphicTheme$logoImageArgs<ExtArgs> = {}>(args?: Subset<T, GraphicTheme$logoImageArgs<ExtArgs>>): Prisma__ImagesClient<$Result.GetResult<Prisma.$ImagesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -23977,18 +23977,18 @@ export namespace Prisma {
    */
   export type GraphicTheme$logoImageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Image
+     * Select specific fields to fetch from the Images
      */
-    select?: ImageSelect<ExtArgs> | null
+    select?: ImagesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Image
+     * Omit specific fields from the Images
      */
-    omit?: ImageOmit<ExtArgs> | null
+    omit?: ImagesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ImageInclude<ExtArgs> | null
-    where?: ImageWhereInput
+    include?: ImagesInclude<ExtArgs> | null
+    where?: ImagesWhereInput
   }
 
   /**
@@ -24266,14 +24266,14 @@ export namespace Prisma {
   export type GraphicThemesScalarFieldEnum = (typeof GraphicThemesScalarFieldEnum)[keyof typeof GraphicThemesScalarFieldEnum]
 
 
-  export const ImageScalarFieldEnum: {
+  export const ImagesScalarFieldEnum: {
     id: 'id',
     imageName: 'imageName',
     imageData: 'imageData',
     mimeType: 'mimeType'
   };
 
-  export type ImageScalarFieldEnum = (typeof ImageScalarFieldEnum)[keyof typeof ImageScalarFieldEnum]
+  export type ImagesScalarFieldEnum = (typeof ImagesScalarFieldEnum)[keyof typeof ImagesScalarFieldEnum]
 
 
   export const GraphicThemeScalarFieldEnum: {
@@ -24468,12 +24468,12 @@ export namespace Prisma {
   export type GraphicThemesOrderByRelevanceFieldEnum = (typeof GraphicThemesOrderByRelevanceFieldEnum)[keyof typeof GraphicThemesOrderByRelevanceFieldEnum]
 
 
-  export const ImageOrderByRelevanceFieldEnum: {
+  export const ImagesOrderByRelevanceFieldEnum: {
     imageName: 'imageName',
     mimeType: 'mimeType'
   };
 
-  export type ImageOrderByRelevanceFieldEnum = (typeof ImageOrderByRelevanceFieldEnum)[keyof typeof ImageOrderByRelevanceFieldEnum]
+  export type ImagesOrderByRelevanceFieldEnum = (typeof ImagesOrderByRelevanceFieldEnum)[keyof typeof ImagesOrderByRelevanceFieldEnum]
 
 
   export const GraphicThemeOrderByRelevanceFieldEnum: {
@@ -25839,57 +25839,57 @@ export namespace Prisma {
     isDeleted?: BoolWithAggregatesFilter<"GraphicThemes"> | boolean
   }
 
-  export type ImageWhereInput = {
-    AND?: ImageWhereInput | ImageWhereInput[]
-    OR?: ImageWhereInput[]
-    NOT?: ImageWhereInput | ImageWhereInput[]
-    id?: IntFilter<"Image"> | number
-    imageName?: StringFilter<"Image"> | string
-    imageData?: BytesFilter<"Image"> | Uint8Array
-    mimeType?: StringNullableFilter<"Image"> | string | null
+  export type ImagesWhereInput = {
+    AND?: ImagesWhereInput | ImagesWhereInput[]
+    OR?: ImagesWhereInput[]
+    NOT?: ImagesWhereInput | ImagesWhereInput[]
+    id?: IntFilter<"Images"> | number
+    imageName?: StringFilter<"Images"> | string
+    imageData?: BytesFilter<"Images"> | Uint8Array
+    mimeType?: StringNullableFilter<"Images"> | string | null
     graphicThemes?: GraphicThemeListRelationFilter
   }
 
-  export type ImageOrderByWithRelationInput = {
+  export type ImagesOrderByWithRelationInput = {
     id?: SortOrder
     imageName?: SortOrder
     imageData?: SortOrder
     mimeType?: SortOrderInput | SortOrder
     graphicThemes?: GraphicThemeOrderByRelationAggregateInput
-    _relevance?: ImageOrderByRelevanceInput
+    _relevance?: ImagesOrderByRelevanceInput
   }
 
-  export type ImageWhereUniqueInput = Prisma.AtLeast<{
+  export type ImagesWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     imageName?: string
-    AND?: ImageWhereInput | ImageWhereInput[]
-    OR?: ImageWhereInput[]
-    NOT?: ImageWhereInput | ImageWhereInput[]
-    imageData?: BytesFilter<"Image"> | Uint8Array
-    mimeType?: StringNullableFilter<"Image"> | string | null
+    AND?: ImagesWhereInput | ImagesWhereInput[]
+    OR?: ImagesWhereInput[]
+    NOT?: ImagesWhereInput | ImagesWhereInput[]
+    imageData?: BytesFilter<"Images"> | Uint8Array
+    mimeType?: StringNullableFilter<"Images"> | string | null
     graphicThemes?: GraphicThemeListRelationFilter
   }, "id" | "imageName">
 
-  export type ImageOrderByWithAggregationInput = {
+  export type ImagesOrderByWithAggregationInput = {
     id?: SortOrder
     imageName?: SortOrder
     imageData?: SortOrder
     mimeType?: SortOrderInput | SortOrder
-    _count?: ImageCountOrderByAggregateInput
-    _avg?: ImageAvgOrderByAggregateInput
-    _max?: ImageMaxOrderByAggregateInput
-    _min?: ImageMinOrderByAggregateInput
-    _sum?: ImageSumOrderByAggregateInput
+    _count?: ImagesCountOrderByAggregateInput
+    _avg?: ImagesAvgOrderByAggregateInput
+    _max?: ImagesMaxOrderByAggregateInput
+    _min?: ImagesMinOrderByAggregateInput
+    _sum?: ImagesSumOrderByAggregateInput
   }
 
-  export type ImageScalarWhereWithAggregatesInput = {
-    AND?: ImageScalarWhereWithAggregatesInput | ImageScalarWhereWithAggregatesInput[]
-    OR?: ImageScalarWhereWithAggregatesInput[]
-    NOT?: ImageScalarWhereWithAggregatesInput | ImageScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Image"> | number
-    imageName?: StringWithAggregatesFilter<"Image"> | string
-    imageData?: BytesWithAggregatesFilter<"Image"> | Uint8Array
-    mimeType?: StringNullableWithAggregatesFilter<"Image"> | string | null
+  export type ImagesScalarWhereWithAggregatesInput = {
+    AND?: ImagesScalarWhereWithAggregatesInput | ImagesScalarWhereWithAggregatesInput[]
+    OR?: ImagesScalarWhereWithAggregatesInput[]
+    NOT?: ImagesScalarWhereWithAggregatesInput | ImagesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Images"> | number
+    imageName?: StringWithAggregatesFilter<"Images"> | string
+    imageData?: BytesWithAggregatesFilter<"Images"> | Uint8Array
+    mimeType?: StringNullableWithAggregatesFilter<"Images"> | string | null
   }
 
   export type GraphicThemeWhereInput = {
@@ -25900,7 +25900,7 @@ export namespace Prisma {
     name?: StringFilter<"GraphicTheme"> | string
     isDeleted?: BoolFilter<"GraphicTheme"> | boolean
     logoImageId?: IntNullableFilter<"GraphicTheme"> | number | null
-    logoImage?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    logoImage?: XOR<ImagesNullableScalarRelationFilter, ImagesWhereInput> | null
   }
 
   export type GraphicThemeOrderByWithRelationInput = {
@@ -25908,7 +25908,7 @@ export namespace Prisma {
     name?: SortOrder
     isDeleted?: SortOrder
     logoImageId?: SortOrderInput | SortOrder
-    logoImage?: ImageOrderByWithRelationInput
+    logoImage?: ImagesOrderByWithRelationInput
     _relevance?: GraphicThemeOrderByRelevanceInput
   }
 
@@ -25920,7 +25920,7 @@ export namespace Prisma {
     name?: StringFilter<"GraphicTheme"> | string
     isDeleted?: BoolFilter<"GraphicTheme"> | boolean
     logoImageId?: IntNullableFilter<"GraphicTheme"> | number | null
-    logoImage?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    logoImage?: XOR<ImagesNullableScalarRelationFilter, ImagesWhereInput> | null
   }, "id">
 
   export type GraphicThemeOrderByWithAggregationInput = {
@@ -27231,14 +27231,14 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type ImageCreateInput = {
+  export type ImagesCreateInput = {
     imageName: string
     imageData: Uint8Array
     mimeType?: string | null
     graphicThemes?: GraphicThemeCreateNestedManyWithoutLogoImageInput
   }
 
-  export type ImageUncheckedCreateInput = {
+  export type ImagesUncheckedCreateInput = {
     id?: number
     imageName: string
     imageData: Uint8Array
@@ -27246,14 +27246,14 @@ export namespace Prisma {
     graphicThemes?: GraphicThemeUncheckedCreateNestedManyWithoutLogoImageInput
   }
 
-  export type ImageUpdateInput = {
+  export type ImagesUpdateInput = {
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
     mimeType?: NullableStringFieldUpdateOperationsInput | string | null
     graphicThemes?: GraphicThemeUpdateManyWithoutLogoImageNestedInput
   }
 
-  export type ImageUncheckedUpdateInput = {
+  export type ImagesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
@@ -27261,20 +27261,20 @@ export namespace Prisma {
     graphicThemes?: GraphicThemeUncheckedUpdateManyWithoutLogoImageNestedInput
   }
 
-  export type ImageCreateManyInput = {
+  export type ImagesCreateManyInput = {
     id?: number
     imageName: string
     imageData: Uint8Array
     mimeType?: string | null
   }
 
-  export type ImageUpdateManyMutationInput = {
+  export type ImagesUpdateManyMutationInput = {
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
     mimeType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ImageUncheckedUpdateManyInput = {
+  export type ImagesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
@@ -27284,7 +27284,7 @@ export namespace Prisma {
   export type GraphicThemeCreateInput = {
     name: string
     isDeleted?: boolean
-    logoImage?: ImageCreateNestedOneWithoutGraphicThemesInput
+    logoImage?: ImagesCreateNestedOneWithoutGraphicThemesInput
   }
 
   export type GraphicThemeUncheckedCreateInput = {
@@ -27297,7 +27297,7 @@ export namespace Prisma {
   export type GraphicThemeUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
-    logoImage?: ImageUpdateOneWithoutGraphicThemesNestedInput
+    logoImage?: ImagesUpdateOneWithoutGraphicThemesNestedInput
   }
 
   export type GraphicThemeUncheckedUpdateInput = {
@@ -28494,38 +28494,38 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ImageOrderByRelevanceInput = {
-    fields: ImageOrderByRelevanceFieldEnum | ImageOrderByRelevanceFieldEnum[]
+  export type ImagesOrderByRelevanceInput = {
+    fields: ImagesOrderByRelevanceFieldEnum | ImagesOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type ImageCountOrderByAggregateInput = {
+  export type ImagesCountOrderByAggregateInput = {
     id?: SortOrder
     imageName?: SortOrder
     imageData?: SortOrder
     mimeType?: SortOrder
   }
 
-  export type ImageAvgOrderByAggregateInput = {
+  export type ImagesAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type ImageMaxOrderByAggregateInput = {
-    id?: SortOrder
-    imageName?: SortOrder
-    imageData?: SortOrder
-    mimeType?: SortOrder
-  }
-
-  export type ImageMinOrderByAggregateInput = {
+  export type ImagesMaxOrderByAggregateInput = {
     id?: SortOrder
     imageName?: SortOrder
     imageData?: SortOrder
     mimeType?: SortOrder
   }
 
-  export type ImageSumOrderByAggregateInput = {
+  export type ImagesMinOrderByAggregateInput = {
+    id?: SortOrder
+    imageName?: SortOrder
+    imageData?: SortOrder
+    mimeType?: SortOrder
+  }
+
+  export type ImagesSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -28550,9 +28550,9 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type ImageNullableScalarRelationFilter = {
-    is?: ImageWhereInput | null
-    isNot?: ImageWhereInput | null
+  export type ImagesNullableScalarRelationFilter = {
+    is?: ImagesWhereInput | null
+    isNot?: ImagesWhereInput | null
   }
 
   export type GraphicThemeOrderByRelevanceInput = {
@@ -29554,20 +29554,20 @@ export namespace Prisma {
     deleteMany?: GraphicThemeScalarWhereInput | GraphicThemeScalarWhereInput[]
   }
 
-  export type ImageCreateNestedOneWithoutGraphicThemesInput = {
-    create?: XOR<ImageCreateWithoutGraphicThemesInput, ImageUncheckedCreateWithoutGraphicThemesInput>
-    connectOrCreate?: ImageCreateOrConnectWithoutGraphicThemesInput
-    connect?: ImageWhereUniqueInput
+  export type ImagesCreateNestedOneWithoutGraphicThemesInput = {
+    create?: XOR<ImagesCreateWithoutGraphicThemesInput, ImagesUncheckedCreateWithoutGraphicThemesInput>
+    connectOrCreate?: ImagesCreateOrConnectWithoutGraphicThemesInput
+    connect?: ImagesWhereUniqueInput
   }
 
-  export type ImageUpdateOneWithoutGraphicThemesNestedInput = {
-    create?: XOR<ImageCreateWithoutGraphicThemesInput, ImageUncheckedCreateWithoutGraphicThemesInput>
-    connectOrCreate?: ImageCreateOrConnectWithoutGraphicThemesInput
-    upsert?: ImageUpsertWithoutGraphicThemesInput
-    disconnect?: ImageWhereInput | boolean
-    delete?: ImageWhereInput | boolean
-    connect?: ImageWhereUniqueInput
-    update?: XOR<XOR<ImageUpdateToOneWithWhereWithoutGraphicThemesInput, ImageUpdateWithoutGraphicThemesInput>, ImageUncheckedUpdateWithoutGraphicThemesInput>
+  export type ImagesUpdateOneWithoutGraphicThemesNestedInput = {
+    create?: XOR<ImagesCreateWithoutGraphicThemesInput, ImagesUncheckedCreateWithoutGraphicThemesInput>
+    connectOrCreate?: ImagesCreateOrConnectWithoutGraphicThemesInput
+    upsert?: ImagesUpsertWithoutGraphicThemesInput
+    disconnect?: ImagesWhereInput | boolean
+    delete?: ImagesWhereInput | boolean
+    connect?: ImagesWhereUniqueInput
+    update?: XOR<XOR<ImagesUpdateToOneWithWhereWithoutGraphicThemesInput, ImagesUpdateWithoutGraphicThemesInput>, ImagesUncheckedUpdateWithoutGraphicThemesInput>
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -31506,42 +31506,42 @@ export namespace Prisma {
     logoImageId?: IntNullableFilter<"GraphicTheme"> | number | null
   }
 
-  export type ImageCreateWithoutGraphicThemesInput = {
+  export type ImagesCreateWithoutGraphicThemesInput = {
     imageName: string
     imageData: Uint8Array
     mimeType?: string | null
   }
 
-  export type ImageUncheckedCreateWithoutGraphicThemesInput = {
+  export type ImagesUncheckedCreateWithoutGraphicThemesInput = {
     id?: number
     imageName: string
     imageData: Uint8Array
     mimeType?: string | null
   }
 
-  export type ImageCreateOrConnectWithoutGraphicThemesInput = {
-    where: ImageWhereUniqueInput
-    create: XOR<ImageCreateWithoutGraphicThemesInput, ImageUncheckedCreateWithoutGraphicThemesInput>
+  export type ImagesCreateOrConnectWithoutGraphicThemesInput = {
+    where: ImagesWhereUniqueInput
+    create: XOR<ImagesCreateWithoutGraphicThemesInput, ImagesUncheckedCreateWithoutGraphicThemesInput>
   }
 
-  export type ImageUpsertWithoutGraphicThemesInput = {
-    update: XOR<ImageUpdateWithoutGraphicThemesInput, ImageUncheckedUpdateWithoutGraphicThemesInput>
-    create: XOR<ImageCreateWithoutGraphicThemesInput, ImageUncheckedCreateWithoutGraphicThemesInput>
-    where?: ImageWhereInput
+  export type ImagesUpsertWithoutGraphicThemesInput = {
+    update: XOR<ImagesUpdateWithoutGraphicThemesInput, ImagesUncheckedUpdateWithoutGraphicThemesInput>
+    create: XOR<ImagesCreateWithoutGraphicThemesInput, ImagesUncheckedCreateWithoutGraphicThemesInput>
+    where?: ImagesWhereInput
   }
 
-  export type ImageUpdateToOneWithWhereWithoutGraphicThemesInput = {
-    where?: ImageWhereInput
-    data: XOR<ImageUpdateWithoutGraphicThemesInput, ImageUncheckedUpdateWithoutGraphicThemesInput>
+  export type ImagesUpdateToOneWithWhereWithoutGraphicThemesInput = {
+    where?: ImagesWhereInput
+    data: XOR<ImagesUpdateWithoutGraphicThemesInput, ImagesUncheckedUpdateWithoutGraphicThemesInput>
   }
 
-  export type ImageUpdateWithoutGraphicThemesInput = {
+  export type ImagesUpdateWithoutGraphicThemesInput = {
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
     mimeType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ImageUncheckedUpdateWithoutGraphicThemesInput = {
+  export type ImagesUncheckedUpdateWithoutGraphicThemesInput = {
     id?: IntFieldUpdateOperationsInput | number
     imageName?: StringFieldUpdateOperationsInput | string
     imageData?: BytesFieldUpdateOperationsInput | Uint8Array
