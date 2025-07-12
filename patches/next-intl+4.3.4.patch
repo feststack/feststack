@@ -1,0 +1,13 @@
+diff --git a/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js b/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+index 6e1a9ff..4c9e234 100644
+--- a/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
++++ b/node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js
+@@ -2,7 +2,7 @@ import { cache } from 'react';
+ import { initializeConfig, _createIntlFormatters, _createCache } from 'use-intl/core';
+ import { isPromise } from '../../shared/utils.js';
+ import { getRequestLocale } from './RequestLocale.js';
+-import getRuntimeConfig from 'next-intl/config';
++import { getRuntimeConfig } from 'next-intl/config';
+ import validateLocale from './validateLocale.js';
+ 
+ // This is automatically inherited by `NextIntlClientProvider` if

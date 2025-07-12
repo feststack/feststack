@@ -1,0 +1,12 @@
+-- CreateTable
+CREATE TABLE `Images` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `imageName` VARCHAR(191) NOT NULL,
+    `imageData` LONGBLOB NOT NULL,
+    `mimeType` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `createdBy` VARCHAR(191) NOT NULL DEFAULT 'SYSTEM',
+    `isDeleted` BOOLEAN NOT NULL DEFAULT false,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

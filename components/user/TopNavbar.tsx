@@ -83,7 +83,10 @@ export default function TopNavbar() {
   const handleLogout = () => {
     localStorage.removeItem('userEmail')
     router.push('/')
-  }
+    setTimeout(() => {
+      window.location.reload()
+    }, 100)
+  }  
 
   function getInitials(firstName?: string, lastName?: string) {
     if (!firstName || !lastName) return ''

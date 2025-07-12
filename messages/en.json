@@ -47,7 +47,13 @@
     "logistics": "Logistics",
     "artiststicProduction": "Artistic production",
     "contracts": "Contracts",
-    "artistManagements": "Artist management"
+    "artistManagements": "Artist management",
+    "adGroupManagement": "Group AD",
+    "contentAccess": "Content access",
+    "modifyUserAdFamily": "Modify user AD Family",
+    "newAdGroup": "New AD group",
+    "adFamilyName": "AD Family Name",
+    "create": "Create"
   },
   "HomePage": {
     "title": "Welcome to",

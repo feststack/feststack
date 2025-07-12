@@ -6,20 +6,20 @@
     "artistName": "Nom de l'artiste",
     "createdBy": "Créé par",
     "artistNotFound": "Artiste non trouvé",
-    "lookingForArtist": "Recherche d’un artiste",
+    "lookingForArtist": "Recherche d'artiste en cours",
     "loading": "Chargement...",
-    "noAccessRight": "Vous n’avez pas les droits d’accès requis...",
+    "noAccessRight": "Vous n'avez pas les droits d'accès requis...",
     "artist": "Artistes",
     "firstName": "Prénom",
     "lastName": "Nom",
     "users": "Utilisateurs",
-    "lookingForUser": "Recherche d’un utilisateur",
+    "lookingForUser": "Recherche d'utilisateur en cours",
     "userNotFound": "Utilisateur non trouvé",
     "active": "Actif",
     "inactive": "Inactif",
     "isActive": "Est actif",
     "userCode": "Code utilisateur",
-    "userLanguage": "Langue de l’utilisateur",
+    "userLanguage": "Langue de l'utilisateur",
     "adGroups": "Groupes administrateurs",
     "addAdGroups": "Ajouter des groupes administrateurs",
     "adGroupFamily": "Groupes",
@@ -29,18 +29,14 @@
     "hello": "Bonjour",
     "personalData": "Données personnelles",
     "edit": "Modifier",
-    "cancel": "Annuler",
-    "selectLanguage": "Sélectionner une langue"
-  },
-  "HomePage": {
-    "title": "Bienvenue sur",
-    "sub-title": "Connexion",
-    "login": "Email",
+    "addUser": "Ajouter un utilisateur",
+    "createUser": "Créer un utilisateur",
     "password": "Mot de passe",
-    "button": "Connexion"
-  },
-  "UserNavbar": {
-    "signout": "Déconnexion",
+    "email": "Email",
+    "sendRequest": "Envoyer la demande",
+    "cancel": "Annuler",
+    "selectLanguage": "Choisir la langue",
+    "signout": "Se déconnecter",
     "edition": "Éditions",
     "technics": "Technique",
     "artists": "Artistes",
@@ -52,6 +48,16 @@
     "artiststicProduction": "Production artistique",
     "contracts": "Contrats",
     "artistManagements": "Gestion des artistes",
-    "artist": "Artistes"
+    "adGroupManagement": "Group AD"
+  },
+  "HomePage": {
+    "title": "Bienvenue sur",
+    "sub-title": "Connexion",
+    "login": "Email",
+    "password": "Mot de passe",
+    "button": "Se connecter"
+  },
+  "UserNavbar": {
+
   }
 }

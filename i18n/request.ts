@@ -1,14 +1,8 @@
-import { cookies } from 'next/headers';
+// i18n/request.ts
+const i18nConfig = {
+  locales: ['en', 'fr', 'de'],
+  defaultLocale: 'en',
+  timeZone: 'Europe/Paris',
+};
 
-export async function getMessagesAndLocale() {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'en';
-
-  return {
-    locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
-    timeZone: 'Europe/Paris',
-  };
-}
-
-// export const defaultTimeZone = 'Europe/Paris';
+export default i18nConfig;

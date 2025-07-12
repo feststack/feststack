@@ -66,3 +66,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 4. DB:
     - remote connection: mysql -u root -p -h 90.26.253.66 -P 3306
+
+5. Seed:
+    - npx prisma db seed

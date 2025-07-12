@@ -1,22 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 import { useAuth } from '../hooks/useProtectedPage'
 import TopNavbar from './user/TopNavbar'
 import Sidebar from './user/Sidebar'
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+  const { userEmail } = useAuthContext()
   const [authKey, setAuthKey] = useState(0)
 
   useEffect(() => {
-    const email = localStorage.getItem('userEmail')
-    if (email) {
-      setAuthKey(prev => prev + 1) // déclenche le re-render
-    }
-  }, [])
+    setAuthKey(prev => prev + 1)
+  }, [userEmail])
 
   return <InnerLayout key={authKey}>{children}</InnerLayout>
 }
+
 
 function InnerLayout({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth()

@@ -18,36 +18,35 @@ export function useAuth(adFamilies?: string | string[]) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [unauthorized, setUnauthorized] = useState(false)
+  const router = useRouter()
 
+  // Toujours convertir en tableau pour simplifier la logique
   const groups = adFamilies ? (Array.isArray(adFamilies) ? adFamilies : [adFamilies]) : []
 
   useEffect(() => {
     const email = localStorage.getItem('userEmail')
-
     if (!email) {
-      // Pas connecté, on ne redirige pas ici, on laisse le composant gérer
-      setUser(null)
-      setLoading(false)
+      setLoading(false)  // <- Ajoute ça
+      router.push('/')
       return
     }
-
+  
     async function fetchUser() {
       try {
         const res = await fetch('/api/user/me', {
           headers: { 'x-user-email': email } as HeadersInit,
         })
-
+  
         if (!res.ok) {
-          // API invalide : considérer comme non connecté
-          setUser(null)
-          setLoading(false)
+          setLoading(false)  // <- Ajoute ça aussi
+          router.push('/')
           return
         }
-
+  
         const userData: User = await res.json()
+  
         setUser(userData)
-
-        // Si des groupes sont demandés, on vérifie s’il y a accès
+  
         if (groups.length > 0) {
           const hasAccess = groups.some(group => Boolean(userData.adGroupAccess[group]))
           setUnauthorized(!hasAccess)
@@ -56,26 +55,33 @@ export function useAuth(adFamilies?: string | string[]) {
         }
       } catch (error) {
         console.error('Erreur lors de la récupération de l’utilisateur:', error)
-        setUser(null)
+        setLoading(false)  // <- Ajoute aussi ici
+        router.push('/')
       } finally {
-        setLoading(false)
+        setLoading(false)  // et ici, même si tu le fais dans try et catch, ça peut rester pour sûreté
       }
     }
-
+  
     fetchUser()
-  }, [adFamilies])
+  }, [router, adFamilies])  
 
+  // Vérifie si user a au moins un des groupes demandés
   function hasFamilyAccess(access: Record<string, string[]>): boolean {
-    if (!user || groups.length === 0) return false
+    if (!user) return false
+    if (groups.length === 0) return false
     return groups.some(group => Boolean(access[group]))
   }
 
+  // Pour un groupe donné, retourne les droits (actions)
   function getRightsForFamily(family: string): string[] {
-    return user?.adGroupAccess[family] || []
+    if (!user) return []
+    return user.adGroupAccess[family] || []
   }
 
+  // Vérifie si user a le droit demandé sur au moins un groupe
   function canDo(action: Action): boolean {
-    if (!user || groups.length === 0) return false
+    if (!user) return false
+    if (groups.length === 0) return false
     return groups.some(group => getRightsForFamily(group).includes(action))
   }
 

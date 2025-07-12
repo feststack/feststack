@@ -71,22 +71,24 @@ export default function UserCreationForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setMessage('')
-
+  
     try {
-      const bodyToSend = {
-        ...formData,
-        languageId: Number(formData.languageId),
-      }
-
-      const res = await fetch('/api/user', {
+      const res = await fetch('https://feststack.vercel.app/api/users', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyToSend),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          clientAppId: 1, // adapte dynamiquement si besoin
+        }),
       })
-
+  
       const data = await res.json()
+  
       if (res.ok) {
-        setMessage(`✅ Utilisateur créé avec l'ID: ${data.userId}`)
+        setMessage(`✅ Utilisateur créé avec l'email : ${data.user.email}`)
         setFormData({
           userFirstName: '',
           userLastName: '',
@@ -96,12 +98,13 @@ export default function UserCreationForm() {
           languageId: '',
         })
       } else {
-        setMessage(`❌ Erreur: ${data.message}`)
+        setMessage(`❌ Erreur: ${data.error || 'Erreur inconnue'}`)
       }
-    } catch {
+    } catch (error) {
+      console.error(error)
       setMessage('❌ Erreur lors de la requête')
     }
-  }
+  }  
 
   if (loading || themeLoading || !theme) {
     return <div style={{ padding: 20 }}>Chargement...</div>
@@ -172,6 +175,16 @@ export default function UserCreationForm() {
           name="email"
           placeholder={gt('email')}
           value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full border rounded p-2 mb-4"
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder={gt('password')}
+          value={formData.password}
           onChange={handleChange}
           required
           className="w-full border rounded p-2 mb-4"
